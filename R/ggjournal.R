@@ -18,17 +18,16 @@ ggjournal <- function(futures, baseline = NULL, ...) {
   journal <- import_future("journal")
 
   ## To please R CMD check
-  jj <- at <- duration <- index <- step <- NULL
+  at <- duration <- index <- step <- NULL
 
-  js <- lapply(futures, FUN = journal, baseline = baseline)
+  js <- journal(futures, baseline = baseline)
 
-  ## Prepend index
-  js <- lapply(seq_along(js), FUN = function(ii) cbind(index = ii, js[[ii]]))
-
-  ## Stack
-  js <- Reduce(rbind, js)
-
-  gg <- ggplot(js, aes(x = at + duration / 2, y = index, width = duration, height = 0.8))
+  gg <- ggplot(js, aes(
+    x = as.numeric(at + duration / 2),
+    y = index,
+    width = as.numeric(duration),
+    height = 0.8
+  ))
   gg <- gg + geom_tile(aes(fill = step))
   gg <- gg + scale_y_reverse() + xlab("Time (seconds)") + ylab("future")
   gg
