@@ -1,4 +1,5 @@
 library(future)
+oopts <- options(future.journal = TRUE)
 
 slow_fcn <- function(x) {
   Sys.sleep(x / 10)
@@ -23,3 +24,4 @@ print(ggjournal(fs))
 
 ## Shut down parallel workers
 plan(sequential)
+options(oopts)
