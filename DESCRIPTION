@@ -4,6 +4,7 @@ Title: Tools for Working with Futures
 Depends:
    future (>= 1.24.0-9002)
 Imports:
+   dplyr,
    ggplot2
 Remotes:
    github::HenrikBengtsson/future@feature/journal

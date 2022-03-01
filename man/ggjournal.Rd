@@ -4,13 +4,14 @@
 \alias{ggjournal}
 \title{Create a Future Journal Plot}
 \usage{
-ggjournal(futures, baseline = NULL, ...)
+ggjournal(futures, baseline = TRUE, ...)
 }
 \arguments{
 \item{futures}{A list of \link[future:Future-class]{future::Future} objects.}
 
-\item{baseline}{(optional) A POSIXct timestamp to server as time zero
-for the relative timestamps.}
+\item{baseline}{(POSIXct; optional) A timestamp to server as time zero
+for the relative timestamps. If \code{TRUE} (default), then the earliest
+timepoint observed is used as the baseline.}
 
 \item{\ldots}{Currently not used.}
 }
@@ -22,15 +23,22 @@ Create a Future Journal Plot
 }
 \examples{
 library(future)
-plan(sequential)
 
-t_start <- Sys.time()
-fs <- lapply(5:1, FUN = function(x) future({
+slow_fcn <- function(x) {
   Sys.sleep(x / 10)
   sqrt(x)
-}))
-vs <- value(fs)
+}
 
-gg <- ggjournal(fs, baseline = t_start)
-print(gg)
+plan(sequential)
+fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
+vs <- value(fs)
+print(ggjournal(fs))
+
+plan(multisession, workers = 2)
+fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
+vs <- value(fs)
+print(ggjournal(fs))
+
+## Shut down parallel workers
+plan(sequential)
 }
