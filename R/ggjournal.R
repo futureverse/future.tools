@@ -46,6 +46,9 @@ ggjournal <- function(futures, baseline = TRUE, ...) {
     fill = step
   ))
   
-  gg <- gg + scale_y_reverse() + xlab("Time (seconds)") + ylab("future")
+  gg <- gg + scale_y_reverse()
+  gg <- gg + xlab("Time (seconds)") + ylab("future")
+  gg <- gg + labs(fill = "Event")
+  
   gg
 }
