@@ -73,19 +73,129 @@
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu">with_journals</span><span class="op">(</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="ggjournal.html">ggjournal</a></span><span class="op">(</span><span class="va">js</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="with_journals-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">multisession</span>, workers <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu">with_journals</span><span class="op">(</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
+<span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">3</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="ggjournal.html">ggjournal</a></span><span class="op">(</span><span class="va">js</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="with_journals-2.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              step                   start               at          duration</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1          create 2022-03-02 10:33:10.205 0.000000000 secs 6.091595e-04 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6          launch 2022-03-02 10:33:10.206 0.001486540 secs 4.902601e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       getWorker 2022-03-02 10:33:10.207 0.002099514 secs 1.273155e-04 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     eraseWorker 2022-03-02 10:33:10.207 0.002701283 secs 4.248619e-04 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  attachPackages 2022-03-02 10:33:10.208 0.003604889 secs 2.717972e-05 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   exportGlobals 2022-03-02 10:33:10.209 0.004096746 secs 4.541326e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17       evaluate 2022-03-02 10:33:10.296 0.091541290 secs 3.020108e-01 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7        resolved 2022-03-02 10:33:10.297 0.092609406 secs 1.078749e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8        resolved 2022-03-02 10:33:10.330 0.125585318 secs 1.079726e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9        resolved 2022-03-02 10:33:10.364 0.158963203 secs 1.135373e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10       resolved 2022-03-02 10:33:10.397 0.192561388 secs 1.116872e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11       resolved 2022-03-02 10:33:10.432 0.226937771 secs 1.150107e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12       resolved 2022-03-02 10:33:10.466 0.261791229 secs 1.131701e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13       resolved 2022-03-02 10:33:10.500 0.295810223 secs 1.145720e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14       resolved 2022-03-02 10:33:10.535 0.330534935 secs 1.137280e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15       resolved 2022-03-02 10:33:10.570 0.364866972 secs 1.160908e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16         gather 2022-03-02 10:33:10.605 0.400247335 secs 3.814697e-05 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       future_label                          future_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 future_lapply-1 a7b098ec-de8b-e175-6898-fe7f95b54423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                            session_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 63a8954b-88ff-ada0-ec01-96b990fd6c10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              step                   start               at          duration</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1          create 2022-03-02 10:33:10.256 0.000000000 secs 5.738735e-04 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6          launch 2022-03-02 10:33:10.257 0.001439333 secs 3.905725e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       getWorker 2022-03-02 10:33:10.258 0.002025366 secs 1.304150e-04 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     eraseWorker 2022-03-02 10:33:10.259 0.002585411 secs 3.407288e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  attachPackages 2022-03-02 10:33:10.293 0.037258863 secs 4.529953e-05 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   exportGlobals 2022-03-02 10:33:10.294 0.037916899 secs 1.433372e-03 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19       evaluate 2022-03-02 10:33:10.297 0.040817976 secs 3.509307e-01 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7        resolved 2022-03-02 10:33:10.309 0.052549839 secs 1.081467e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8        resolved 2022-03-02 10:33:10.342 0.085548878 secs 1.075792e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9        resolved 2022-03-02 10:33:10.376 0.119497061 secs 1.087260e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10       resolved 2022-03-02 10:33:10.409 0.152926445 secs 1.129794e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11       resolved 2022-03-02 10:33:10.444 0.187632084 secs 1.150823e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12       resolved 2022-03-02 10:33:10.478 0.222306013 secs 1.081252e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13       resolved 2022-03-02 10:33:10.513 0.256469965 secs 1.131225e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14       resolved 2022-03-02 10:33:10.547 0.291108608 secs 1.118279e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15       resolved 2022-03-02 10:33:10.582 0.325675726 secs 1.091170e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16       resolved 2022-03-02 10:33:10.608 0.351619244 secs 1.110387e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17       resolved 2022-03-02 10:33:10.630 0.373878956 secs 1.158333e-02 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18         gather 2022-03-02 10:33:10.653 0.397283077 secs 3.862381e-05 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       future_label                          future_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 future_lapply-2 bf92f059-21ca-6e6a-e296-7e1b738696e8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                            session_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 adc09151-00d8-9a36-2bcd-06ef88ef2055</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 369c2cff-814b-44e2-b6db-7dee1206516e</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Shut down parallel workers</span></span>
 <span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span>
