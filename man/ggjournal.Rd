@@ -4,10 +4,10 @@
 \alias{ggjournal}
 \title{Create a Future Journal Plot}
 \usage{
-ggjournal(futures, baseline = TRUE, ...)
+ggjournal(x, baseline = TRUE, ...)
 }
 \arguments{
-\item{futures}{A list of \link[future:Future-class]{future::Future} objects.}
+\item{x}{A list of \link[future:Future-class]{future::Future} or \link[future:FutureJournal]{future::FutureJournal} objects.}
 
 \item{baseline}{(POSIXct; optional) A timestamp to server as time zero
 for the relative timestamps. If \code{TRUE} (default), then the earliest
@@ -24,6 +24,7 @@ Create a Future Journal Plot
 \examples{
 library(future)
 oopts <- options(future.journal = TRUE)
+journal <- future:::journal
 
 slow_fcn <- function(x) {
   Sys.sleep(x / 10)
@@ -33,18 +34,61 @@ slow_fcn <- function(x) {
 plan(sequential)
 fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
 vs <- value(fs)
-print(ggjournal(fs))
+js <- journal(fs)
+print(ggjournal(js))
 
 plan(multisession, workers = 2)
 fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
 vs <- value(fs)
-print(ggjournal(fs))
+js <- journal(fs)
+print(ggjournal(js))
 
 ## Decrease polling time to 0.01 seconds (default is 0.1 seconds)
 options(future.wait.interval = 0.01)
 fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
 vs <- value(fs)
-print(ggjournal(fs))
+js <- journal(fs)
+print(ggjournal(js))
+
+## Shut down parallel workers
+plan(sequential)
+options(oopts)
+library(future.apply)
+oopts <- options(future.journal = TRUE)
+
+gather_journals <- function(expr, substitute = TRUE, envir = parent.frame()) {
+  journals <- NULL
+  withCallingHandlers({
+    eval(expr, envir = envir)
+  }, FutureJournalCondition = function(cond) {
+    message(sprintf("Caught a \%s", class(cond)[1]))
+    journals <<- c(journals, list(cond$journal))
+  })
+  journals
+}
+
+slow_fcn <- function(x) {
+  Sys.sleep(x / 10)
+  sqrt(x)
+}
+
+plan(sequential)
+js <- gather_journals({
+  vs <- future_lapply(5:1, FUN = function(x) slow_fcn(x))
+})
+print(ggjournal(js))
+
+plan(multisession, workers = 2)
+js <- gather_journals({
+  vs <- future_lapply(5:1, FUN = function(x) slow_fcn(x))
+})
+print(ggjournal(js))
+
+plan(multisession, workers = 5)
+js <- gather_journals({
+  vs <- future_lapply(5:1, FUN = function(x) slow_fcn(x))
+})
+print(ggjournal(js))
 
 ## Shut down parallel workers
 plan(sequential)

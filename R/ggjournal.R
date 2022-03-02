@@ -12,6 +12,7 @@
 #' A [ggplot2::ggplot] object.
 #'
 #' @example incl/ggjournal.R
+#' @example incl/ggjournal,future.apply.R
 #'
 #' @import dplyr
 #' @import ggplot2
@@ -25,7 +26,7 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   if (inherits(x, "FutureJournal") || inherits(x, "data.frame")) {
     js <- x
   } else {
-    x <- journal(x, baseline = baseline)
+    js <- journal(x, baseline = baseline)
   }
   js <- mutate(js, start = as.numeric(at), end = as.numeric(at + duration))
 
