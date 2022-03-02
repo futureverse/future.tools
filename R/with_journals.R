@@ -9,7 +9,7 @@
 #' @return
 #' A list of FutureJournal:s. 
 #'
-#' @example incl/ggjournal,future.apply.R
+#' @example incl/with_journals.R
 #'
 #' @export
 with_journals <- function(expr, substitute = TRUE, envir = parent.frame()) {

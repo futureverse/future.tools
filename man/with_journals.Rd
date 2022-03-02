@@ -27,17 +27,11 @@ slow_fcn <- function(x) {
   sqrt(x)
 }
 
-plan(sequential)
-js <- with_journals({
-  vs <- future_lapply(5:1, FUN = slow_fcn)
-})
-print(ggjournal(js))
-
 plan(multisession, workers = 2)
 js <- with_journals({
-  vs <- future_lapply(5:1, FUN = slow_fcn)
+  vs <- future_lapply(3:1, FUN = slow_fcn)
 })
-print(ggjournal(js))
+print(js)
 
 ## Shut down parallel workers
 plan(sequential)
