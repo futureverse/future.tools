@@ -1,6 +1,6 @@
 #' Create a Future Journal Plot
 #'
-#' @param x A list of [future::Future] or [future::FutureJournal] objects.
+#' @param x A list of [future::Future] or FutureJournal objects.
 #'
 #' @param baseline (POSIXct; optional) A timestamp to server as time zero
 #' for the relative timestamps. If `TRUE` (default), then the earliest
@@ -18,8 +18,6 @@
 #' @import ggplot2
 #' @export
 ggjournal <- function(x, baseline = TRUE, ...) {
-  journal <- import_future("journal")
-
   ## To please R CMD check
   at <- duration <- end <- index <- step <- NULL
 

@@ -7,7 +7,7 @@
 ggjournal(x, baseline = TRUE, ...)
 }
 \arguments{
-\item{x}{A list of \link[future:Future-class]{future::Future} or \link[future:FutureJournal]{future::FutureJournal} objects.}
+\item{x}{A list of \link[future:Future-class]{future::Future} or FutureJournal objects.}
 
 \item{baseline}{(POSIXct; optional) A timestamp to server as time zero
 for the relative timestamps. If \code{TRUE} (default), then the earliest

@@ -14,8 +14,7 @@ with_journals(expr, substitute = TRUE, envir = parent.frame())
 \item{envir}{The environment where \code{expr} should be evaluated}
 }
 \value{
-A set of \link[future:FutureJournal]{future::FutureJournal}:s, either as a list or a combined
-\link[future:FutureJournal]{future::FutureJournal}.
+A list of FutureJournal:s.
 }
 \description{
 Evaluate an R expression while collecting journals from completed futures
