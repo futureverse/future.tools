@@ -9,10 +9,10 @@
 #' @return
 #' A list of FutureJournal:s. 
 #'
-#' @example incl/with_journals.R
+#' @example incl/gather_journals.R
 #'
 #' @export
-with_journals <- function(expr, substitute = TRUE, envir = parent.frame()) {
+gather_journals <- function(expr, substitute = TRUE, envir = parent.frame()) {
   oopts <- options(future.journal = TRUE)
   on.exit(options(oopts))
   

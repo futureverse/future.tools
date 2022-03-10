@@ -48,7 +48,11 @@ ggjournal <- function(x, baseline = TRUE, ...) {
     ymin = index - 0.4, ymax = index + 0.4,
     fill = step
   ))
-  
+
+  ## Fix the colors
+  known_levels <- c("lifespan", "create", "launch", "resolved", "gather", "evaluate")
+  gg <- gg + scale_colour_discrete(drop = TRUE, limits = known_levels)
+
   gg <- gg + scale_y_reverse()
   gg <- gg + xlab("Time (seconds)") + ylab("future")
   gg <- gg + labs(fill = "Event")
