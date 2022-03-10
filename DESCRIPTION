@@ -1,6 +1,8 @@
 Package: future.tools
 Version: 0.0.0-9001
 Title: Tools for Working with Futures
+Depends:
+   R (>= 3.3.0)
 Imports:
    dplyr,
    ggplot2
