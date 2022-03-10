@@ -1,8 +1,0 @@
-Package: future.tools
-=====================
-
-Version: 0.0.0-9001 [2022-03-09]
-
- * Added gather_journals() and ggjournal().
-
- 
