@@ -60,6 +60,7 @@ isWin32 <- (.Platform$OS.type == "windows" && .Platform$r_arch == "i386")
 
 
 ## Local functions for test scripts
+hpaste <- future:::hpaste
 capture.output <- utils::capture.output 
 printf <- function(...) cat(sprintf(...))
 mstr <- function(...) message(paste(capture.output(str(...)), collapse = "\n"))
