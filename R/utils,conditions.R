@@ -31,27 +31,27 @@ now <- function(x = Sys.time(), format = "[%H:%M:%OS3] ") {
 }
 
 mdebug <- function(..., debug = NA) {
-  if (is.na(debug)) debug <- getOption("future.apply.debug", getOption("future.debug", FALSE))
+  if (is.na(debug)) debug <- getOption("future.tools.debug", FALSE)
   if (!debug) return()
   message(now(), ...)
 }
 
 mdebugf <- function(..., appendLF = TRUE, debug = NA) {
-  if (is.na(debug)) debug <- getOption("future.apply.debug", getOption("future.debug", FALSE))
+  if (is.na(debug)) debug <- getOption("future.tools.debug", FALSE)
   if (!debug) return()
   message(now(), sprintf(...), appendLF = appendLF)
 }
 
 #' @importFrom utils capture.output
 mprint <- function(..., appendLF = TRUE, debug = NA) {
-  if (is.na(debug)) debug <- getOption("future.apply.debug", getOption("future.debug", FALSE))
+  if (is.na(debug)) debug <- getOption("future.tools.debug", FALSE)
   if (!debug) return()
   message(paste(now(), capture.output(print(...)), sep = "", collapse = "\n"), appendLF = appendLF)
 }
 
 #' @importFrom utils capture.output str
 mstr <- function(..., appendLF = TRUE, debug = NA) {
-  if (is.na(debug)) debug <- getOption("future.apply.debug", getOption("future.debug", FALSE))
+  if (is.na(debug)) debug <- getOption("future.tools.debug", FALSE)
   if (!debug) return()
   message(paste(now(), capture.output(str(...)), sep = "", collapse = "\n"), appendLF = appendLF)
 }
