@@ -89,3 +89,10 @@ supportedStrategies <- function(cores = NA_integer_, excl = "cluster", ...) {
 }
 
 availCores <- min(2L, future::availableCores())
+
+
+slow_fcn <- function(x) {
+  Sys.sleep(x / 100)
+  sqrt(x)
+}
+
