@@ -49,13 +49,23 @@ ggjournal <- function(x, baseline = TRUE, ...) {
     fill = step
   ))
 
-  ## Fix the colors
-  known_levels <- c("lifespan", "create", "launch", "resolved", "gather", "evaluate")
-  gg <- gg + scale_colour_discrete(drop = TRUE, limits = known_levels)
-
   gg <- gg + scale_y_reverse()
   gg <- gg + xlab("Time (seconds)") + ylab("future")
   gg <- gg + labs(fill = "Event")
-  
+
+  ## Fix the colors
+  known_steps <- c("lifespan", "create", "launch", "resolved", "gather", "evaluate")
+  extra_steps <- setdiff(levels(js$step), known_steps)
+#  if (length(extra_steps) <= 6L) {
+#    extra_steps <- c(extra_steps, rep(NA_character_, times = 6L - length(extra_steps)))
+#  } else if (length(extra_steps) > 6L) {
+#    stop(sprintf("Only supports at most six extra 'steps': %s",
+#                 paste(sQuote(extra_steps), collapse = ", ")))
+#  }
+  steps <- c(known_steps, extra_steps)
+  cols <- seq_along(steps)
+  names(cols) <- steps
+  gg <- gg + scale_fill_manual(values = cols)
+
   gg
 }
