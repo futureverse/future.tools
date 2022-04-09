@@ -63,9 +63,29 @@ ggjournal <- function(x, baseline = TRUE, ...) {
 #                 paste(sQuote(extra_steps), collapse = ", ")))
 #  }
   steps <- c(known_steps, extra_steps)
-  cols <- seq_along(steps)
+  cols <- journal_palette(along = steps)
   names(cols) <- steps
+
   gg <- gg + scale_fill_manual(values = cols)
 
   gg
+}
+
+
+## FIXME: palette.colors requires R (>= 4.0.0)
+#' @importFrom grDevices palette.colors
+journal_palette <- function(n = NULL, along = NULL) {
+  if (!is.null(n)) {
+    stopifnot(
+      is.null(along),
+      is.numeric(n), length(n) == 1L, is.finite(n), n >= 0L
+    )
+  } else if (!is.null(along)) {
+    stopifnot(is.null(n))
+    n <- length(along)
+  }
+  
+  cols <- suppressWarnings(palette.colors(n, palette = "Paired"))
+  if (length(cols) < n) cols <- rep(cols, length.out = n)
+  cols
 }
