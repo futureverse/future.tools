@@ -59,8 +59,8 @@ ggjournal <- function(x, baseline = TRUE, ...) {
 #  if (length(extra_steps) <= 6L) {
 #    extra_steps <- c(extra_steps, rep(NA_character_, times = 6L - length(extra_steps)))
 #  } else if (length(extra_steps) > 6L) {
-#    stop(sprintf("Only supports at most six extra 'steps': %s",
-#                 paste(sQuote(extra_steps), collapse = ", ")))
+#    stopf("Only supports at most six extra 'steps': %s",
+#                 paste(sQuote(extra_steps), collapse = ", "))
 #  }
   steps <- c(known_steps, extra_steps)
   cols <- journal_palette(along = steps)
