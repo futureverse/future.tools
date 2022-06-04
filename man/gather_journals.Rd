@@ -14,10 +14,17 @@ gather_journals(expr, substitute = TRUE, envir = parent.frame())
 \item{envir}{The environment where \code{expr} should be evaluated}
 }
 \value{
-A list of FutureJournal:s.
+A list of \link[future:FutureJournal]{future::FutureJournal}:s.
 }
 \description{
 Evaluate an R expression while collecting journals from completed futures
+}
+\details{
+This function evaluates an R expression and gathers the journals
+signaled by futures as they are completed. A future journal comprise
+a log of events appearing during the life-span of a future, e.g.
+the timestamps when the future was created, launched, queried,
+resolved, and its results are collected.
 }
 \examples{
 library(future.apply)
