@@ -19,7 +19,7 @@
 #' @export
 ggjournal <- function(x, baseline = TRUE, ...) {
   ## To please R CMD check
-  at <- duration <- end <- index <- step <- NULL
+  at <- duration <- end <- index <- event <- NULL
 
   if (inherits(x, "FutureJournal") || inherits(x, "data.frame")) {
     js <- x
@@ -32,8 +32,8 @@ ggjournal <- function(x, baseline = TRUE, ...) {
 
   ## Lifespans
   js <- group_by(js, index)
-  start <- filter(js, step == "create")[, c("index", "start")]
-  stop  <- filter(js, step %in% c("launch", "gather"))[, c("index", "end")]
+  start <- filter(js, event == "create")[, c("index", "start")]
+  stop  <- filter(js, event %in% c("launch", "gather"))[, c("index", "end")]
   stop  <- top_n(stop, n = 1L, wt = "end")
   lifespan <- full_join(start, stop, by = "index")
   gg <- gg + geom_rect(data = lifespan, aes(
@@ -46,7 +46,7 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   gg <- gg + geom_rect(data = js, aes(
     xmin = start, xmax = end,
     ymin = index - 0.4, ymax = index + 0.4,
-    fill = step
+    fill = event
   ))
 
   gg <- gg + scale_y_reverse()
@@ -54,17 +54,17 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   gg <- gg + labs(fill = "Event")
 
   ## Fix the colors
-  known_steps <- c("lifespan", "create", "launch", "resolved", "gather", "evaluate")
-  extra_steps <- setdiff(levels(js$step), known_steps)
-#  if (length(extra_steps) <= 6L) {
-#    extra_steps <- c(extra_steps, rep(NA_character_, times = 6L - length(extra_steps)))
-#  } else if (length(extra_steps) > 6L) {
-#    stopf("Only supports at most six extra 'steps': %s",
-#                 paste(sQuote(extra_steps), collapse = ", "))
+  known_events <- c("lifespan", "create", "launch", "resolved", "gather", "evaluate")
+  extra_events <- setdiff(levels(js$event), known_events)
+#  if (length(extra_events) <= 6L) {
+#    extra_events <- c(extra_events, rep(NA_character_, times = 6L - length(extra_events)))
+#  } else if (length(extra_events) > 6L) {
+#    stopf("Only supports at most six extra 'events': %s",
+#                 paste(sQuote(extra_events), collapse = ", "))
 #  }
-  steps <- c(known_steps, extra_steps)
-  cols <- journal_palette(along = steps)
-  names(cols) <- steps
+  events <- c(known_events, extra_events)
+  cols <- journal_palette(along = events)
+  names(cols) <- events
 
   gg <- gg + scale_fill_manual(values = cols)
 

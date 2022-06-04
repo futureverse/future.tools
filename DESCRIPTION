@@ -8,7 +8,7 @@ Imports:
    dplyr,
    ggplot2
 Suggests:
-   future (>= 1.26.1),
+   future (>= 1.26.1-9103),
    future.apply
 Remotes:
    github::HenrikBengtsson/future@feature/journal
