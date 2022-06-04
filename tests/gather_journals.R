@@ -1,9 +1,9 @@
 if (require("future.apply")) {
   source("incl/start.R")
-  message("*** gather_journals() ...")
+  message("*** capture_journals() ...")
   
   plan(multisession, workers = 2)
-  js <- gather_journals({
+  js <- capture_journals({
     vs <- future_lapply(3:1, FUN = slow_fcn)
   })
   print(js)
@@ -15,6 +15,6 @@ if (require("future.apply")) {
   ## Shut down parallel workers
   plan(sequential)
 
-  message("*** gather_journals() ... done")
+  message("*** capture_journals() ... done")
   source("incl/end.R")
 }

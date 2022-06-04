@@ -3,13 +3,13 @@ if (require("future.apply")) {
   message("*** ggjournals() ...")
 
   plan(sequential)
-  js <- gather_journals({
+  js <- capture_journals({
     vs <- future_lapply(5:1, FUN = slow_fcn)
   })
   print(ggjournal(js))
   
   plan(multisession, workers = 2)
-  js <- gather_journals({
+  js <- capture_journals({
     vs <- future_lapply(5:1, FUN = slow_fcn)
   })
   print(ggjournal(js))

@@ -30,14 +30,14 @@ slow_fcn <- function(x) {
 }
 
 plan(sequential)
-js <- gather_journals({
+js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
 print(ggjournal(js))
 
 plan(multisession, workers = 2)
-js <- gather_journals({
+js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
@@ -45,7 +45,7 @@ print(ggjournal(js))
 
 ## Decrease polling time to 0.01 seconds (default is 0.1 seconds)
 options(future.wait.interval = 0.01)
-js <- gather_journals({
+js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
@@ -61,13 +61,13 @@ slow_fcn <- function(x) {
 }
 
 plan(sequential)
-js <- gather_journals({
+js <- capture_journals({
   vs <- future_lapply(5:1, FUN = slow_fcn)
 })
 print(ggjournal(js))
 
 plan(multisession, workers = 2)
-js <- gather_journals({
+js <- capture_journals({
   vs <- future_lapply(5:1, FUN = slow_fcn)
 })
 print(ggjournal(js))

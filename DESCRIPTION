@@ -1,5 +1,5 @@
 Package: future.tools
-Version: 0.0.0-9003
+Version: 0.0.0-9004
 Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0)
@@ -8,7 +8,7 @@ Imports:
    dplyr,
    ggplot2
 Suggests:
-   future (>= 1.26.1-9103),
+   future (>= 1.26.1-9104),
    future.apply
 Remotes:
    github::HenrikBengtsson/future@feature/journal
