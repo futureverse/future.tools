@@ -4,11 +4,11 @@ Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0)
 Imports:
+   future (>= 1.26.1-9104),
    grDevices,
    dplyr,
    ggplot2
 Suggests:
-   future (>= 1.26.1-9104),
    future.apply
 Remotes:
    github::HenrikBengtsson/future@feature/journal

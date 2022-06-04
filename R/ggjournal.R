@@ -14,6 +14,7 @@
 #' @example incl/ggjournal.R
 #' @example incl/ggjournal,future.apply.R
 #'
+#' @importFrom future journal
 #' @import dplyr
 #' @import ggplot2
 #' @export
