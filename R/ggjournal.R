@@ -43,10 +43,14 @@ ggjournal <- function(x, baseline = TRUE, ...) {
     fill = "lifespan"
   ))
 
+  yoffset <- double(length = nrow(js))
+  yoffset[js[["parent"]] == "launch"] <- 0.4
+  yoffset[js[["event"]] == "resolved"] <- 0.4
+  
   ## Events
   gg <- gg + geom_rect(data = js, aes(
     xmin = start, xmax = end,
-    ymin = index - 0.4, ymax = index + 0.4,
+    ymin = index + 0.0 - yoffset, ymax = index + 0.4 - yoffset,
     fill = event
   ))
 
