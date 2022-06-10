@@ -58,8 +58,13 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   gg <- gg + xlab("Time (seconds)") + ylab("future")
   gg <- gg + labs(fill = "Event")
 
-  ## Fix the colors
-  known_events <- c("lifespan", "create", "launch", "resolved", "gather", "evaluate")
+  ## Fixate colors
+  known_events <- c(
+    ## Out of order events
+    "lifespan", "resolved",
+    ## Chronological events
+    "create", "launch", "evaluate", "gather"
+  )
   extra_events <- setdiff(levels(js$event), known_events)
 #  if (length(extra_events) <= 6L) {
 #    extra_events <- c(extra_events, rep(NA_character_, times = 6L - length(extra_events)))
@@ -71,7 +76,11 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   cols <- journal_palette(along = events)
   names(cols) <- events
 
-  gg <- gg + scale_fill_manual(values = cols)
+  ## Legend labels
+  labels <- tolower(gsub("([[:upper:]])", " \\1", events))
+  labels[labels == "resolved"] <- "resolved?"
+  
+  gg <- gg + scale_fill_manual(values = cols, labels = labels)
 
   gg
 }
