@@ -93,18 +93,18 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   lifespan <- full_join(start, stop, by = "index")
   gg <- gg + geom_rect(data = lifespan, aes(
     xmin = start, xmax = end,
-    ymin = index - yoffset[2], ymax = index - yoffset[2] - height[2],
+    ymin = index + yoffset[2], ymax = index + yoffset[2] + height[2],
     fill = "lifespan"
   ))
 
   ## Events
   gg <- gg + geom_rect(data = js, aes(
     xmin = start, xmax = end,
-    ymin = index - yoffset[layer], ymax = index - yoffset[layer] - height[layer],
+    ymin = index + yoffset[layer], ymax = index + yoffset[layer] + height[layer],
     fill = event
   ))
 
-  gg <- gg + scale_y_reverse()
+#  gg <- gg + scale_y()
   gg <- gg + xlab("Time (seconds)") + ylab("future")
   gg <- gg + labs(fill = "Event")
 

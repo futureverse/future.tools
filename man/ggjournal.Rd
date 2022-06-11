@@ -35,14 +35,14 @@ js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
-print(ggjournal(js) + xlim(0.0, 2.0) + ylim(5, 0))
+print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
 
 plan(multisession, workers = 2)
 js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
-print(ggjournal(js) + xlim(0.0, 2.0) + ylim(5, 0))
+print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
 
 ## Increase polling time to 0.1 seconds (default is 0.01 seconds)
 options(future.wait.interval = 0.1)
@@ -50,7 +50,7 @@ js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
-print(ggjournal(js) + xlim(0.0, 2.0) + ylim(5, 0))
+print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
 
 ## Shut down parallel workers
 plan(sequential)
@@ -66,13 +66,13 @@ plan(sequential)
 js <- capture_journals({
   vs <- future_lapply(5:1, FUN = slow_fcn)
 })
-print(ggjournal(js) + xlim(0.0, 2.0) + ylim(5, 0))
+print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
 
 plan(multisession, workers = 2)
 js <- capture_journals({
   vs <- future_lapply(5:1, FUN = slow_fcn)
 })
-print(ggjournal(js) + xlim(0.0, 2.0) + ylim(5, 0))
+print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
 
 ## Shut down parallel workers
 plan(sequential)
