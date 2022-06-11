@@ -84,9 +84,10 @@ ggjournal <- function(x, baseline = TRUE, time_range = NULL, future_range = NULL
 
   layer <- rep(3L, times = nrow(js))
   layer[js[["parent"]] == "launch"  ] <- 4L
-  layer[js[["event"]]  == "resolved"] <- 1L
+#  layer[js[["event"]]  == "resolved"] <- 1L
+  layer[js[["event"]]  == "evaluate"] <- 1L
 
-  height <- c(1, 2, 6, 4)
+  height <- c(2, 1, 2, 1)
   height <- 0.8 * height / sum(height)
   yoffset <- c(0.0, cumsum(height)[-length(height)])
   yoffset <- yoffset - height[1]
@@ -126,7 +127,7 @@ ggjournal <- function(x, baseline = TRUE, time_range = NULL, future_range = NULL
   
   gg <- gg + scale_fill_manual(values = cols, labels = labels)
 
-  ylim <- if (is.null(future_range)) NULL else future_range + c(0, 1)
+  ylim <- if (is.null(future_range)) NULL else future_range + c(-0.2, 0.8)
   gg <- gg + coord_cartesian(xlim = time_range, ylim = ylim)
 
   gg
