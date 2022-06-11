@@ -4,7 +4,14 @@
 \alias{ggjournal}
 \title{Create a Future Journal Plot}
 \usage{
-ggjournal(x, baseline = TRUE, time_range = NULL, future_range = NULL, ...)
+ggjournal(
+  x,
+  baseline = TRUE,
+  by = c("future", "worker"),
+  time_range = NULL,
+  item_range = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{A list of \link[future:Future-class]{future::Future} or FutureJournal objects.}
@@ -13,11 +20,13 @@ ggjournal(x, baseline = TRUE, time_range = NULL, future_range = NULL, ...)
 for the relative timestamps. If \code{TRUE} (default), then the earliest
 timepoint observed is used as the baseline.}
 
+\item{by}{(character string) Vertically separate by future or worker?}
+
 \item{time_range}{(optional vector of length two) The range of time
 to displayed.}
 
-\item{future_range}{(optional vector of length two) The range of future
-indices to displayed.}
+\item{item_range}{(optional vector of length two) The range of future
+or worker indices to displayed.}
 
 \item{\ldots}{Currently not used.}
 }

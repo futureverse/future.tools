@@ -6,11 +6,13 @@
 #' for the relative timestamps. If `TRUE` (default), then the earliest
 #' timepoint observed is used as the baseline.
 #'
+#' @param by (character string) Vertically separate by future or worker?
+#'
 #' @param time_range (optional vector of length two) The range of time
 #' to displayed.
 #'
-#' @param future_range (optional vector of length two) The range of future
-#' indices to displayed.
+#' @param item_range (optional vector of length two) The range of future
+#' or worker indices to displayed.
 #'
 #' @param \ldots Currently not used.
 #'
@@ -24,16 +26,32 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-ggjournal <- function(x, baseline = TRUE, time_range = NULL, future_range = NULL, ...) {
+ggjournal <- function(x, baseline = TRUE, by = c("future", "worker"), time_range = NULL, item_range = NULL, ...) {
+  by <- match.arg(by)
   ## To please R CMD check
-  at <- duration <- end <- index <- event <- NULL
+  at <- duration <- end <- index <- event <- future_index <- NULL
 
-  if (inherits(x, "FutureJournal") || inherits(x, "data.frame")) {
-    js <- x
-  } else {
-    js <- journal(x, baseline = baseline)
-  }
+  ## ------------------------------------------------------------------
+  ## Merge multiple journals and index the futures
+  ## ------------------------------------------------------------------
+  if (inherits(x, "FutureJournal") || inherits(x, "data.frame")) x <- list(x)
+  js <- journal(x, baseline = baseline)
   js <- mutate(js, start = as.numeric(at), end = as.numeric(at + duration))
+
+  ## Rename 'index' to 'future_index' (FIXME: Should be done by journal() /HB 2022-06-11
+  js[["future_index"]] <- js[["index"]]
+
+  ## Add 'session' index (FIXME: Should be done by journal() /HB 2022-06-11
+  ids <- unique(js[["session_uuid"]])
+  js[["session_index"]] <- match(js[["session_uuid"]], ids) - 1L
+
+
+  ## ------------------------------------------------------------------
+  ## Vertically separate by future or workers?
+  ## ------------------------------------------------------------------
+  js[["index"]] <- js[[if (by == "future") "future_index" else "session_index"]]
+  nbr_of_items <- length(unique(ids))
+
 
   ## ------------------------------------------------------------------
   ## Create (event, legend) map
@@ -86,26 +104,28 @@ ggjournal <- function(x, baseline = TRUE, time_range = NULL, future_range = NULL
   height <- 0.8 * height / sum(height)
   yoffset <- c(0.0, cumsum(height)[-length(height)])
   yoffset <- yoffset - height[1]
-
+  stopifnot(all(is.finite(height)), all(is.finite(yoffset)))
+  
   layer <- rep(3L, times = nrow(js))
   layer[js[["parent"]] == "launch"  ] <- 4L
 
   ## Was 'evaluate' performed in another R process?  If so, draw
   ## 'evaluate' underneath 'lifespan' instead of as above.
-  for (idx in js[["index"]]) {
-    idx_c <- which((js[["event"]] == "create"  ) & (js[["index"]] == idx))
-    idx_e <- which((js[["event"]] == "evaluate") & (js[["index"]] == idx))
+  for (idx in js[["future_index"]]) {
+    idx_c <- which((js[["event"]] == "create"  ) & (js[["future_index"]] == idx))
+    idx_e <- which((js[["event"]] == "evaluate") & (js[["future_index"]] == idx))
     if (js[["session_uuid"]][idx_e] != js[["session_uuid"]][idx_c]) {
       layer[idx_e] <- 1L
     }
   }
+  stopifnot(all(is.finite(layer)))
 
   ## Lifespans
-  js <- group_by(js, index)
-  start <- filter(js, event == "create")[, c("index", "start")]
-  stop  <- filter(js, event %in% c("launch", "gather"))[, c("index", "end")]
+  js <- group_by(js, future_index)
+  start <- filter(js, event == "create"               )[, c("index", "future_index", "start")]
+  stop  <- filter(js, event %in% c("launch", "gather"))[, c("index", "future_index", "end"  )]
   stop  <- top_n(stop, n = 1L, wt = "end")
-  lifespan <- full_join(start, stop, by = "index")
+  lifespan <- full_join(start, stop, by = c("index", "future_index"))
   gg <- gg + geom_rect(data = lifespan, aes(
     xmin = start, xmax = end,
     ymin = index + yoffset[2], ymax = index + yoffset[2] + height[2],
@@ -119,10 +139,8 @@ ggjournal <- function(x, baseline = TRUE, time_range = NULL, future_range = NULL
     fill = event
   ))
 
-  nbr_of_futures <- length(unique(js[["future_uuid"]]))
-
-  gg <- gg + scale_y_continuous(breaks = seq_len(max(nbr_of_futures, 100L)))
-  gg <- gg + xlab("Time (seconds)") + ylab("future")
+  gg <- gg + scale_y_continuous(breaks = seq_len(max(nbr_of_items, 100L)))
+  gg <- gg + xlab("Time (seconds)") + ylab(by)
   gg <- gg + labs(fill = "Event")
 
   ## Generate event colors
@@ -135,7 +153,7 @@ ggjournal <- function(x, baseline = TRUE, time_range = NULL, future_range = NULL
   
   gg <- gg + scale_fill_manual(values = cols, labels = labels)
 
-  ylim <- if (is.null(future_range)) NULL else future_range + c(-0.2, 0.8)
+  ylim <- if (is.null(item_range)) NULL else item_range + c(-0.2, 0.8)
   gg <- gg + coord_cartesian(xlim = time_range, ylim = ylim)
 
   gg
