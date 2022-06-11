@@ -108,12 +108,15 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   gg <- gg + xlab("Time (seconds)") + ylab("future")
   gg <- gg + labs(fill = "Event")
 
-  ## Fixate colors
+  ## Generate event colors
+  cols <- journal_palette(along = events)
+  names(cols) <- events
   
-  cols <- journal_palette(along = map[["event"]])
-  names(cols) <- map[["event"]]
-
-  gg <- gg + scale_fill_manual(values = cols, labels = map[["indexed_label"]])
+  ## Map events to (color, label)
+  cols <- cols[match(map[["event"]], events)]
+  labels <- map[["indexed_label"]]
+  
+  gg <- gg + scale_fill_manual(values = cols, labels = labels)
 
   gg
 }
