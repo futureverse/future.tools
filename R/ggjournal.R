@@ -76,6 +76,15 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   ## ------------------------------------------------------------------
   gg <- ggplot()
 
+  layer <- rep(3L, times = nrow(js))
+  layer[js[["parent"]] == "launch"  ] <- 4L
+  layer[js[["event"]]  == "resolved"] <- 1L
+
+  height <- c(1, 2, 6, 4)
+  height <- 0.8 * height / sum(height)
+  yoffset <- c(0.0, cumsum(height)[-length(height)])
+  yoffset <- yoffset - height[1]
+
   ## Lifespans
   js <- group_by(js, index)
   start <- filter(js, event == "create")[, c("index", "start")]
@@ -84,18 +93,14 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   lifespan <- full_join(start, stop, by = "index")
   gg <- gg + geom_rect(data = lifespan, aes(
     xmin = start, xmax = end,
-    ymin = index + 0.4, ymax = index + 0.5,
+    ymin = index - yoffset[2], ymax = index - yoffset[2] - height[2],
     fill = "lifespan"
   ))
 
-  yoffset <- double(length = nrow(js))
-  yoffset[js[["parent"]] == "launch"] <- 0.4
-  yoffset[js[["event"]] == "resolved"] <- 0.4
-  
   ## Events
   gg <- gg + geom_rect(data = js, aes(
     xmin = start, xmax = end,
-    ymin = index + 0.0 - yoffset, ymax = index + 0.4 - yoffset,
+    ymin = index - yoffset[layer], ymax = index - yoffset[layer] - height[layer],
     fill = event
   ))
 
