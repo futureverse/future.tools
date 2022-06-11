@@ -10,7 +10,7 @@ slow_fcn <- function(x) {
 ## Plot with fixed x and y limits
 ggjournal_x <- function(js) {
   for (by in c("future", "worker")) {
-    item_range <- if (by == "future") c(1, 5) else c(0, 1.5)
+    item_range <- if (by == "future") c(1, 5) else c(0, 1.8)
     print(ggjournal(js, by = by,
                     time_range = c(0, 2.0), item_range = item_range))
   }

@@ -109,12 +109,14 @@ ggjournal <- function(x, baseline = TRUE, by = c("future", "worker"), time_range
   layer[js[["parent"]] == "launch"  ] <- 4L
 
   ## Was 'evaluate' performed in another R process?  If so, draw
-  ## 'evaluate' underneath 'lifespan' instead of as above.
+  ## 'evaluate' underneath 'lifespan' instead of as above (iff by = "future")
   for (idx in js[["future_index"]]) {
     idx_c <- which((js[["event"]] == "create"  ) & (js[["future_index"]] == idx))
     idx_e <- which((js[["event"]] == "evaluate") & (js[["future_index"]] == idx))
     if (js[["session_uuid"]][idx_e] != js[["session_uuid"]][idx_c]) {
-      layer[idx_e] <- 1L
+      if (by == "future") {
+        layer[idx_e] <- 1L
+      }
     }
   }
   stopifnot(all(is.finite(layer)))
