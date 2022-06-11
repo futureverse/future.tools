@@ -20,7 +20,6 @@
 #' A [ggplot2::ggplot] object.
 #'
 #' @example incl/ggjournal.R
-#' @example incl/ggjournal,future.apply.R
 #'
 #' @importFrom future journal
 #' @import dplyr
