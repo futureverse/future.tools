@@ -6,6 +6,12 @@
 #' for the relative timestamps. If `TRUE` (default), then the earliest
 #' timepoint observed is used as the baseline.
 #'
+#' @param time_range (optional vector of length two) The range of time
+#' to displayed.
+#'
+#' @param future_range (optional vector of length two) The range of future
+#' indices to displayed.
+#'
 #' @param \ldots Currently not used.
 #'
 #' @return
@@ -18,7 +24,7 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-ggjournal <- function(x, baseline = TRUE, ...) {
+ggjournal <- function(x, baseline = TRUE, time_range = NULL, future_range = NULL, ...) {
   ## To please R CMD check
   at <- duration <- end <- index <- event <- NULL
 
@@ -104,7 +110,9 @@ ggjournal <- function(x, baseline = TRUE, ...) {
     fill = event
   ))
 
-#  gg <- gg + scale_y()
+  nbr_of_futures <- length(unique(js[["future_uuid"]]))
+
+  gg <- gg + scale_y_continuous(breaks = seq_len(max(nbr_of_futures, 100L)))
   gg <- gg + xlab("Time (seconds)") + ylab("future")
   gg <- gg + labs(fill = "Event")
 
@@ -117,6 +125,9 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   labels <- map[["indexed_label"]]
   
   gg <- gg + scale_fill_manual(values = cols, labels = labels)
+
+  ylim <- if (is.null(future_range)) NULL else future_range + c(0, 1)
+  gg <- gg + coord_cartesian(xlim = time_range, ylim = ylim)
 
   gg
 }

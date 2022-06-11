@@ -4,7 +4,7 @@
 \alias{ggjournal}
 \title{Create a Future Journal Plot}
 \usage{
-ggjournal(x, baseline = TRUE, ...)
+ggjournal(x, baseline = TRUE, time_range = NULL, future_range = NULL, ...)
 }
 \arguments{
 \item{x}{A list of \link[future:Future-class]{future::Future} or FutureJournal objects.}
@@ -12,6 +12,12 @@ ggjournal(x, baseline = TRUE, ...)
 \item{baseline}{(POSIXct; optional) A timestamp to server as time zero
 for the relative timestamps. If \code{TRUE} (default), then the earliest
 timepoint observed is used as the baseline.}
+
+\item{time_range}{(optional vector of length two) The range of time
+to displayed.}
+
+\item{future_range}{(optional vector of length two) The range of future
+indices to displayed.}
 
 \item{\ldots}{Currently not used.}
 }
@@ -35,14 +41,14 @@ js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
-print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
+print(ggjournal(js, time_range = c(0, 2.0), future_range = c(1, 5)))
 
 plan(multisession, workers = 2)
 js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
-print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
+print(ggjournal(js, time_range = c(0, 2.0), future_range = c(1, 5)))
 
 ## Increase polling time to 0.1 seconds (default is 0.01 seconds)
 options(future.wait.interval = 0.1)
@@ -50,7 +56,7 @@ js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
-print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
+print(ggjournal(js, time_range = c(0, 2.0), future_range = c(1, 5)))
 
 ## Shut down parallel workers
 plan(sequential)
@@ -66,13 +72,13 @@ plan(sequential)
 js <- capture_journals({
   vs <- future_lapply(5:1, FUN = slow_fcn)
 })
-print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
+print(ggjournal(js, time_range = c(0, 2.0), future_range = c(1, 5)))
 
 plan(multisession, workers = 2)
 js <- capture_journals({
   vs <- future_lapply(5:1, FUN = slow_fcn)
 })
-print(ggjournal(js) + coord_cartesian(xlim = c(0.0, 2.0), ylim = c(1, 6)))
+print(ggjournal(js, time_range = c(0, 2.0), future_range = c(1, 5)))
 
 ## Shut down parallel workers
 plan(sequential)
