@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">future.tools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0-9011</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0-9014</span>
       </span>
     </div>
 
@@ -47,7 +47,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ggjournal</span><span class="op">(</span><span class="va">x</span>, baseline <span class="op">=</span> <span class="cn">TRUE</span>, time_range <span class="op">=</span> <span class="cn">NULL</span>, future_range <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ggjournal</span><span class="op">(</span>
+  <span class="va">x</span>,
+  baseline <span class="op">=</span> <span class="cn">TRUE</span>,
+  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"future"</span>, <span class="st">"worker"</span><span class="op">)</span>,
+  time_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"future.tools.ggjournal.time_range"</span>, <span class="cn">NULL</span><span class="op">)</span>,
+  item_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"future.tools.ggjournal.item_range"</span>, <span class="cn">NULL</span><span class="op">)</span>,
+  <span class="va">...</span>
+<span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -62,14 +69,18 @@ for the relative timestamps. If <code>TRUE</code> (default), then the earliest
 timepoint observed is used as the baseline.</p></dd>
 
 
+<dt>by</dt>
+<dd><p>(character string) Vertically separate by future or worker?</p></dd>
+
+
 <dt>time_range</dt>
 <dd><p>(optional vector of length two) The range of time
 to displayed.</p></dd>
 
 
-<dt>future_range</dt>
+<dt>item_range</dt>
 <dd><p>(optional vector of length two) The range of future
-indices to displayed.</p></dd>
+or worker indices to displayed.</p></dd>
 
 
 <dt>...</dt>
@@ -85,7 +96,9 @@ indices to displayed.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://future.futureverse.org" class="external-link">future</a></span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://future.apply.futureverse.org" class="external-link">future.apply</a></span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: future</span>
+<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://future.futureverse.org" class="external-link">future</a></span><span class="op">)</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">slow_fcn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
@@ -93,54 +106,51 @@ indices to displayed.</p></dd>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/capture_journals.html" class="external-link">capture_journals</a></span><span class="op">(</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">fs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://future.futureverse.org/reference/future.html" class="external-link">future</a></span><span class="op">(</span><span class="fu">slow_fcn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/value.html" class="external-link">value</a></span><span class="op">(</span><span class="va">fs</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">ggjournal</span><span class="op">(</span><span class="va">js</span>, time_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2.0</span><span class="op">)</span>, future_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="ggjournal-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span class="co">## Plot with fixed x and y limits</span></span>
+<span class="r-in"><span class="va">ggjournal_x</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">js</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in">  <span class="kw">for</span> <span class="op">(</span><span class="va">by</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"future"</span>, <span class="st">"worker"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in">    <span class="va">item_range</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">by</span> <span class="op">==</span> <span class="st">"future"</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span> <span class="kw">else</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1.5</span><span class="op">)</span></span>
+<span class="r-in">    <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">ggjournal</span><span class="op">(</span><span class="va">js</span>, by <span class="op">=</span> <span class="va">by</span>,</span>
+<span class="r-in">                    time_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2.0</span><span class="op">)</span>, item_range <span class="op">=</span> <span class="va">item_range</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in">  <span class="op">}</span></span>
+<span class="r-in"><span class="op">}</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">multisession</span>, workers <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span>
+<span class="r-in"></span>
 <span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/capture_journals.html" class="external-link">capture_journals</a></span><span class="op">(</span><span class="op">{</span></span>
 <span class="r-in">  <span class="va">fs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://future.futureverse.org/reference/future.html" class="external-link">future</a></span><span class="op">(</span><span class="fu">slow_fcn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/value.html" class="external-link">value</a></span><span class="op">(</span><span class="va">fs</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">ggjournal</span><span class="op">(</span><span class="va">js</span>, time_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2.0</span><span class="op">)</span>, future_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">ggjournal_x</span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span>
+<span class="r-plt img"><img src="ggjournal-1.png" alt="" width="700" height="433"></span>
 <span class="r-plt img"><img src="ggjournal-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="co">## Increase polling time to 0.1 seconds (default is 0.01 seconds)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>future.wait.interval <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/capture_journals.html" class="external-link">capture_journals</a></span><span class="op">(</span><span class="op">{</span></span>
+<span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
+<span class="r-in"><span class="op">}</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">ggjournal_x</span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span>
+<span class="r-plt img"><img src="ggjournal-3.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="ggjournal-4.png" alt="" width="700" height="433"></span>
+<span class="r-in"></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">multisession</span>, workers <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"></span>
 <span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/capture_journals.html" class="external-link">capture_journals</a></span><span class="op">(</span><span class="op">{</span></span>
 <span class="r-in">  <span class="va">fs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://future.futureverse.org/reference/future.html" class="external-link">future</a></span><span class="op">(</span><span class="fu">slow_fcn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/value.html" class="external-link">value</a></span><span class="op">(</span><span class="va">fs</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">ggjournal</span><span class="op">(</span><span class="va">js</span>, time_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2.0</span><span class="op">)</span>, future_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="ggjournal-3.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Shut down parallel workers</span></span>
-<span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://future.apply.futureverse.org" class="external-link">future.apply</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">slow_fcn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html" class="external-link">Sys.sleep</a></span><span class="op">(</span><span class="va">x</span> <span class="op">/</span> <span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/capture_journals.html" class="external-link">capture_journals</a></span><span class="op">(</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">ggjournal</span><span class="op">(</span><span class="va">js</span>, time_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2.0</span><span class="op">)</span>, future_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="ggjournal-4.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">multisession</span>, workers <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/capture_journals.html" class="external-link">capture_journals</a></span><span class="op">(</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">ggjournal</span><span class="op">(</span><span class="va">js</span>, time_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2.0</span><span class="op">)</span>, future_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">ggjournal_x</span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="ggjournal-5.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="ggjournal-6.png" alt="" width="700" height="433"></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.futureverse.org/reference/capture_journals.html" class="external-link">capture_journals</a></span><span class="op">(</span><span class="op">{</span></span>
+<span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
+<span class="r-in"><span class="op">}</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">ggjournal_x</span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span>
+<span class="r-plt img"><img src="ggjournal-7.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="ggjournal-8.png" alt="" width="700" height="433"></span>
+<span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Shut down parallel workers</span></span>
 <span class="r-in"><span class="fu"><a href="https://future.futureverse.org/reference/plan.html" class="external-link">plan</a></span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span>
