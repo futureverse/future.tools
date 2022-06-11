@@ -82,15 +82,23 @@ ggjournal <- function(x, baseline = TRUE, time_range = NULL, future_range = NULL
   ## ------------------------------------------------------------------
   gg <- ggplot()
 
-  layer <- rep(3L, times = nrow(js))
-  layer[js[["parent"]] == "launch"  ] <- 4L
-#  layer[js[["event"]]  == "resolved"] <- 1L
-  layer[js[["event"]]  == "evaluate"] <- 1L
-
   height <- c(2, 1, 2, 1)
   height <- 0.8 * height / sum(height)
   yoffset <- c(0.0, cumsum(height)[-length(height)])
   yoffset <- yoffset - height[1]
+
+  layer <- rep(3L, times = nrow(js))
+  layer[js[["parent"]] == "launch"  ] <- 4L
+
+  ## Was 'evaluate' performed in another R process?  If so, draw
+  ## 'evaluate' underneath 'lifespan' instead of as above.
+  for (idx in js[["index"]]) {
+    idx_c <- which((js[["event"]] == "create"  ) & (js[["index"]] == idx))
+    idx_e <- which((js[["event"]] == "evaluate") & (js[["index"]] == idx))
+    if (js[["session_uuid"]][idx_e] != js[["session_uuid"]][idx_c]) {
+      layer[idx_e] <- 1L
+    }
+  }
 
   ## Lifespans
   js <- group_by(js, index)
