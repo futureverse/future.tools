@@ -8,8 +8,9 @@ slow_fcn <- function(x) {
 }
 
 ## Fixate x and y lims
-time_range <- c(0, 2.0)
-item_range <- c(1, 5)
+options(future.tools.ggjournal.time_range = c(0, 2.0))
+options(future.tools.ggjournal.item_range = c(1, 5))
+
 
 plan(sequential)
 
@@ -17,12 +18,12 @@ js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
-print(ggjournal(js, time_range = time_range, item_range = item_range)
+print(ggjournal(js))
 
 js <- capture_journals({
   vs <- future_lapply(5:1, FUN = slow_fcn)
 })
-print(ggjournal(js, time_range = time_range, item_range = item_range)
+print(ggjournal(js))
 
 
 plan(multisession, workers = 2)
@@ -31,12 +32,13 @@ js <- capture_journals({
   fs <- lapply(5:1, FUN = function(x) future(slow_fcn(x)))
   vs <- value(fs)
 })
-print(ggjournal(js, time_range = time_range, item_range = item_range)
+print(ggjournal(js))
 
 js <- capture_journals({
   vs <- future_lapply(5:1, FUN = slow_fcn)
 })
-print(ggjournal(js, time_range = time_range, item_range = item_range)
+print(ggjournal(js))
+
 
 ## Shut down parallel workers
 plan(sequential)

@@ -25,7 +25,7 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-ggjournal <- function(x, baseline = TRUE, by = c("future", "worker"), time_range = NULL, item_range = NULL, ...) {
+ggjournal <- function(x, baseline = TRUE, by = c("future", "worker"), time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), ...) {
   by <- match.arg(by)
   ## To please R CMD check
   at <- duration <- end <- index <- event <- future_index <- NULL
