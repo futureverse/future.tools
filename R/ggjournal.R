@@ -29,6 +29,51 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   }
   js <- mutate(js, start = as.numeric(at), end = as.numeric(at + duration))
 
+  ## ------------------------------------------------------------------
+  ## Create (event, legend) map
+  ## ------------------------------------------------------------------
+  general <- c("lifespan", "resolved")
+  chrono <- c("create", "launch", "evaluate", "gather")
+  events <- c(general, chrono)
+  others <- setdiff(as.character(levels(js[["event"]])), events)
+  events <- c(events, others)
+
+  index <- as.character(match(events, table = chrono))
+  index[is.na(index)] <- ""
+  map <- data.frame(event = events, index = index)
+
+  parents <- unique(js[["parent"]])
+  parents <- parents[!is.na(parents)]
+  for (parent in parents) {
+    children <- subset(js, parent == parent)[["event"]]
+    children <- as.character(unique(children))
+    index_parent <- subset(map, event == parent)[["index"]]
+    index_children <- paste(index_parent, seq_along(children), sep = ".")
+    idxs <- match(map[["event"]], children)
+    keep <- is.finite(idxs)
+    map[["index"]][keep] <- index_children[idxs][keep]
+  }
+
+  ## Event labels
+  labels <- tolower(gsub("([[:upper:]])", " \\1", events))
+  labels[labels == "resolved"] <- "resolved?"
+  map[["label"]] <- labels
+
+  ## Labels with index prefix
+  labels <- paste(map[["index"]], map[["label"]], sep = ". ")
+  labels <- gsub("^[.] ", "", labels)
+  map[["indexed_label"]] <- labels
+
+  ## Order by index
+  index <- map[["index"]]
+  index[index == ""] <- 0
+  o <- order(numeric_version(index))
+  map <- map[o, ]
+
+
+  ## ------------------------------------------------------------------
+  ## Generate plot
+  ## ------------------------------------------------------------------
   gg <- ggplot()
 
   ## Lifespans
@@ -59,28 +104,11 @@ ggjournal <- function(x, baseline = TRUE, ...) {
   gg <- gg + labs(fill = "Event")
 
   ## Fixate colors
-  known_events <- c(
-    ## Out of order events
-    "lifespan", "resolved",
-    ## Chronological events
-    "create", "launch", "evaluate", "gather"
-  )
-  extra_events <- setdiff(levels(js$event), known_events)
-#  if (length(extra_events) <= 6L) {
-#    extra_events <- c(extra_events, rep(NA_character_, times = 6L - length(extra_events)))
-#  } else if (length(extra_events) > 6L) {
-#    stopf("Only supports at most six extra 'events': %s",
-#                 paste(sQuote(extra_events), collapse = ", "))
-#  }
-  events <- c(known_events, extra_events)
-  cols <- journal_palette(along = events)
-  names(cols) <- events
-
-  ## Legend labels
-  labels <- tolower(gsub("([[:upper:]])", " \\1", events))
-  labels[labels == "resolved"] <- "resolved?"
   
-  gg <- gg + scale_fill_manual(values = cols, labels = labels)
+  cols <- journal_palette(along = map[["event"]])
+  names(cols) <- map[["event"]]
+
+  gg <- gg + scale_fill_manual(values = cols, labels = map[["indexed_label"]])
 
   gg
 }
