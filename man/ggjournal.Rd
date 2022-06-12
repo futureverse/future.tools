@@ -6,19 +6,16 @@
 \usage{
 ggjournal(
   x,
-  baseline = TRUE,
   by = c("future", "worker"),
   time_range = getOption("future.tools.ggjournal.time_range", NULL),
   item_range = getOption("future.tools.ggjournal.item_range", NULL),
+  events = NULL,
+  baseline = TRUE,
   ...
 )
 }
 \arguments{
 \item{x}{A list of \link[future:Future-class]{future::Future} or FutureJournal objects.}
-
-\item{baseline}{(POSIXct; optional) A timestamp to server as time zero
-for the relative timestamps. If \code{TRUE} (default), then the earliest
-timepoint observed is used as the baseline.}
 
 \item{by}{(character string) Vertically separate by future or worker?}
 
@@ -27,6 +24,13 @@ to displayed.}
 
 \item{item_range}{(optional vector of length two) The range of future
 or worker indices to displayed.}
+
+\item{events}{(character vector; optional) Events to be displayed.
+If NULL, then all events are displayed.}
+
+\item{baseline}{(POSIXct; optional) A timestamp to server as time zero
+for the relative timestamps. If \code{TRUE} (default), then the earliest
+timepoint observed is used as the baseline.}
 
 \item{\ldots}{Currently not used.}
 }
