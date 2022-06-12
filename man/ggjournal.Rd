@@ -39,7 +39,6 @@ Create a Future Journal Plot
 \examples{
 library(future.apply)
 library(future)
-library(ggplot2)
 
 slow_fcn <- function(x) {
   Sys.sleep(x / 10)
