@@ -31,7 +31,7 @@
 ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), events = NULL, baseline = TRUE, ...) {
   by <- match.arg(by)
   ## To please R CMD check
-  at <- duration <- end <- index <- event <- future_index <- future_uuid <- start <- NULL
+  at <- duration <- end <- index <- event <- future_index <- future_uuid <- start <- voffset <- NULL
 
   ## ------------------------------------------------------------------
   ## Merge multiple journals and index the futures
@@ -57,9 +57,21 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
 
   stopifnot(is.factor(js[["event"]]))
 
+
   ## ------------------------------------------------------------------
   ## Additional annotations
   ## ------------------------------------------------------------------
+  ## Evaluated in external R process?
+  js$external <- rep(FALSE, times = nrow(js))
+  for (uuid in js[["future_uuid"]]) {
+    keep <- (js[["future_uuid"]] == uuid)
+    idx_c <- which(keep & (js[["event"]] == "create"  ))
+    idx_e <- which(keep & (js[["event"]] == "evaluate"))
+    if (js[["session_uuid"]][idx_e] != js[["session_uuid"]][idx_c]) {
+      js$external[keep] <- TRUE
+    }
+  }
+
   ## Add 'future' index
   ids <- unique(js[["future_uuid"]])
   js[["future_index"]] <- match(js[["future_uuid"]], ids)
@@ -126,7 +138,7 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
   map <- map[o, ]
 
 
-## ------------------------------------------------------------------
+  ## ------------------------------------------------------------------
   ## Generate plot
   ## ------------------------------------------------------------------
   height <- c(2, 1, 2, 1)
@@ -139,29 +151,25 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
   layer[js[["parent"]] == "launch"] <- 4L
   layer[js[["event"]] == "lifespan"] <- 2L
 
-  ## Was 'evaluate' performed in another R process?  If so, draw
-  ## 'evaluate' underneath 'lifespan' instead of as above (iff by = "future")
-  for (idx in js[["future_index"]]) {
-    idx_c <- which((js[["event"]] == "create"  ) & (js[["future_index"]] == idx))
-    idx_e <- which((js[["event"]] == "evaluate") & (js[["future_index"]] == idx))
-    if (js[["session_uuid"]][idx_e] != js[["session_uuid"]][idx_c]) {
-      if (by == "future") {
-        layer[idx_e] <- 1L
-      }
-    }
+  if (by == "future") {
+    keep <- (js$external & (js$event == "evaluate"))
+    layer[keep] <- 1L
   }
+
   stopifnot(all(is.finite(layer)))
   js$layer <- layer
-  rm(list = "layer")
-  
+  js$voffset <- yoffset[layer]
+  js$height <- height[layer]
+  rm(list = c("layer", "yoffset", "height"))
+
   gg <- ggplot()
 
   ## Events
   gg <- gg + geom_rect(data = js, aes(
      xmin = start,
      xmax = end,
-     ymin = index + yoffset[layer],
-     ymax = index + yoffset[layer] + height[layer],
+     ymin = index + voffset,
+     ymax = index + voffset + height,
      fill = event
   ))
 
@@ -188,6 +196,8 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
   gg <- gg + scale_y_continuous(breaks = seq_len(max(nbr_of_items, 100L)))
   gg <- gg + xlab("Time (seconds)") + ylab(by)
   gg <- gg + labs(fill = "Event")
+
+  attr(gg, "js_expanded") <- js
 
   gg
 }
