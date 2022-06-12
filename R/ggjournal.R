@@ -31,7 +31,7 @@
 ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), events = NULL, baseline = TRUE, ...) {
   by <- match.arg(by)
   ## To please R CMD check
-  at <- duration <- end <- index <- event <- future_index <- future_uuid <- start <- voffset <- NULL
+  at <- duration <- end <- index <- event <- future_index <- future_uuid <- start <- NULL
 
   ## ------------------------------------------------------------------
   ## Merge multiple journals and index the futures
@@ -143,24 +143,36 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
   ## ------------------------------------------------------------------
   height <- c(2, 1, 2, 1)
   height <- 0.8 * height / sum(height)
-  yoffset <- c(0.0, cumsum(height)[-length(height)])
-  yoffset <- yoffset - height[1]
-  stopifnot(all(is.finite(height)), all(is.finite(yoffset)))
+  voffset <- c(0.0, cumsum(height)[-length(height)])
+  voffset <- voffset - height[1]
+  stopifnot(all(is.finite(height)), all(is.finite(voffset)))
   
   layer <- rep(3L, times = nrow(js))
   layer[js[["parent"]] == "launch"] <- 4L
   layer[js[["event"]] == "lifespan"] <- 2L
 
+  voffset <- voffset[layer]
+  height <- height[layer]
+
   if (by == "future") {
     keep <- (js$external & (js$event == "evaluate"))
     layer[keep] <- 1L
+  } else if (by == "worker") {
+    for (uuid in js[["future_uuid"]]) {
+      keep <- (js[["future_uuid"]] == uuid)
+      idx_e <- which(keep & (js[["event"]] == "evaluate"))
+      if (js$external[idx_e]) {
+        idx_ls <- which(keep & (js[["event"]] == "lifespan"))
+        js$index[idx_ls] <- js$index[idx_e]
+      }
+    }
   }
 
   stopifnot(all(is.finite(layer)))
   js$layer <- layer
-  js$voffset <- yoffset[layer]
-  js$height <- height[layer]
-  rm(list = c("layer", "yoffset", "height"))
+  js$voffset <- voffset
+  js$height <- height
+  rm(list = c("layer", "voffset", "height"))
 
   gg <- ggplot()
 
