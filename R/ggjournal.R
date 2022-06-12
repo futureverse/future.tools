@@ -37,10 +37,11 @@ ggjournal <- function(x, baseline = TRUE, by = c("future", "worker"), time_range
   js <- journal(x, baseline = baseline)
   js <- mutate(js, start = as.numeric(at), end = as.numeric(at + duration))
 
-  ## Rename 'index' to 'future_index' (FIXME: Should be done by journal() /HB 2022-06-11
-  js[["future_index"]] <- js[["index"]]
+  ## Add 'future' index
+  ids <- unique(js[["future_uuid"]])
+  js[["future_index"]] <- match(js[["future_uuid"]], ids)
 
-  ## Add 'session' index (FIXME: Should be done by journal() /HB 2022-06-11
+  ## Add 'session' index
   ids <- unique(js[["session_uuid"]])
   js[["session_index"]] <- match(js[["session_uuid"]], ids) - 1L
 
