@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">future.tools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0-9017</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0-9020</span>
       </span>
     </div>
 
@@ -49,11 +49,14 @@
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ggjournal</span><span class="op">(</span>
   <span class="va">x</span>,
-  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"future"</span>, <span class="st">"worker"</span><span class="op">)</span>,
+  style <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"future"</span>, <span class="st">"future-worker"</span>, <span class="st">"worker"</span><span class="op">)</span>,
   time_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"future.tools.ggjournal.time_range"</span>, <span class="cn">NULL</span><span class="op">)</span>,
   item_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"future.tools.ggjournal.item_range"</span>, <span class="cn">NULL</span><span class="op">)</span>,
   events <span class="op">=</span> <span class="cn">NULL</span>,
   baseline <span class="op">=</span> <span class="cn">TRUE</span>,
+  label_fmt <span class="op">=</span> <span class="st">"#%s"</span>,
+  annotate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"future_label"</span><span class="op">)</span>,
+  arrows <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"launch"</span>, <span class="st">"gather"</span><span class="op">)</span>,
   <span class="va">...</span>
 <span class="op">)</span></code></pre></div>
     </div>
@@ -64,8 +67,9 @@
 <dd><p>A list of <a href="https://future.futureverse.org/reference/Future-class.html" class="external-link">future::Future</a> or FutureJournal objects.</p></dd>
 
 
-<dt>by</dt>
-<dd><p>(character string) Vertically separate by future or worker?</p></dd>
+<dt>style</dt>
+<dd><p>(character string) One of <code>"future"</code>, <code>"future-worker"</code>,
+and <code>"worker"</code>.</p></dd>
 
 
 <dt>time_range</dt>
@@ -87,6 +91,19 @@ If NULL, then all events are displayed.</p></dd>
 <dd><p>(POSIXct; optional) A timestamp to server as time zero
 for the relative timestamps. If <code>TRUE</code> (default), then the earliest
 timepoint observed is used as the baseline.</p></dd>
+
+
+<dt>label_fmt</dt>
+<dd><p>(format string; optional) Used to create labels if
+<code>future_label</code> is missing. If NULL, no labels are created.</p></dd>
+
+
+<dt>annotate</dt>
+<dd><p>(character vector) Additional annotations to add.</p></dd>
+
+
+<dt>arrows</dt>
+<dd><p>(character vector) Type of arrows to draw.</p></dd>
 
 
 <dt>...</dt>
@@ -135,7 +152,9 @@ timepoint observed is used as the baseline.</p></dd>
 <span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">ggjournal_x</span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 1 rows containing missing values (geom_text).</span>
 <span class="r-plt img"><img src="ggjournal-3.png" alt="" width="700" height="433"></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 1 rows containing missing values (geom_text).</span>
 <span class="r-plt img"><img src="ggjournal-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
@@ -153,7 +172,11 @@ timepoint observed is used as the baseline.</p></dd>
 <span class="r-in">  <span class="va">vs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://future.apply.futureverse.org/reference/future_lapply.html" class="external-link">future_lapply</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">1</span>, FUN <span class="op">=</span> <span class="va">slow_fcn</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">ggjournal_x</span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 2 rows containing missing values (geom_text).</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 2 rows containing missing values (geom_text).</span>
 <span class="r-plt img"><img src="ggjournal-7.png" alt="" width="700" height="433"></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 2 rows containing missing values (geom_text).</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 2 rows containing missing values (geom_text).</span>
 <span class="r-plt img"><img src="ggjournal-8.png" alt="" width="700" height="433"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
