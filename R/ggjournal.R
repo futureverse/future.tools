@@ -164,8 +164,9 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
   map <- map[o, ]
   rm(list = c("index", "labels", "o"))
 
+
   ## ------------------------------------------------------------------
-  ## Generate plot
+  ## Position events
   ## ------------------------------------------------------------------
   layer_height <- c(2, 2, 2, 1)
   layer_height <- 0.8 * layer_height / sum(layer_height)
@@ -218,46 +219,16 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
   js$height <- height
   rm(list = c("layer", "voffset", "height", "layer_voffset", "layer_height"))
 
+
   gg <- ggplot()
-
-  ## Events
-  gg <- gg + geom_rect(data = js, aes(
-     xmin = start,
-     xmax = end,
-     ymin = index + voffset,
-     ymax = index + voffset + height,
-     fill = event
-  ))
-
-  js_lifespan <- filter(js, event == "lifespan")
-  gg <- gg + geom_rect(data = js_lifespan, aes(
-     xmin = start,
-     xmax = end,
-     ymin = index + voffset,
-     ymax = index + voffset + height,
-     fill = event
-  ), color = "black")
-
-  ## Generate event colors
-  cols <- journal_palette(along = all_events)
-  names(cols) <- all_events
-
-  ## Map events to (color, label)
-  cols <- cols[match(map[["event"]], all_events)]
-  labels <- map[["indexed_label"]]
-
-  ## Hide events?
-  drop <- (!names(cols) %in% events)
-  if (any(drop)) {
-    cols[drop] <- "transparent"
-    labels[drop] <- ""
-  }
 
 
   ## All 'evaluate' events
   js_w <- filter(js, event == "evaluate")
 
-  ## Add launch-gather arrows?
+  ## ------------------------------------------------------------------
+  ## Add arrows
+  ## ------------------------------------------------------------------
   if (all(js_w$external)) {
     if ("launch" %in% arrows) {
       js_f <- filter(js, event == "launch")
@@ -295,7 +266,45 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
   }
 
 
-  ## Add future labels?
+  ## ------------------------------------------------------------------
+  ## Add event blocks
+  ## ------------------------------------------------------------------
+  gg <- gg + geom_rect(data = js, aes(
+     xmin = start,
+     xmax = end,
+     ymin = index + voffset,
+     ymax = index + voffset + height,
+     fill = event
+  ))
+
+  js_lifespan <- filter(js, event == "lifespan")
+  gg <- gg + geom_rect(data = js_lifespan, aes(
+     xmin = start,
+     xmax = end,
+     ymin = index + voffset,
+     ymax = index + voffset + height,
+     fill = event
+  ), color = "black")
+
+  ## Generate event colors
+  cols <- journal_palette(along = all_events)
+  names(cols) <- all_events
+
+  ## Map events to (color, label)
+  cols <- cols[match(map[["event"]], all_events)]
+  labels <- map[["indexed_label"]]
+
+  ## Hide events?
+  drop <- (!names(cols) %in% events)
+  if (any(drop)) {
+    cols[drop] <- "transparent"
+    labels[drop] <- ""
+  }
+
+
+  ## ------------------------------------------------------------------
+  ## Add future labels
+  ## ------------------------------------------------------------------
   if ("future_label" %in% annotate) {
     gg <- gg + geom_text(
       data = subset(js, event == "lifespan"),
