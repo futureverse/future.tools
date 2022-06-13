@@ -2,7 +2,8 @@
 #'
 #' @param x A list of [future::Future] or FutureJournal objects.
 #'
-#' @param by (character string) Vertically separate by future or worker?
+#' @param style (character string) One of `"future"`, `"future-worker"`,
+#' and `"worker"`.
 #'
 #' @param time_range (optional vector of length two) The range of time
 #' to displayed.
@@ -17,6 +18,9 @@
 #' for the relative timestamps. If `TRUE` (default), then the earliest
 #' timepoint observed is used as the baseline.
 #'
+#' @param label_fmt (format string; optional) Used to create labels if
+#' `future_label` is missing. If NULL, no labels are created.
+#'
 #' @param \ldots Currently not used.
 #'
 #' @return
@@ -28,8 +32,8 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), events = NULL, baseline = TRUE, ...) {
-  by <- match.arg(by)
+ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), events = NULL, baseline = TRUE, label_fmt = "#%s", ...) {
+  style <- match.arg(style)
   ## To please R CMD check
   at <- duration <- end <- index <- event <- future_index <- future_uuid <- start <- NULL
 
@@ -61,6 +65,9 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
   ## ------------------------------------------------------------------
   ## Additional annotations
   ## ------------------------------------------------------------------
+  ## Mid time point
+  js <- mutate(js, mid = (start + end) / 2)
+  
   ## Evaluated in external R process?
   js$external <- rep(FALSE, times = nrow(js))
   for (uuid in js[["future_uuid"]]) {
@@ -71,20 +78,33 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
       js$external[keep] <- TRUE
     }
   }
+  stopifnot(!anyNA(js$external))
 
   ## Add 'future' index
   ids <- unique(js[["future_uuid"]])
   js[["future_index"]] <- match(js[["future_uuid"]], ids)
+  stopifnot(all(is.finite(js$future_index)))
 
   ## Add 'session' index
   ids <- unique(js[["session_uuid"]])
   js[["session_index"]] <- match(js[["session_uuid"]], ids) - 1L
+  stopifnot(all(is.finite(js$session_index)))
+
+  ## Set future labels, if missing?
+  if (is.character(label_fmt)) {
+    js <- mutate(js, future_label = case_when(
+      is.na(future_label) ~ sprintf(label_fmt, future_index)
+    ))
+  }
 
 
   ## ------------------------------------------------------------------
   ## Vertically separate by future or workers?
   ## ------------------------------------------------------------------
-  js[["index"]] <- js[[if (by == "future") "future_index" else "session_index"]]
+  js[["index"]] <- js[["future_index"]]
+  if (style == "worker") js[["index"]] <- js[["session_index"]]
+  stopifnot(all(is.finite(js$index)))
+
   nbr_of_items <- length(unique(ids))
 
 
@@ -136,43 +156,61 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
   index[index == ""] <- 0
   o <- order(numeric_version(index))
   map <- map[o, ]
-
+  rm(list = c("index", "labels", "o"))
 
   ## ------------------------------------------------------------------
   ## Generate plot
   ## ------------------------------------------------------------------
-  height <- c(2, 1, 2, 1)
-  height <- 0.8 * height / sum(height)
-  voffset <- c(0.0, cumsum(height)[-length(height)])
-  voffset <- voffset - height[1]
-  stopifnot(all(is.finite(height)), all(is.finite(voffset)))
+  layer_height <- c(2, 2, 2, 1)
+  layer_height <- 0.8 * layer_height / sum(layer_height)
+  layer_voffset <- c(0.0, cumsum(layer_height)[-length(layer_height)])
+  layer_voffset <- layer_voffset - layer_height[1]
+  stopifnot(all(is.finite(layer_height)), all(is.finite(layer_voffset)))
   
   layer <- rep(3L, times = nrow(js))
   layer[js[["parent"]] == "launch"] <- 4L
   layer[js[["event"]] == "lifespan"] <- 2L
+  stopifnot(length(layer) == nrow(js), all(is.finite(layer)))
 
-  voffset <- voffset[layer]
-  height <- height[layer]
+  voffset <- layer_voffset[layer]
+  stopifnot(length(voffset) == nrow(js), all(is.finite(voffset)))
+  
+  height <- layer_height[layer]
+  stopifnot(length(height) == nrow(js), all(is.finite(height)))
 
-  if (by == "future") {
+  if (style %in% c("future", "future-worker")) {
     keep <- (js$external & (js$event == "evaluate"))
     layer[keep] <- 1L
-  } else if (by == "worker") {
+
+    if (style == "future-worker") {
+      for (uuid in js[["future_uuid"]]) {
+        keep <- (js[["future_uuid"]] == uuid)
+        idx_e <- which(keep & (js[["event"]] == "evaluate"))
+        if (js$external[idx_e]) {
+          js$index[idx_e] <- -js$session_index[idx_e]
+        }
+      }
+    }
+  } else if (style == "worker") {
     for (uuid in js[["future_uuid"]]) {
       keep <- (js[["future_uuid"]] == uuid)
       idx_e <- which(keep & (js[["event"]] == "evaluate"))
       if (js$external[idx_e]) {
         idx_ls <- which(keep & (js[["event"]] == "lifespan"))
-        js$index[idx_ls] <- js$index[idx_e]
+        voffset[idx_ls] <- -layer_height[2]*js$future_index[idx_ls]
       }
     }
   }
 
-  stopifnot(all(is.finite(layer)))
+  stopifnot(all(is.finite(js$index)))
+  stopifnot(length(layer) == nrow(js), all(is.finite(layer)))
+  stopifnot(length(voffset) == nrow(js), all(is.finite(voffset)))
+  stopifnot(length(height) == nrow(js), all(is.finite(height)))
+
   js$layer <- layer
   js$voffset <- voffset
   js$height <- height
-  rm(list = c("layer", "voffset", "height"))
+  rm(list = c("layer", "voffset", "height", "layer_voffset", "layer_height"))
 
   gg <- ggplot()
 
@@ -184,6 +222,15 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
      ymax = index + voffset + height,
      fill = event
   ))
+
+  js_lifespan <- filter(js, event == "lifespan")
+  gg <- gg + geom_rect(data = js_lifespan, aes(
+     xmin = start,
+     xmax = end,
+     ymin = index + voffset,
+     ymax = index + voffset + height,
+     fill = event
+  ), color = "black")
 
   ## Generate event colors
   cols <- journal_palette(along = all_events)
@@ -206,7 +253,7 @@ ggjournal <- function(x, by = c("future", "worker"), time_range = getOption("fut
   gg <- gg + coord_cartesian(xlim = time_range, ylim = ylim)
 
   gg <- gg + scale_y_continuous(breaks = seq_len(max(nbr_of_items, 100L)))
-  gg <- gg + xlab("Time (seconds)") + ylab(by)
+  gg <- gg + xlab("Time (seconds)") + ylab("")
   gg <- gg + labs(fill = "Event")
 
   attr(gg, "js_expanded") <- js

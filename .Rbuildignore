@@ -49,7 +49,7 @@ Rplots.pdf$
 ^[.]local
 ^[.].pkgdown/
 ^[.]docs/
-^*[.]png
+^.*[.]png
 
 #----------------------------
 # Package specific

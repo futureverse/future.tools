@@ -6,18 +6,20 @@
 \usage{
 ggjournal(
   x,
-  by = c("future", "worker"),
+  style = c("future", "future-worker", "worker"),
   time_range = getOption("future.tools.ggjournal.time_range", NULL),
   item_range = getOption("future.tools.ggjournal.item_range", NULL),
   events = NULL,
   baseline = TRUE,
+  label_fmt = "#\%s",
   ...
 )
 }
 \arguments{
 \item{x}{A list of \link[future:Future-class]{future::Future} or FutureJournal objects.}
 
-\item{by}{(character string) Vertically separate by future or worker?}
+\item{style}{(character string) One of \code{"future"}, \code{"future-worker"},
+and \code{"worker"}.}
 
 \item{time_range}{(optional vector of length two) The range of time
 to displayed.}
@@ -31,6 +33,9 @@ If NULL, then all events are displayed.}
 \item{baseline}{(POSIXct; optional) A timestamp to server as time zero
 for the relative timestamps. If \code{TRUE} (default), then the earliest
 timepoint observed is used as the baseline.}
+
+\item{label_fmt}{(format string; optional) Used to create labels if
+\code{future_label} is missing. If NULL, no labels are created.}
 
 \item{\ldots}{Currently not used.}
 }
