@@ -229,7 +229,7 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
   ## ------------------------------------------------------------------
   ## Add arrows
   ## ------------------------------------------------------------------
-  if (all(js_w$external)) {
+  if (style != "future" && all(js_w$external)) {
     if ("launch" %in% arrows) {
       js_f <- filter(js, event == "launch")
       gg <- gg + geom_segment(
@@ -314,7 +314,7 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
       size = 6
     )
   
-    if (all(js_w$external)) {
+    if (style != "future" && all(js_w$external)) {
       gg <- gg + geom_text(
         data = js_w,
         aes(mid, index + voffset + height/2, label = future_label),
