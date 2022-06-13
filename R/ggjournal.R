@@ -322,7 +322,7 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
   ylim <- if (is.null(item_range)) NULL else item_range + c(-0.2, 0.8)
   gg <- gg + coord_cartesian(xlim = time_range, ylim = ylim)
 
-  gg <- gg + scale_y_continuous(breaks = seq_len(max(nbr_of_items, 100L)))
+  gg <- gg + scale_y_continuous(breaks = NULL)
   gg <- gg + xlab("Time (seconds)") + ylab("")
   gg <- gg + labs(fill = "Event")
 
