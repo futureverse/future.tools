@@ -21,6 +21,10 @@
 #' @param label_fmt (format string; optional) Used to create labels if
 #' `future_label` is missing. If NULL, no labels are created.
 #'
+#' @param annotate (character vector) Additional annotations to add.
+#'
+#' @param arrows (character vector) Type of arrows to draw.
+#'
 #' @param \ldots Currently not used.
 #'
 #' @return
@@ -32,10 +36,12 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), events = NULL, baseline = TRUE, label_fmt = "#%s", ...) {
-  style <- match.arg(style)
+ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), events = NULL, baseline = TRUE, label_fmt = "#%s", annotate = c("future_label"), arrows = c("launch", "gather"), ...) {
   ## To please R CMD check
-  at <- duration <- end <- index <- event <- future_index <- future_uuid <- start <- NULL
+  at <- duration <- end <- event <- index <- future_index <- future_label <- future_uuid <- mid <- start <- NULL
+  end.x <- height.y <- index.x <- index.y <- voffset.y <- NULL
+
+  style <- match.arg(style)
 
   ## ------------------------------------------------------------------
   ## Merge multiple journals and index the futures
@@ -246,6 +252,70 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
     cols[drop] <- "transparent"
     labels[drop] <- ""
   }
+
+
+  ## All 'evaluate' events
+  js_w <- filter(js, event == "evaluate")
+
+  ## Add launch-gather arrows?
+  if (all(js_w$external)) {
+    if ("launch" %in% arrows) {
+      js_f <- filter(js, event == "launch")
+      gg <- gg + geom_segment(
+        data = left_join(js_f, js_w, by = c("future_uuid")),
+        aes(
+          x = end.x,
+          y = index.x,
+          xend = end.x,
+          yend = index.y + voffset.y + height.y
+        ),
+        color = "black",
+        arrow = arrow(ends = "last", length = unit(0.15, "inches")),
+        linetype = 1L,
+        size = 1.0
+      )
+    }
+    
+    if ("gather" %in% arrows) {
+      js_f <- filter(js, event == "gather")
+      gg <- gg + geom_segment(
+        data = left_join(js_f, js_w, by = c("future_uuid")),
+        aes(
+          x = end.x,
+          y = index.x,
+          xend = end.x,
+          yend = index.y + voffset.y + height.y
+        ),
+        color = "black",
+        arrow = arrow(ends = "first", length = unit(0.15, "inches")),
+        linetype = 1L,
+        size = 1.0
+      )
+    }
+  }
+
+
+  ## Add future labels?
+  if ("future_label" %in% annotate) {
+    gg <- gg + geom_text(
+      data = subset(js, event == "lifespan"),
+      aes(mid, index + voffset + height/2, label = future_label),
+      hjust = "center",
+      vjust = "middle",
+      size = 6
+    )
+  
+    if (all(js_w$external)) {
+      gg <- gg + geom_text(
+        data = js_w,
+        aes(mid, index + voffset + height/2, label = future_label),
+        hjust = "center",
+        vjust = "middle",
+        size = 6
+      )
+    }
+  }
+
 
   gg <- gg + scale_fill_manual(values = cols, labels = labels)
 

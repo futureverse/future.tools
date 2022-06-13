@@ -12,6 +12,8 @@ ggjournal(
   events = NULL,
   baseline = TRUE,
   label_fmt = "#\%s",
+  annotate = c("future_label"),
+  arrows = c("launch", "gather"),
   ...
 )
 }
@@ -36,6 +38,10 @@ timepoint observed is used as the baseline.}
 
 \item{label_fmt}{(format string; optional) Used to create labels if
 \code{future_label} is missing. If NULL, no labels are created.}
+
+\item{annotate}{(character vector) Additional annotations to add.}
+
+\item{arrows}{(character vector) Type of arrows to draw.}
 
 \item{\ldots}{Currently not used.}
 }
