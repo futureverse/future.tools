@@ -9,6 +9,8 @@ import_from <- function(name, default = NULL, package) {
   }
 }
 
+## ## dummy import to please 'R CMD check'
+#' @importFrom future future
 import_future <- function(name, default = NULL) {
   import_from(name, default = default, package = "future")
 }

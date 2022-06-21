@@ -14,7 +14,7 @@
 #' resolved, and its results are collected.
 #'
 #' @return
-#' A list of \link[future:journal]{FutureJournal}:s.
+#' A list of \link[journal]{FutureJournal}:s.
 #'
 #' @example incl/capture_journals.R
 #'

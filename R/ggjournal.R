@@ -32,7 +32,6 @@
 #'
 #' @example incl/ggjournal.R
 #'
-#' @importFrom future journal
 #' @import dplyr
 #' @import ggplot2
 #' @export
