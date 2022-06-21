@@ -2,6 +2,7 @@
 
 export(capture_journals)
 export(ggjournal)
+export(journal)
 import(dplyr)
 import(ggplot2)
 importFrom(future,journal)
