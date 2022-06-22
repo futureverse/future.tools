@@ -5,6 +5,8 @@
 #' @param style (character string) One of `"future"`, `"future-worker"`,
 #' and `"worker"`.
 #'
+#' @param flatten (logical) If TRUE, futures are not separated vertically.
+#'
 #' @param time_range (optional vector of length two) The range of time
 #' to displayed.
 #'
@@ -25,6 +27,10 @@
 #'
 #' @param arrows (character vector) Type of arrows to draw.
 #'
+#' @param layer_height (integer vector of length four) Height of each of
+#' the four possible layers of stacked events. Their total height, the sum,
+#' should be less than one in order for futures to not overlap.
+#'
 #' @param \ldots Currently not used.
 #'
 #' @return
@@ -35,13 +41,14 @@
 #' @import dplyr
 #' @import ggplot2
 #' @export
-ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), events = NULL, baseline = TRUE, label_fmt = "#%s", annotate = c("future_label"), arrows = c("launch", "gather"), ...) {
+ggjournal <- function(x, style = c("future", "future-worker", "worker"), flatten = FALSE, time_range = getOption("future.tools.ggjournal.time_range", NULL), item_range = getOption("future.tools.ggjournal.item_range", NULL), events = NULL, baseline = TRUE, label_fmt = "#%s", annotate = c("future_label"), arrows = c("launch", "gather"), layer_height = c(1/4, 1/4, 1/4, 1/8), ...) {
   ## To please R CMD check
   at <- duration <- end <- event <- index <- future_index <- future_label <- future_uuid <- mid <- start <- NULL
   end.x <- height.y <- index.x <- index.y <- voffset.y <- NULL
 
   style <- match.arg(style)
-
+  stopifnot(length(flatten) == 1L, is.logical(flatten), !is.na(flatten))
+  
   ## ------------------------------------------------------------------
   ## Merge multiple journals and index the futures
   ## ------------------------------------------------------------------
@@ -104,10 +111,14 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
 
 
   ## ------------------------------------------------------------------
-  ## Vertically separate by future or workers?
+  ## Separate block vertically, and, if so, by future or worker?
   ## ------------------------------------------------------------------
-  js[["index"]] <- js[["future_index"]]
-  if (style == "worker") js[["index"]] <- js[["session_index"]]
+  if (flatten) {
+    js[["index"]] <- 1L
+  } else {
+    js[["index"]] <- js[["future_index"]]
+    if (style == "worker") js[["index"]] <- js[["session_index"]]
+  }
   stopifnot(all(is.finite(js$index)))
 
   nbr_of_items <- length(unique(ids))
@@ -167,8 +178,8 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
   ## ------------------------------------------------------------------
   ## Position events
   ## ------------------------------------------------------------------
-  layer_height <- c(2, 2, 2, 1)
-  layer_height <- 0.8 * layer_height / sum(layer_height)
+  stopifnot(length(layer_height) == 4L, is.numeric(layer_height),
+            !anyNA(layer_height), all(layer_height >= 0))
   layer_voffset <- c(0.0, cumsum(layer_height)[-length(layer_height)])
   layer_voffset <- layer_voffset - layer_height[1]
   stopifnot(all(is.finite(layer_height)), all(is.finite(layer_voffset)))
@@ -193,7 +204,7 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
         keep <- (js[["future_uuid"]] == uuid)
         idx_e <- which(keep & (js[["event"]] == "evaluate"))
         if (js$external[idx_e]) {
-          js$index[idx_e] <- -js$session_index[idx_e]
+          js$index[idx_e] <- -(js$session_index[idx_e] - 1L)
         }
       }
     }
@@ -203,7 +214,7 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), time_ra
       idx_e <- which(keep & (js[["event"]] == "evaluate"))
       if (js$external[idx_e]) {
         idx_ls <- which(keep & (js[["event"]] == "lifespan"))
-        voffset[idx_ls] <- -layer_height[2]*js$future_index[idx_ls]
+        voffset[idx_ls] <- -layer_height[2]*(js$future_index[idx_ls] - 1L)
       }
     }
   }

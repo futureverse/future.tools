@@ -7,6 +7,7 @@
 ggjournal(
   x,
   style = c("future", "future-worker", "worker"),
+  flatten = FALSE,
   time_range = getOption("future.tools.ggjournal.time_range", NULL),
   item_range = getOption("future.tools.ggjournal.item_range", NULL),
   events = NULL,
@@ -14,6 +15,7 @@ ggjournal(
   label_fmt = "#\%s",
   annotate = c("future_label"),
   arrows = c("launch", "gather"),
+  layer_height = c(1/4, 1/4, 1/4, 1/8),
   ...
 )
 }
@@ -22,6 +24,8 @@ ggjournal(
 
 \item{style}{(character string) One of \code{"future"}, \code{"future-worker"},
 and \code{"worker"}.}
+
+\item{flatten}{(logical) If TRUE, futures are not separated vertically.}
 
 \item{time_range}{(optional vector of length two) The range of time
 to displayed.}
@@ -42,6 +46,10 @@ timepoint observed is used as the baseline.}
 \item{annotate}{(character vector) Additional annotations to add.}
 
 \item{arrows}{(character vector) Type of arrows to draw.}
+
+\item{layer_height}{(integer vector of length four) Height of each of
+the four possible layers of stacked events. Their total height, the sum,
+should be less than one in order for futures to not overlap.}
 
 \item{\ldots}{Currently not used.}
 }
