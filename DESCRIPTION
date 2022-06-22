@@ -3,7 +3,7 @@ Version: 0.0.0-9025
 Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0),
-   future (>= 1.26.1-9109)
+   future (>= 1.26.1-9111)
 Imports:
    grDevices,
    dplyr,
