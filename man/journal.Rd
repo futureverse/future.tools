@@ -14,33 +14,37 @@ journal(x, ...)
 \value{
 A data frame of class \code{FutureJournal} with columns:
 \enumerate{
-\item \code{event} (character string)
-\item \code{type} (character string)
-\item \code{parent} (character string)
-\item \code{start} (POSIXct)
-\item \code{at} (difftime)
-\item \code{duration} (difftime)
-\item \code{future_label} (character string)
-\item \code{future_uuid} (character string)
-\item \code{session_uuid} (character string)
+\item \code{event} (character string) - type of event that took place
+\item \code{category} (character string) - the category of the event
+\item \code{parent} (character string) - (to be describe)
+\item \code{start} (POSIXct) - the timestamp when the event started
+\item \code{at} (difftime) - the time when the event started relative to
+first event
+\item \code{duration} (difftime) - the duration of the event
+\item \code{future_label} (character string) - the label of the future
+\item \code{future_uuid} (character string) - the UUID of the future
+\item \code{session_uuid} (character string) - the UUID of the R session
+where the event took place
 }
 
-Common events are:
+The common events are:
 \itemize{
 \item \code{create}   - the future was created (an \code{overhead})
 \item \code{launch}   - the future was launched (an \code{overhead})
 \item \code{evaluate} - the future was evaluated (an \code{evaluation})
-\item \code{resolved} - the future was queried (may be occur multiple times) (an \code{overhead})
+\item \code{resolved} - the future was queried (may be occur multiple times)
+(an \code{overhead})
 \item \code{gather}   - the results was retrieved (an \code{overhead})
 }
 
 but others may be added by other Future classes.
 
-Common event types are:
+Common event categorys are:
 \itemize{
 \item \code{evaluation} - processing time is spent on evaluation
 \item \code{overhead}   - processing time is spent on orchestrating the future
-\item \code{waiting}    - processing time is spent on waiting to set up or querying the future
+\item \code{waiting}    - processing time is spent on waiting to set up or
+querying the future
 }
 
 but others may be added by other Future classes.
@@ -48,7 +52,7 @@ but others may be added by other Future classes.
 The data frame is sorted by the \code{at} time.
 Note that the timestamps for the \code{evaluate} event are based on the local
 time on the worker. The system clocks on the worker and the calling R
-system may be out of sync.
+system may not be in perfect sync.
 }
 \description{
 \emph{WARNING: This function is under development. It can change at any time.

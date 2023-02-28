@@ -14,38 +14,42 @@
 #' @return
 #' A data frame of class `FutureJournal` with columns:
 #'
-#'  1. `event` (character string)
-#'  2. `type` (character string)
-#'  3. `parent` (character string)
-#'  4. `start` (POSIXct)
-#'  5. `at` (difftime)
-#'  6. `duration` (difftime)
-#'  7. `future_label` (character string)
-#'  8. `future_uuid` (character string)
-#'  9. `session_uuid` (character string)
+#'  1. `event` (character string) - type of event that took place
+#'  2. `category` (character string) - the category of the event
+#'  3. `parent` (character string) - (to be describe)
+#'  4. `start` (POSIXct) - the timestamp when the event started
+#'  5. `at` (difftime) - the time when the event started relative to
+#'     first event
+#'  6. `duration` (difftime) - the duration of the event
+#'  7. `future_label` (character string) - the label of the future 
+#'  8. `future_uuid` (character string) - the UUID of the future
+#'  9. `session_uuid` (character string) - the UUID of the R session
+#'     where the event took place
 #'
-#' Common events are:
+#' The common events are:
 #'
 #'  * `create`   - the future was created (an `overhead`)
 #'  * `launch`   - the future was launched (an `overhead`)
 #'  * `evaluate` - the future was evaluated (an `evaluation`)
-#'  * `resolved` - the future was queried (may be occur multiple times) (an `overhead`)
+#'  * `resolved` - the future was queried (may be occur multiple times)
+#'                 (an `overhead`)
 #'  * `gather`   - the results was retrieved (an `overhead`)
 #'
 #' but others may be added by other Future classes.
 #'
-#' Common event types are:
+#' Common event categorys are:
 #'
 #'  * `evaluation` - processing time is spent on evaluation
 #'  * `overhead`   - processing time is spent on orchestrating the future
-#'  * `waiting`    - processing time is spent on waiting to set up or querying the future
+#'  * `waiting`    - processing time is spent on waiting to set up or
+#'                   querying the future
 #'
 #' but others may be added by other Future classes.
 #'
 #' The data frame is sorted by the `at` time.
 #' Note that the timestamps for the `evaluate` event are based on the local
 #' time on the worker. The system clocks on the worker and the calling R
-#' system may be out of sync.
+#' system may not be in perfect sync.
 #'
 #' @section Enabling and disabling event logging:
 #' To enable logging of events, set option `future.journal` is TRUE.

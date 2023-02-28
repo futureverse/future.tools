@@ -62,7 +62,7 @@ ggjournal <- function(x, style = c("future", "future-worker", "worker"), flatten
   ## ------------------------------------------------------------------
   js <- group_by(js, future_uuid)
   lifespan <- filter(js, event == "create")
-  lifespan <- mutate(lifespan, event = as.factor("lifespan"), type = NA_character_)
+  lifespan <- mutate(lifespan, event = as.factor("lifespan"), category = NA_character_)
   stop <- filter(js, event %in% c("launch", "gather"))[, c("future_uuid", "end")]
   stop <- arrange(stop, future_uuid, end)
   stop <- slice_tail(stop, n = 1L)
