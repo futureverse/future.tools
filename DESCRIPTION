@@ -1,9 +1,9 @@
 Package: future.tools
-Version: 0.0.0-9026
+Version: 0.0.0-9027
 Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0),
-   future (>= 1.30.0-9101)
+   future (>= 1.31.0-9113)
 Imports:
    grDevices,
    dplyr,
@@ -11,7 +11,7 @@ Imports:
 Suggests:
    future.apply
 Remotes:
-   github::HenrikBengtsson/future@feature/journal
+   github::HenrikBengtsson/future@develop
 Authors@R: c(person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
                                           email = "henrikb@braju.com"))
 Description: Tools for Working with Futures.
