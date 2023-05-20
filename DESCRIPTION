@@ -1,5 +1,5 @@
 Package: future.tools
-Version: 0.0.0-9029
+Version: 0.1.0
 Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0),
@@ -10,8 +10,6 @@ Imports:
    ggplot2
 Suggests:
    future.apply
-Remotes:
-   github::HenrikBengtsson/future@develop
 Authors@R: c(person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
                                           email = "henrikb@braju.com"))
 Description: Tools for Working with Futures.

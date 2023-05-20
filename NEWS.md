@@ -1,7 +1,6 @@
-# Version (developer version)
+# Version 0.1.0 (2023-05-19)
 
-## New features
-
- * Added `gather_journals()` and `ggjournal()`.
+ * First version of package that is based on **future** on CRAN.
+ 
 
  
