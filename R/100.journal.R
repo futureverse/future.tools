@@ -37,7 +37,7 @@
 #'
 #' but others may be added by other Future classes.
 #'
-#' Common event categorys are:
+#' Common event categories are:
 #'
 #'  * `evaluation` - processing time is spent on evaluation
 #'  * `overhead`   - processing time is spent on orchestrating the future

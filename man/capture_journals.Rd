@@ -9,7 +9,7 @@ capture_journals(expr, substitute = TRUE, envir = parent.frame())
 \arguments{
 \item{expr}{The R expression to evaluate}
 
-\item{substitute}{If TRUE, then \code{expr} is subtituted, otherwise not.}
+\item{substitute}{If TRUE, then \code{expr} is substituted, otherwise not.}
 
 \item{envir}{The environment where \code{expr} should be evaluated}
 }

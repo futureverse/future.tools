@@ -39,7 +39,7 @@ The common events are:
 
 but others may be added by other Future classes.
 
-Common event categorys are:
+Common event categories are:
 \itemize{
 \item \code{evaluation} - processing time is spent on evaluation
 \item \code{overhead}   - processing time is spent on orchestrating the future

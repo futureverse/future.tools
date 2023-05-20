@@ -2,7 +2,7 @@
 #' 
 #' @param expr The R expression to evaluate
 #'
-#' @param substitute If TRUE, then `expr` is subtituted, otherwise not.
+#' @param substitute If TRUE, then `expr` is substituted, otherwise not.
 #'
 #' @param envir The environment where `expr` should be evaluated
 #'
