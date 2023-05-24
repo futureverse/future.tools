@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://future.tools.futureverse.org/404.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://future.tools.futureverse.org/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://future.tools.futureverse.org/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://future.tools.futureverse.org/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/capture_journals.html</loc>
+    <loc>https://future.tools.futureverse.org/reference/capture_journals.html</loc>
   </url>
   <url>
-    <loc>/reference/ggjournal.html</loc>
+    <loc>https://future.tools.futureverse.org/reference/ggjournal.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://future.tools.futureverse.org/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/journal.html</loc>
+    <loc>https://future.tools.futureverse.org/reference/journal.html</loc>
   </url>
 </urlset>
