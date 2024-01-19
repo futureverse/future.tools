@@ -15,5 +15,5 @@ Authors@R: c(person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
 Description: Tools for Working with Futures.
 License: LGPL (>= 2.1)
 LazyLoad: TRUE
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.0
 Roxygen: list(markdown = TRUE)
