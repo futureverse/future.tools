@@ -1,5 +1,5 @@
 Package: future.tools
-Version: 0.1.0-9000
+Version: 0.1.0-9001
 Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0),
@@ -15,5 +15,5 @@ Authors@R: c(person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
 Description: Tools for Working with Futures.
 License: LGPL (>= 2.1)
 LazyLoad: TRUE
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
