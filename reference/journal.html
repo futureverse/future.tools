@@ -24,7 +24,7 @@ For now, please, do not depend on this function in a published R package."><!-- 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">future.tools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0-9001</span>
       </span>
     </div>
 
@@ -66,6 +66,9 @@ For now, please, do not depend on this function in a published R package."><!-- 
       <a href="https://future.callr.futureverse.org" class="external-link">future.callr</a>
     </li>
     <li>
+      <a href="https://future.mirai.futureverse.org" class="external-link">future.mirai</a>
+    </li>
+    <li>
       <a href="https://future.tests.futureverse.org" class="external-link">future.tests</a>
     </li>
     <li>
@@ -85,9 +88,6 @@ For now, please, do not depend on this function in a published R package."><!-- 
     </li>
     <li>
       <a href="https://future.tools.futureverse.org">future.tools (experimental)</a>
-    </li>
-    <li>
-      <a href="https://future.mirai.futureverse.org" class="external-link">future.mirai (experimental)</a>
     </li>
     <li>
       <a href="https://future.mapreduce.futureverse.org" class="external-link">future.mapreduce (experimental)</a>
@@ -202,99 +202,99 @@ To disable, set it to FALSE (default).</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            event   category parent               start              at</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         create   overhead   &lt;NA&gt; 2024-01-18 21:45:01 0.00000000 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         launch   overhead   &lt;NA&gt; 2024-01-18 21:45:01 0.01186228 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      getWorker   overhead launch 2024-01-18 21:45:01 0.01230311 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    eraseWorker   overhead launch 2024-01-18 21:45:01 0.01287079 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 attachPackages   overhead launch 2024-01-18 21:45:01 0.01382565 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  exportGlobals   overhead launch 2024-01-18 21:45:01 0.01422286 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9       evaluate evaluation   &lt;NA&gt; 2024-01-18 21:45:01 0.06178737 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  receiveResult   overhead gather 2024-01-18 21:45:02 1.08246708 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         gather   overhead   &lt;NA&gt; 2024-01-18 21:45:02 1.08427596 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         create   overhead   &lt;NA&gt; 2024-04-18 15:11:22 0.00000000 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         launch   overhead   &lt;NA&gt; 2024-04-18 15:11:22 0.01228857 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      getWorker   overhead launch 2024-04-18 15:11:22 0.01275253 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    eraseWorker   overhead launch 2024-04-18 15:11:22 0.01324725 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 attachPackages   overhead launch 2024-04-18 15:11:22 0.01410723 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  exportGlobals   overhead launch 2024-04-18 15:11:22 0.01449943 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       evaluate evaluation   &lt;NA&gt; 2024-04-18 15:11:22 0.06367683 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  receiveResult   overhead gather 2024-04-18 15:11:23 1.06713152 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         gather   overhead   &lt;NA&gt; 2024-04-18 15:11:23 1.06879687 secs</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            duration future_label                          future_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.203630e-03 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 3.491879e-03 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1.039505e-04 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4.975796e-04 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2.932549e-05 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 3.414154e-04 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 1.003238e+00 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2.243519e-04 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 7.081032e-05 secs         &lt;NA&gt; 6719f5f6-9ac5-7704-d745-6abc3d2981c7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.580093e-03 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 3.519773e-03 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 8.773804e-05 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4.251003e-04 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 3.051758e-05 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 3.988743e-04 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9 1.003035e+00 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2.126694e-04 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 6.508827e-05 secs         &lt;NA&gt; df4c4067-9cf0-3b92-ba52-1f031432a3a7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                           session_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 43114fea-5042-8430-3ba9-939d9a24bc28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            event   category parent               start              at</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         create   overhead   &lt;NA&gt; 2024-01-18 21:45:01 0.00000000 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         launch   overhead   &lt;NA&gt; 2024-01-18 21:45:01 0.01037979 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      getWorker   overhead launch 2024-01-18 21:45:01 0.01079130 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    eraseWorker   overhead launch 2024-01-18 21:45:01 0.01126242 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 attachPackages   overhead launch 2024-01-18 21:45:01 0.03592849 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  exportGlobals   overhead launch 2024-01-18 21:45:01 0.03632545 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9       evaluate evaluation   &lt;NA&gt; 2024-01-18 21:45:01 0.07830882 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  receiveResult   overhead gather 2024-01-18 21:45:03 2.11446667 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         gather   overhead   &lt;NA&gt; 2024-01-18 21:45:03 2.11604285 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         create   overhead   &lt;NA&gt; 2024-04-18 15:11:22 0.00000000 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         launch   overhead   &lt;NA&gt; 2024-04-18 15:11:22 0.01208878 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      getWorker   overhead launch 2024-04-18 15:11:22 0.01255655 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    eraseWorker   overhead launch 2024-04-18 15:11:22 0.01308298 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 attachPackages   overhead launch 2024-04-18 15:11:22 0.04094386 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  exportGlobals   overhead launch 2024-04-18 15:11:22 0.04138637 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       evaluate evaluation   &lt;NA&gt; 2024-04-18 15:11:22 0.08763170 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  receiveResult   overhead gather 2024-04-18 15:11:24 2.15204597 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         gather   overhead   &lt;NA&gt; 2024-04-18 15:11:24 2.15364027 secs</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            duration future_label                          future_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.588821e-03 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2.705407e-02 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 8.368492e-05 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2.417254e-02 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 3.433228e-05 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2.570152e-04 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 2.034056e+00 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2.014637e-04 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 6.556511e-05 secs         &lt;NA&gt; 8f15c013-d173-b5b3-1326-25f9e56341e3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.897573e-03 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 3.040123e-02 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 9.703636e-05 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2.733541e-02 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 3.790855e-05 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 3.216267e-04 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9 2.042067e+00 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2.119541e-04 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 7.820129e-05 secs         &lt;NA&gt; e284fb0d-edb1-9096-ac5d-b8f03192563c</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                           session_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 43114fea-5042-8430-3ba9-939d9a24bc28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            event   category parent               start              at</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         create   overhead   &lt;NA&gt; 2024-01-18 21:45:01 0.00000000 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         launch   overhead   &lt;NA&gt; 2024-01-18 21:45:01 0.01028013 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      getWorker   overhead launch 2024-01-18 21:45:01 0.01067686 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    eraseWorker   overhead launch 2024-01-18 21:45:02 1.03653312 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 attachPackages   overhead launch 2024-01-18 21:45:02 1.03885627 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  exportGlobals   overhead launch 2024-01-18 21:45:02 1.04004312 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9       evaluate evaluation   &lt;NA&gt; 2024-01-18 21:45:02 1.08435369 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  receiveResult   overhead gather 2024-01-18 21:45:05 4.09006000 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         gather   overhead   &lt;NA&gt; 2024-01-18 21:45:05 4.09100866 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         create   overhead   &lt;NA&gt; 2024-04-18 15:11:22 0.00000000 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         launch   overhead   &lt;NA&gt; 2024-04-18 15:11:22 0.01205397 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      getWorker   overhead launch 2024-04-18 15:11:22 0.01254511 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    eraseWorker   overhead launch 2024-04-18 15:11:23 1.01426482 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 attachPackages   overhead launch 2024-04-18 15:11:23 1.01543427 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  exportGlobals   overhead launch 2024-04-18 15:11:23 1.01608515 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       evaluate evaluation   &lt;NA&gt; 2024-04-18 15:11:23 1.06063843 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  receiveResult   overhead gather 2024-04-18 15:11:27 5.03627253 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         gather   overhead   &lt;NA&gt; 2024-04-18 15:11:27 5.03814054 secs</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            duration future_label                          future_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.799822e-03 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1.032559e+00 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1.024674e+00 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1.022577e-03 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 8.702278e-05 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 6.496906e-04 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 3.004033e+00 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 9.870529e-05 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 4.625320e-05 secs         &lt;NA&gt; 5dc11ee0-1881-29f2-e4f2-6f446668dafe</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.796961e-03 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1.005726e+00 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1.000921e+00 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 5.085468e-04 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 4.673004e-05 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 3.957748e-04 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9 3.975133e+00 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2.260208e-04 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 8.320808e-05 secs         &lt;NA&gt; aff62017-b50c-2a56-9fab-f031165f74a7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                           session_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 43114fea-5042-8430-3ba9-939d9a24bc28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 43114fea-5042-8430-3ba9-939d9a24bc28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 e97d6ba5-ccb1-62f9-6649-f51e2020962f</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Stop parallel workers and disable journal logging and signaling</span></span></span>
