@@ -23,7 +23,9 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://www.futureverse.org/"><span class="fa fas fa-home"></span></a></li>
+      </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://www.futureverse.org/"><span class="fa fas fa-home"></span></a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-packages" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Packages</button>
   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-packages"><li><a class="external-link dropdown-item" href="https://doFuture.futureverse.org">doFuture (map-reduce)</a></li>
@@ -119,18 +121,12 @@ resolved, and its results are collected.</p>
 <span class="r-in"><span><span class="va">js_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Reduce</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">js</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">js_all</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">2L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Number of futures: 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   summary  evaluate evaluate_ratio   overhead overhead_ratio  duration</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     min 0.10 secs           0.23 0.033 secs          0.073 0.45 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    mean 0.24 secs           0.45 0.167 secs          0.315 0.53 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  median 0.26 secs           0.47 0.035 secs          0.064 0.54 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     max 0.36 secs           0.60 0.432 secs          0.730 0.59 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   total 0.72 secs           0.45 0.500 secs          0.315 1.59 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    walltime</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.45 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 0.53 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 0.54 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 0.59 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1.59 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   summary  evaluate evaluate_ratio  overhead overhead_ratio  duration  walltime</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     min 0.10 secs           0.27 0.24 secs           0.61 0.39 secs 0.39 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    mean 0.27 secs           0.47 0.26 secs           0.44 0.58 secs 0.58 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  median 0.32 secs           0.51 0.26 secs           0.40 0.64 secs 0.64 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     max 0.39 secs           0.55 0.27 secs           0.38 0.70 secs 0.70 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   total 0.82 secs           0.47 0.77 secs           0.44 1.73 secs 1.73 secs</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shut down parallel workers</span></span></span>
 <span class="r-in"><span><span class="fu">plan</span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span></span>
