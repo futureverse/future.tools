@@ -1,5 +1,5 @@
 Package: future.tools
-Version: 0.1.0-9003
+Version: 0.1.0-9005
 Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0),

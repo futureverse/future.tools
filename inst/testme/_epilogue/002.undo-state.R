@@ -1,15 +1,18 @@
-## Undo future strategy
-future::plan(oplan)
-
+testme <- as.environment("testme")
+hpaste <- future:::hpaste
 
 ## Undo options
 ## (a) Reset
 options(oopts0)
+
 ## (b) Remove added
-added <- setdiff(names(options()), names(oopts0))
-opts <- vector("list", length = length(added))
-names(opts) <- added
-options(opts)
+local({
+  added <- setdiff(names(options()), names(oopts0))
+  opts <- vector("list", length = length(added))
+  names(opts) <- added
+  options(opts)
+})
+
 ## (c) Assert that everything was undone
 if (!identical(options(), oopts0)) {
   message("Failed to undo options:")
@@ -22,16 +25,18 @@ if (!identical(options(), oopts0)) {
   missing <- setdiff(names(oopts0), names(oopts))
   message(paste(sprintf(" - Options missing: [n=%d]", length(missing)),
                 hpaste(sQuote(missing))))
-  message("Differences option by option:")                
-  for (name in names(oopts0)) {
+                
+  message("Differences option by option:")
+  void <- lapply(names(oopts0), FUN = function(name) {
     value0 <- oopts0[[name]]
     value  <- oopts[[name]]
     if (!identical(value, value0)) {
-      utils::str(list(name = name, expected = value0, actual = value))
+      if (testme[["debug"]]) {
+        utils::str(list(name = name, expected = value0, actual = value))
+      }
     }
-  }
+  })
 }
-stopifnot(identical(options(), oopts0))
 
 
 ## Undo system environment variables
@@ -53,21 +58,22 @@ if (!identical(Sys.getenv(), oenvs0)) {
   message(paste(sprintf(" - Environment variables missing: [n=%d]", length(missing)),
                 hpaste(sQuote(missing))))
   message("Differences environment variable by environment variable:")
-  for (name in names(oenvs0)) {
+  void <- lapply(names(oenvs0), FUN = function(name) {
     value0 <- unname(oenvs0[name])
     value  <- unname(oenvs[name])
     if (!identical(value, value0)) {
-      utils::str(list(name = name, expected = value0, actual = value))
+      if (testme[["debug"]]) {
+        utils::str(list(name = name, expected = value0, actual = value))
+      }
     }
-  }
+  })
 }
 
 
+## Assert undo was successful
+if (testme[["debug"]]) {
+  stopifnot(identical(options(), oopts0))
+}
+
 ## Undo variables
-rm(list = c(setdiff(ls(), ovars)))
-
-
-## Travis CI specific: Explicit garbage collection because it
-## looks like Travis CI might run out of memory during 'covr'
-## testing and we now have so many tests. /HB 2017-01-11
-if ("covr" %in% loadedNamespaces()) gc()
+rm(list = c(setdiff(ls(envir = globalenv()), ovars)), envir = globalenv())

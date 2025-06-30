@@ -1,5 +1,11 @@
+library(future.tools)
+
+slow_fcn <- function(x) {
+  Sys.sleep(x / 100)
+  sqrt(x)
+}
+
 if (require("future.apply")) {
-  source("incl/start.R")
   message("*** ggjournals() ...")
 
   plan(sequential)
@@ -18,5 +24,4 @@ if (require("future.apply")) {
   plan(sequential)
 
   message("*** ggjournals() ... done")
-  source("incl/end.R")
 }
