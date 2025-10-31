@@ -15,7 +15,7 @@ For now, please, do not depend on this function in a published R package."><!-- 
 
     <a class="navbar-brand me-2" href="../index.html">future.tools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0-9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0-9005</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +83,7 @@ For now, please, do not depend on this function in a published R package.</em></
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>A <a href="https://future.futureverse.org/reference/Future-class.html" class="external-link">Future</a> object.</p></dd>
+<dd><p>A <a href="https://future.futureverse.org/reference/Future-class.html" class="external-link">future::Future</a> object.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -145,91 +145,721 @@ To disable, set it to FALSE (default).</p>
 <span class="r-in"><span><span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">fs</span>, FUN <span class="op">=</span> <span class="va">journal</span>, baseline <span class="op">=</span> <span class="va">t_start</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">js</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           event   category parent               start               at</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        create   overhead   &lt;NA&gt; 2025-04-19 09:45:08 0.000000000 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        launch   overhead   &lt;NA&gt; 2025-04-19 09:45:08 0.002168179 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     getWorker   overhead launch 2025-04-19 09:45:08 0.002276421 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   eraseWorker   overhead launch 2025-04-19 09:45:08 0.221534967 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      evaluate evaluation   &lt;NA&gt; 2025-04-19 09:45:09 0.269107580 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 receiveResult   overhead gather 2025-04-19 09:45:10 1.387793779 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        gather   overhead   &lt;NA&gt; 2025-04-19 09:45:10 1.388931036 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8       resolve   overhead   &lt;NA&gt; 2025-04-19 09:45:10 1.443564653 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            duration future_label                         future_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1.775980e-03 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2.248182e-01 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2.182391e-01 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 5.555153e-04 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 1.104215e+00 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1.823902e-04 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 7.271767e-05 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 1.406670e-05 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       session_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 bdbdfeff674b525d44fe0a1b786d028b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            event   category parent               start              at</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         create   overhead   &lt;NA&gt; 2025-10-31 14:05:57 0.00000000 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         launch   overhead   &lt;NA&gt; 2025-10-31 14:05:57 0.01029587 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      getWorker   overhead launch 2025-10-31 14:05:57 0.01055384 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    eraseWorker   overhead launch 2025-10-31 14:05:57 0.01208162 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.06345868 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.09775162 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.13193083 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.16630578 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.20131850 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.23664379 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.27100778 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44      evaluate evaluation   &lt;NA&gt; 2025-10-31 14:05:57 0.28682089 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.30590129 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.34939241 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.38502765 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.42125511 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.45713091 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.49272871 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.52868462 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.56499553 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.60076165 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.63705444 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.67517328 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.71332216 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.75109243 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.78751898 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.82420182 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.86039376 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.89719081 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.93469238 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.97455072 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.01219320 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.05035639 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.08909082 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.12751603 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.16583586 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.20567775 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.24484348 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.28503227 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.32468390 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.36518335 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.41064358 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.45771933 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 receiveResult   overhead gather 2025-10-31 14:05:58 1.46739411 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43        gather   overhead   &lt;NA&gt; 2025-10-31 14:05:58 1.47129297 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.49809527 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47       resolve   overhead   &lt;NA&gt; 2025-10-31 14:05:58 1.50048470 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             duration future_label                         future_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  9.684563e-03 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  7.871628e-03 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  7.557869e-04 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  5.278587e-04 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  1.103926e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  1.103449e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1.087379e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  1.085496e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  1.115727e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 1.083755e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 1.095247e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 1.176986e+00 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 1.151752e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 1.103306e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 1.106882e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 1.113319e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 1.108265e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 1.115465e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 1.100397e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 1.098752e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 1.086164e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 1.136732e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 1.139164e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 1.139402e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 1.100016e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 1.102567e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 1.095247e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 1.085424e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 1.119876e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 1.115727e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 1.119494e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 1.101017e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 1.123691e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 1.153374e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 1.119328e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 1.109886e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 1.175046e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 1.120305e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 1.102471e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 1.185393e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 1.124692e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 1.260996e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2.153134e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 5.803108e-04 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 3.058910e-04 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 9.655952e-05 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 3.170967e-05 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        session_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 2107504b07336839b4018835cafa74f4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           event   category parent               start               at</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        create   overhead   &lt;NA&gt; 2025-04-19 09:45:09 0.000000000 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        launch   overhead   &lt;NA&gt; 2025-04-19 09:45:09 0.003958941 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     getWorker   overhead launch 2025-04-19 09:45:09 0.004151106 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   eraseWorker   overhead launch 2025-04-19 09:45:09 0.334772110 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      evaluate evaluation   &lt;NA&gt; 2025-04-19 09:45:09 0.382142782 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 receiveResult   overhead gather 2025-04-19 09:45:11 2.537276745 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        gather   overhead   &lt;NA&gt; 2025-04-19 09:45:11 2.539018154 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8       resolve   overhead   &lt;NA&gt; 2025-04-19 09:45:11 2.544245481 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            duration future_label                         future_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.381968e-03 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 3.351159e-01 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3.297577e-01 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4.286766e-04 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2.153375e+00 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2.949238e-04 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1.425743e-04 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 2.932549e-05 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       session_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 bdbdfeff674b525d44fe0a1b786d028b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            event   category parent               start              at</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         create   overhead   &lt;NA&gt; 2025-10-31 14:05:57 0.00000000 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         launch   overhead   &lt;NA&gt; 2025-10-31 14:05:57 0.01272726 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      getWorker   overhead launch 2025-10-31 14:05:57 0.01295114 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    eraseWorker   overhead launch 2025-10-31 14:05:57 0.01457095 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.05645037 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.09076929 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.12473631 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.15937424 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.19454336 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.22945261 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.26395488 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69      evaluate evaluation   &lt;NA&gt; 2025-10-31 14:05:57 0.29649329 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.30666113 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.34254265 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.37824774 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.41454983 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.45029116 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:57 0.48595071 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.52215266 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.55812907 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.59367204 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.63108468 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.66918731 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.70735669 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.74415946 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.78065658 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.81713915 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.85328031 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.89048147 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.92812920 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 0.96787763 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.00531650 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.04421020 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.08280301 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.12084913 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.15916038 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.19963551 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.23908639 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.27819538 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.31874418 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.36073923 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.40764332 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.48250508 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.51604295 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.55049562 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.59101343 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.63433456 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.67701745 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.71897578 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.76286936 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.80492902 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.84963179 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.89211941 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.93459940 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.97819734 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.02024603 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.06273508 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.10477638 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.14152980 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.18065810 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.21584177 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.25175118 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.29276490 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.32972860 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.36422944 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.39974165 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.43499732 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.48515368 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 receiveResult   overhead gather 2025-10-31 14:05:59 2.48963785 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68        gather   overhead   &lt;NA&gt; 2025-10-31 14:05:59 2.49670482 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71       resolve   overhead   &lt;NA&gt; 2025-10-31 14:06:00 2.51849389 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             duration future_label                         future_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  0.0122005939 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.0079245567 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.0008194447 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.0004818439 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  0.0110654831 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  0.0107886791 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  0.0110144615 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  0.0108623505 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  0.0110263824 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 0.0108132362 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 0.0108551979 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2.1848299503 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 0.0115029812 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 0.0110146999 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 0.0109879971 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 0.0109660625 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 0.0108940601 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 0.0110027790 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 0.0110433102 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 0.0108807087 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 0.0108425617 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 0.0113320351 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 0.0113024712 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 0.0112907887 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 0.0109014511 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 0.0109207630 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 0.0107507706 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 0.0108680725 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 0.0110971928 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 0.0110909939 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 0.0109899044 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 0.0109601021 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 0.0110349655 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 0.0110163689 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 0.0111846924 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 0.0111811161 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 0.0110087395 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 0.0116021633 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 0.0111017227 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 0.0115537643 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 0.0125374794 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 0.0125777721 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 0.0108931065 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 0.0111167431 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 0.0119707584 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 0.0128045082 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 0.0132336617 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 0.0128345490 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 0.0135736465 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 0.0127692223 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 0.0133521557 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 0.0130529404 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 0.0127599239 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 0.0135855675 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 0.0128390789 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 0.0128674507 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 0.0127818584 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 0.0116987228 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 0.0119769573 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 0.0109701157 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 0.0110602379 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 0.0140614510 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 0.0117242336 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 0.0110096931 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 0.0118205547 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 0.0113356113 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 0.0145692825 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70 0.0254354477 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 0.0010631084 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 0.0003190041 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71 0.0001337528 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        session_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71 2107504b07336839b4018835cafa74f4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           event   category parent               start               at</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        create   overhead   &lt;NA&gt; 2025-04-19 09:45:09 0.000000000 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        launch   overhead   &lt;NA&gt; 2025-04-19 09:45:09 0.002678633 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     getWorker   overhead launch 2025-04-19 09:45:09 0.002816916 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   eraseWorker   overhead launch 2025-04-19 09:45:10 0.871168613 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      evaluate evaluation   &lt;NA&gt; 2025-04-19 09:45:10 0.907482386 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 receiveResult   overhead gather 2025-04-19 09:45:13 3.916936159 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        gather   overhead   &lt;NA&gt; 2025-04-19 09:45:13 3.918665409 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8       resolve   overhead   &lt;NA&gt; 2025-04-19 09:45:13 3.924418926 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            duration future_label                         future_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2.311707e-03 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 8.717399e-01 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 8.678100e-01 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4.348755e-04 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 3.007834e+00 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 3.004074e-04 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 1.378059e-04 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 3.576279e-05 secs         &lt;NA&gt; bdbdfeff674b525d44fe0a1b786d028b-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       session_uuid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 bdbdfeff674b525d44fe0a1b786d028b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 bdbdfeff674b525d44fe0a1b786d028b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             event   category parent               start              at</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1          create   overhead   &lt;NA&gt; 2025-10-31 14:05:57 0.00000000 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          launch   overhead   &lt;NA&gt; 2025-10-31 14:05:57 0.01230550 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       getWorker   overhead launch 2025-10-31 14:05:57 0.01245904 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     eraseWorker   overhead launch 2025-10-31 14:05:58 1.44300628 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5        resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:58 1.47231412 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114      evaluate evaluation   &lt;NA&gt; 2025-10-31 14:05:59 1.49540949 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6        resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.50620937 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7        resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.54320025 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8        resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.58575273 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9        resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.62889361 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.67118144 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.71393061 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.75702238 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.80053473 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.84408379 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.88624001 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.92951798 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 1.97238207 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.01444602 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.05714941 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.09677124 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.13490057 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.17100835 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.20624065 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.24623919 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.28449750 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.32007098 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.35554099 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.39060020 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:05:59 2.43331790 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.50257301 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.53054833 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.55955577 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.58242297 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.60527802 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.62955713 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.65655994 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.68333673 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.70994210 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.73611927 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.76244521 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.78885841 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.81544566 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.84285498 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.86927056 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.89570999 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.92253470 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.94889450 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 2.97606468 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.00258207 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.02901554 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.05819702 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.08467865 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.11198330 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.13799453 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.16394067 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.19068670 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.21655178 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.24334431 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.26851773 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.29216552 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.31470490 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.33726263 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.35992217 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.38531613 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.41153598 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.43608141 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:00 3.45921636 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.48183680 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.50462914 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.52711821 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.55065799 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.57374454 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.59607410 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.61841822 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.64149022 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.66631246 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.68956065 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.71194339 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.73480797 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.75801206 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.78121829 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.80615735 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.82966805 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.85311937 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.87633848 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.89871120 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.92170715 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.94475555 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.96699429 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 3.98936486 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.01177382 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.03424549 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.05706525 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.08193040 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.10749483 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.13283730 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.15644121 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.17918611 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99       resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.20353937 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.22708201 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.25034523 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.27277231 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.29499722 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.31738114 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.34020925 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.36288214 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.38668847 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.41010332 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.43265891 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:01 4.45530200 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:02 4.47869182 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115      resolved       &lt;NA&gt;   &lt;NA&gt; 2025-10-31 14:06:02 4.50149727 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112 receiveResult   overhead gather 2025-10-31 14:06:02 4.50290227 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113        gather   overhead   &lt;NA&gt; 2025-10-31 14:06:02 4.50424385 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116       resolve   overhead   &lt;NA&gt; 2025-10-31 14:06:02 4.50906515 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              duration future_label                         future_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   1.188040e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   1.442502e+00 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   1.429242e+00 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   7.386208e-04 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   1.083589e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114 3.006380e+00 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   1.080179e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   1.265454e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   1.261759e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   1.285625e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  1.271200e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  1.347542e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  1.278925e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  1.285219e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  1.260519e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  1.258707e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  1.341629e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  1.263261e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18  1.278448e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  1.260662e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20  1.161766e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  1.219678e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22  1.095533e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23  1.129723e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24  1.263642e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25  1.184893e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26  1.102686e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27  1.114058e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28  1.112986e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29  1.396132e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30  1.442361e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31  1.180053e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32  1.133728e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33  1.121521e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34  1.160407e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35  1.345301e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36  1.336288e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37  1.270199e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38  1.277566e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39  1.274443e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40  1.297712e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41  1.286674e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42  1.305842e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43  1.300430e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44  1.294112e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45  1.329827e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46  1.271200e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47  1.298046e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48  1.277113e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49  1.311874e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50  1.355743e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51  1.265883e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52  1.280141e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53  1.275420e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54  1.257992e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55  1.339054e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56  1.263237e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57  1.272202e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58  1.263762e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59  1.193500e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60  1.122332e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61  1.115608e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62  1.106095e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63  1.196885e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64  1.292467e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65  1.197958e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66  1.101327e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67  1.103592e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68  1.103997e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69  1.107097e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70  1.221490e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71  1.126146e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72  1.103163e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73  1.111007e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74  1.138544e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75  1.218867e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76  1.124406e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77  1.108027e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78  1.103210e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79  1.129580e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80  1.112151e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81  1.218224e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82  1.152110e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83  1.188493e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84  1.186538e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85  1.102638e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86  1.175117e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87  1.113701e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88  1.101232e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89  1.106644e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90  1.124191e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91  1.113415e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92  1.105714e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93  1.184130e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94  1.245880e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95  1.240516e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96  1.159430e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97  1.145673e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98  1.273990e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99  1.195025e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100 1.194525e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101 1.111412e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102 1.099539e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103 1.112342e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104 1.105571e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105 1.109672e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106 1.245642e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107 1.118326e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108 1.113820e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109 1.136279e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110 1.114416e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111 1.147389e-02 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115 6.048679e-03 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112 2.119541e-04 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113 9.560585e-05 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116 2.336502e-05 secs         &lt;NA&gt; 2107504b07336839b4018835cafa74f4-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         session_uuid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99  2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113 2107504b07336839b4018835cafa74f4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116 2107504b07336839b4018835cafa74f4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Stop parallel workers and disable journal logging and signaling</span></span></span>
@@ -246,7 +876,7 @@ To disable, set it to FALSE (default).</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1</p> and <a href="https://github.com/HenrikBengtsson/pkgdown.extras/">pkgdown.extras</a> 0.0.0.9007.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3</p> and <a href="https://github.com/HenrikBengtsson/pkgdown.extras/">pkgdown.extras</a> 0.0.0.9007.</p>
 </div>
 
     </footer></div>
