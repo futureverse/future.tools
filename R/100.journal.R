@@ -3,7 +3,7 @@
 #' _WARNING: This function is under development. It can change at any time.
 #' For now, please, do not depend on this function in a published R package._
 #'
-#' @param x A [Future] object.
+#' @param x A [future::Future] object.
 #'
 ## @param baseline (POSIXct; optional) A timestamp to server as time zero
 ## for the relative start time (`at`). If `TRUE` (default), then the

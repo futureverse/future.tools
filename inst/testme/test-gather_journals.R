@@ -1,7 +1,13 @@
+library(future.tools)
+
+slow_fcn <- function(x) {
+  Sys.sleep(x / 100)
+  sqrt(x)
+}
+
 if (require("future.apply")) {
-  source("incl/start.R")
   message("*** capture_journals() ...")
-  
+
   plan(multisession, workers = 2)
   js <- capture_journals({
     vs <- future_lapply(3:1, FUN = slow_fcn)
@@ -16,5 +22,4 @@ if (require("future.apply")) {
   plan(sequential)
 
   message("*** capture_journals() ... done")
-  source("incl/end.R")
 }
