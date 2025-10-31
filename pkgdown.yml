@@ -2,7 +2,7 @@ pandoc: 3.8.2.1
 pkgdown: 2.1.3
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-10-31T21:05Z
+last_built: 2025-10-31T21:11Z
 urls:
   reference: https://future.tools.futureverse.org/reference
   article: https://future.tools.futureverse.org/articles
