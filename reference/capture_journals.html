@@ -41,9 +41,7 @@
     <li><a class="external-link dropdown-item" href="https://listenv.futureverse.org">listenv</a></li>
     <li><a class="external-link dropdown-item" href="https://parallelly.futureverse.org">parallelly</a></li>
     <li><a class="external-link dropdown-item" href="https://progressr.futureverse.org">progressr</a></li>
-    <li><a class="external-link dropdown-item" href="https://BiocParallel.FutureParam.futureverse.org">BiocParallel.FutureParam (experimental)</a></li>
     <li><a class="dropdown-item" href="https://future.tools.futureverse.org">future.tools (experimental)</a></li>
-    <li><a class="external-link dropdown-item" href="https://future.mapreduce.futureverse.org">future.mapreduce (experimental)</a></li>
     <li><a class="external-link dropdown-item" href="https://marshal.futureverse.org">marshal (experimental)</a></li>
   </ul></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://cloud.r-project.org/package=future.tools"><span class="fa fab fa-r-project"></span></a></li>
@@ -122,12 +120,18 @@ resolved, and its results are collected.</p>
 <span class="r-in"><span><span class="va">js_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html" class="external-link">Reduce</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">js</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">js_all</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">2L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Number of futures: 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   summary  evaluate evaluate_ratio  overhead overhead_ratio  duration  walltime</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     min 0.11 secs           0.17 0.02 secs          0.033 0.61 secs 0.61 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    mean 0.30 secs           0.43 0.22 secs          0.310 0.70 secs 0.70 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  median 0.35 secs           0.47 0.03 secs          0.041 0.73 secs 0.73 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     max 0.45 secs           0.58 0.60 secs          0.788 0.76 secs 0.76 secs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   total 0.90 secs           0.43 0.65 secs          0.310 2.11 secs 2.11 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   summary  evaluate evaluate_ratio   overhead overhead_ratio  duration</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     min 0.10 secs           0.23 0.011 secs          0.025 0.46 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    mean 0.27 secs           0.49 0.165 secs          0.298 0.55 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  median 0.31 secs           0.53 0.017 secs          0.029 0.57 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     max 0.41 secs           0.66 0.466 secs          0.747 0.62 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   total 0.82 secs           0.49 0.494 secs          0.298 1.66 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    walltime</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.46 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 0.55 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 0.57 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 0.62 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1.66 secs</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Shut down parallel workers</span></span></span>
 <span class="r-in"><span><span class="fu">plan</span><span class="op">(</span><span class="va">sequential</span><span class="op">)</span></span></span>
