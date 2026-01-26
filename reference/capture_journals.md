@@ -55,17 +55,17 @@ js_all <- Reduce(rbind, js)
 print(summary(js_all), digits = 2L)
 #> Number of futures: 3
 #>   summary  evaluate evaluate_ratio   overhead overhead_ratio  duration
-#> 1     min 0.10 secs           0.23 0.011 secs          0.025 0.46 secs
-#> 2    mean 0.27 secs           0.49 0.165 secs          0.298 0.55 secs
-#> 3  median 0.31 secs           0.53 0.017 secs          0.029 0.57 secs
-#> 4     max 0.41 secs           0.66 0.466 secs          0.747 0.62 secs
-#> 5   total 0.82 secs           0.49 0.494 secs          0.298 1.66 secs
+#> 1     min 0.11 secs           0.19 0.017 secs           0.03 0.56 secs
+#> 2    mean 0.29 secs           0.45 0.199 secs           0.31 0.64 secs
+#> 3  median 0.33 secs           0.50 0.026 secs           0.04 0.65 secs
+#> 4     max 0.43 secs           0.60 0.556 secs           0.78 0.72 secs
+#> 5   total 0.86 secs           0.45 0.598 secs           0.31 1.92 secs
 #>    walltime
-#> 1 0.46 secs
-#> 2 0.55 secs
-#> 3 0.57 secs
-#> 4 0.62 secs
-#> 5 1.66 secs
+#> 1 0.56 secs
+#> 2 0.64 secs
+#> 3 0.65 secs
+#> 4 0.72 secs
+#> 5 1.92 secs
 
 ## Shut down parallel workers
 plan(sequential)

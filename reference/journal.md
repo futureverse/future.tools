@@ -103,726 +103,732 @@ js <- lapply(fs, FUN = journal, baseline = t_start)
 print(js)
 #> [[1]]
 #>            event   category parent               start               at
-#> 1         create   overhead   <NA> 2026-01-23 09:35:32 0.000000000 secs
-#> 4         launch   overhead   <NA> 2026-01-23 09:35:32 0.005555868 secs
-#> 2      getWorker   overhead launch 2026-01-23 09:35:32 0.005648136 secs
-#> 3    eraseWorker   overhead launch 2026-01-23 09:35:32 0.006557226 secs
-#> 5       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.036628723 secs
-#> 6       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.069770098 secs
-#> 7       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.102631569 secs
-#> 8       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.135609150 secs
-#> 40      evaluate evaluation   <NA> 2026-01-23 09:35:32 0.157164574 secs
-#> 9       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.168743610 secs
-#> 10      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.201970100 secs
-#> 11      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.235349655 secs
-#> 12      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.268858671 secs
-#> 13      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.303367376 secs
-#> 14      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.343578339 secs
-#> 15      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.380883932 secs
-#> 16      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.418625355 secs
-#> 17      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.455880642 secs
-#> 18      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.493697643 secs
-#> 19      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.531238556 secs
-#> 20      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.568977118 secs
-#> 21      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.607268810 secs
-#> 22      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.645548582 secs
-#> 23      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.683705091 secs
-#> 24      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.722287655 secs
-#> 25      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.761150360 secs
-#> 26      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.800045967 secs
-#> 27      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.838627338 secs
-#> 28      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.878235102 secs
-#> 29      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.917429209 secs
-#> 30      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.957523108 secs
-#> 31      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.996598959 secs
-#> 32      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.035979271 secs
-#> 33      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.075255394 secs
-#> 34      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.115124941 secs
-#> 35      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.154886484 secs
-#> 36      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.195034742 secs
-#> 37      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.235300779 secs
-#> 41      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.275754929 secs
-#> 38 receiveResult   overhead gather 2026-01-23 09:35:33 1.276952267 secs
-#> 39        gather   overhead   <NA> 2026-01-23 09:35:33 1.278770685 secs
-#> 42      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.296568394 secs
-#> 43       resolve   overhead   <NA> 2026-01-23 09:35:33 1.297593594 secs
+#> 1         create   overhead   <NA> 2026-01-25 16:33:35 0.000000000 secs
+#> 4         launch   overhead   <NA> 2026-01-25 16:33:35 0.007212162 secs
+#> 2      getWorker   overhead launch 2026-01-25 16:33:35 0.007328987 secs
+#> 3    eraseWorker   overhead launch 2026-01-25 16:33:35 0.008412361 secs
+#> 5       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.042851925 secs
+#> 6       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.076385021 secs
+#> 7       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.109673023 secs
+#> 8       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.143195391 secs
+#> 9       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.176886559 secs
+#> 41      evaluate evaluation   <NA> 2026-01-25 16:33:35 0.187297106 secs
+#> 10      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.211236715 secs
+#> 11      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.246399403 secs
+#> 12      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.280499458 secs
+#> 13      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.319164753 secs
+#> 14      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.353872776 secs
+#> 15      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.391916513 secs
+#> 16      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.429578781 secs
+#> 17      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.467386961 secs
+#> 18      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.505439758 secs
+#> 19      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.543430328 secs
+#> 20      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.581537724 secs
+#> 21      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.620006800 secs
+#> 22      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.659044027 secs
+#> 23      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.697744846 secs
+#> 24      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.736318827 secs
+#> 25      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.775137901 secs
+#> 26      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.813734055 secs
+#> 27      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.852498770 secs
+#> 28      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.891539574 secs
+#> 29      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.930731058 secs
+#> 30      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.970166683 secs
+#> 31      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.009792328 secs
+#> 32      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.049490929 secs
+#> 33      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.089111328 secs
+#> 34      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.129076242 secs
+#> 35      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.169508219 secs
+#> 36      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.209581852 secs
+#> 37      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.249819994 secs
+#> 38      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.290004969 secs
+#> 42      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.330100060 secs
+#> 39 receiveResult   overhead gather 2026-01-25 16:33:36 1.331326962 secs
+#> 40        gather   overhead   <NA> 2026-01-25 16:33:36 1.333472252 secs
+#> 43      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.350581408 secs
+#> 44       resolve   overhead   <NA> 2026-01-25 16:33:36 1.351481915 secs
 #>             duration future_label                         future_uuid
-#> 1  5.333900e-03 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 4  3.825426e-03 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 2  4.966259e-04 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 3  2.470016e-04 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 5  1.077294e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 6  1.058173e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 7  1.061296e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 8  1.058125e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 40 1.111516e+00 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 9  1.067972e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 10 1.064754e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 11 1.067567e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 12 1.081800e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 13 1.148939e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 14 1.153159e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 15 1.157975e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 16 1.132822e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 17 1.143646e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 18 1.151538e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 19 1.136327e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 20 1.157713e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 21 1.142240e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 22 1.149011e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 23 1.145530e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 24 1.153040e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 25 1.139975e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 26 1.118422e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 27 1.166534e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 28 1.158834e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 29 1.141000e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 30 1.121020e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 31 1.158762e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 32 1.144576e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 33 1.148796e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 34 1.136732e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 35 1.142716e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 36 1.157498e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 37 1.157260e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 41 7.658243e-03 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 38 2.799034e-04 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 39 1.225471e-04 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 42 6.246567e-05 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
-#> 43 1.454353e-05 secs         <NA> a718d911fcdd12cf3da122e27056c669-17
+#> 1  6.910801e-03 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 4  4.907846e-03 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 2  5.192757e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 3  3.986359e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 5  1.091003e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 6  1.069665e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 7  1.078415e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 8  1.077700e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 9  1.081920e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 41 1.124770e+00 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 10 1.076102e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 11 1.080489e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 12 1.079369e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 13 1.078320e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 14 1.148629e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 15 1.154780e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 16 1.150751e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 17 1.146936e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 18 1.149821e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 19 1.154423e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 20 1.150370e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 21 1.187968e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 22 1.150012e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 23 1.155710e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 24 1.148820e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 25 1.141286e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 26 1.149130e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 27 1.143289e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 28 1.138616e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 29 1.156569e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 30 1.163697e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 31 1.148200e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 32 1.149893e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 33 1.145339e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 34 1.165009e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 35 1.150131e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 36 1.148129e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 37 1.143694e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 38 1.152611e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 42 8.465767e-03 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 39 2.605915e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 40 1.401901e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 43 4.315376e-05 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
+#> 44 1.192093e-05 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-17
 #>                        session_uuid
-#> 1  a718d911fcdd12cf3da122e27056c669
-#> 4  a718d911fcdd12cf3da122e27056c669
-#> 2  a718d911fcdd12cf3da122e27056c669
-#> 3  a718d911fcdd12cf3da122e27056c669
-#> 5  a718d911fcdd12cf3da122e27056c669
-#> 6  a718d911fcdd12cf3da122e27056c669
-#> 7  a718d911fcdd12cf3da122e27056c669
-#> 8  a718d911fcdd12cf3da122e27056c669
-#> 40 a718d911fcdd12cf3da122e27056c669
-#> 9  a718d911fcdd12cf3da122e27056c669
-#> 10 a718d911fcdd12cf3da122e27056c669
-#> 11 a718d911fcdd12cf3da122e27056c669
-#> 12 a718d911fcdd12cf3da122e27056c669
-#> 13 a718d911fcdd12cf3da122e27056c669
-#> 14 a718d911fcdd12cf3da122e27056c669
-#> 15 a718d911fcdd12cf3da122e27056c669
-#> 16 a718d911fcdd12cf3da122e27056c669
-#> 17 a718d911fcdd12cf3da122e27056c669
-#> 18 a718d911fcdd12cf3da122e27056c669
-#> 19 a718d911fcdd12cf3da122e27056c669
-#> 20 a718d911fcdd12cf3da122e27056c669
-#> 21 a718d911fcdd12cf3da122e27056c669
-#> 22 a718d911fcdd12cf3da122e27056c669
-#> 23 a718d911fcdd12cf3da122e27056c669
-#> 24 a718d911fcdd12cf3da122e27056c669
-#> 25 a718d911fcdd12cf3da122e27056c669
-#> 26 a718d911fcdd12cf3da122e27056c669
-#> 27 a718d911fcdd12cf3da122e27056c669
-#> 28 a718d911fcdd12cf3da122e27056c669
-#> 29 a718d911fcdd12cf3da122e27056c669
-#> 30 a718d911fcdd12cf3da122e27056c669
-#> 31 a718d911fcdd12cf3da122e27056c669
-#> 32 a718d911fcdd12cf3da122e27056c669
-#> 33 a718d911fcdd12cf3da122e27056c669
-#> 34 a718d911fcdd12cf3da122e27056c669
-#> 35 a718d911fcdd12cf3da122e27056c669
-#> 36 a718d911fcdd12cf3da122e27056c669
-#> 37 a718d911fcdd12cf3da122e27056c669
-#> 41 a718d911fcdd12cf3da122e27056c669
-#> 38 a718d911fcdd12cf3da122e27056c669
-#> 39 a718d911fcdd12cf3da122e27056c669
-#> 42 a718d911fcdd12cf3da122e27056c669
-#> 43 a718d911fcdd12cf3da122e27056c669
+#> 1  6128f31e79476bcb789b83bdb3b16a22
+#> 4  6128f31e79476bcb789b83bdb3b16a22
+#> 2  6128f31e79476bcb789b83bdb3b16a22
+#> 3  6128f31e79476bcb789b83bdb3b16a22
+#> 5  6128f31e79476bcb789b83bdb3b16a22
+#> 6  6128f31e79476bcb789b83bdb3b16a22
+#> 7  6128f31e79476bcb789b83bdb3b16a22
+#> 8  6128f31e79476bcb789b83bdb3b16a22
+#> 9  6128f31e79476bcb789b83bdb3b16a22
+#> 41 6128f31e79476bcb789b83bdb3b16a22
+#> 10 6128f31e79476bcb789b83bdb3b16a22
+#> 11 6128f31e79476bcb789b83bdb3b16a22
+#> 12 6128f31e79476bcb789b83bdb3b16a22
+#> 13 6128f31e79476bcb789b83bdb3b16a22
+#> 14 6128f31e79476bcb789b83bdb3b16a22
+#> 15 6128f31e79476bcb789b83bdb3b16a22
+#> 16 6128f31e79476bcb789b83bdb3b16a22
+#> 17 6128f31e79476bcb789b83bdb3b16a22
+#> 18 6128f31e79476bcb789b83bdb3b16a22
+#> 19 6128f31e79476bcb789b83bdb3b16a22
+#> 20 6128f31e79476bcb789b83bdb3b16a22
+#> 21 6128f31e79476bcb789b83bdb3b16a22
+#> 22 6128f31e79476bcb789b83bdb3b16a22
+#> 23 6128f31e79476bcb789b83bdb3b16a22
+#> 24 6128f31e79476bcb789b83bdb3b16a22
+#> 25 6128f31e79476bcb789b83bdb3b16a22
+#> 26 6128f31e79476bcb789b83bdb3b16a22
+#> 27 6128f31e79476bcb789b83bdb3b16a22
+#> 28 6128f31e79476bcb789b83bdb3b16a22
+#> 29 6128f31e79476bcb789b83bdb3b16a22
+#> 30 6128f31e79476bcb789b83bdb3b16a22
+#> 31 6128f31e79476bcb789b83bdb3b16a22
+#> 32 6128f31e79476bcb789b83bdb3b16a22
+#> 33 6128f31e79476bcb789b83bdb3b16a22
+#> 34 6128f31e79476bcb789b83bdb3b16a22
+#> 35 6128f31e79476bcb789b83bdb3b16a22
+#> 36 6128f31e79476bcb789b83bdb3b16a22
+#> 37 6128f31e79476bcb789b83bdb3b16a22
+#> 38 6128f31e79476bcb789b83bdb3b16a22
+#> 42 6128f31e79476bcb789b83bdb3b16a22
+#> 39 6128f31e79476bcb789b83bdb3b16a22
+#> 40 6128f31e79476bcb789b83bdb3b16a22
+#> 43 6128f31e79476bcb789b83bdb3b16a22
+#> 44 6128f31e79476bcb789b83bdb3b16a22
 #> 
 #> [[2]]
 #>            event   category parent               start               at
-#> 1         create   overhead   <NA> 2026-01-23 09:35:32 0.000000000 secs
-#> 4         launch   overhead   <NA> 2026-01-23 09:35:32 0.005681038 secs
-#> 2      getWorker   overhead launch 2026-01-23 09:35:32 0.005776644 secs
-#> 3    eraseWorker   overhead launch 2026-01-23 09:35:32 0.006597996 secs
-#> 5       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.038264513 secs
-#> 6       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.071173191 secs
-#> 7       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.104084253 secs
-#> 8       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.137073517 secs
-#> 67      evaluate evaluation   <NA> 2026-01-23 09:35:32 0.149469614 secs
-#> 9       resolved       <NA>   <NA> 2026-01-23 09:35:32 0.170203447 secs
-#> 10      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.203482628 secs
-#> 11      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.236856937 secs
-#> 12      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.270477295 secs
-#> 13      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.310321331 secs
-#> 14      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.346828938 secs
-#> 15      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.384289026 secs
-#> 16      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.421656370 secs
-#> 17      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.459056139 secs
-#> 18      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.496959925 secs
-#> 19      resolved       <NA>   <NA> 2026-01-23 09:35:32 0.534417152 secs
-#> 20      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.572428942 secs
-#> 21      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.610493898 secs
-#> 22      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.648766279 secs
-#> 23      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.686966181 secs
-#> 24      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.725647211 secs
-#> 25      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.764323473 secs
-#> 26      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.802906752 secs
-#> 27      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.842185497 secs
-#> 28      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.881705046 secs
-#> 29      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.920920134 secs
-#> 30      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.960479975 secs
-#> 31      resolved       <NA>   <NA> 2026-01-23 09:35:33 0.999935627 secs
-#> 32      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.039107084 secs
-#> 33      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.078495026 secs
-#> 34      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.118164301 secs
-#> 35      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.158058643 secs
-#> 36      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.198320389 secs
-#> 37      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.238728523 secs
-#> 38      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.288357735 secs
-#> 39      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.322700977 secs
-#> 40      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.359114170 secs
-#> 41      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.395426035 secs
-#> 42      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.431705952 secs
-#> 43      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.467922688 secs
-#> 44      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.504199028 secs
-#> 45      resolved       <NA>   <NA> 2026-01-23 09:35:33 1.540575266 secs
-#> 46      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.577163935 secs
-#> 47      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.613638401 secs
-#> 48      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.649131775 secs
-#> 49      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.685713768 secs
-#> 50      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.721895695 secs
-#> 51      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.758423090 secs
-#> 52      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.794526577 secs
-#> 53      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.830657005 secs
-#> 54      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.868142605 secs
-#> 55      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.904479027 secs
-#> 56      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.940746307 secs
-#> 57      resolved       <NA>   <NA> 2026-01-23 09:35:34 1.977054119 secs
-#> 58      resolved       <NA>   <NA> 2026-01-23 09:35:34 2.013487339 secs
-#> 59      resolved       <NA>   <NA> 2026-01-23 09:35:34 2.049949169 secs
-#> 60      resolved       <NA>   <NA> 2026-01-23 09:35:34 2.086752176 secs
-#> 61      resolved       <NA>   <NA> 2026-01-23 09:35:34 2.122847319 secs
-#> 62      resolved       <NA>   <NA> 2026-01-23 09:35:34 2.159620762 secs
-#> 63      resolved       <NA>   <NA> 2026-01-23 09:35:34 2.195760727 secs
-#> 64      resolved       <NA>   <NA> 2026-01-23 09:35:34 2.232341766 secs
-#> 68      resolved       <NA>   <NA> 2026-01-23 09:35:34 2.268972397 secs
-#> 65 receiveResult   overhead gather 2026-01-23 09:35:34 2.270154953 secs
-#> 66        gather   overhead   <NA> 2026-01-23 09:35:34 2.271959066 secs
-#> 69       resolve   overhead   <NA> 2026-01-23 09:35:34 2.279075861 secs
+#> 1         create   overhead   <NA> 2026-01-25 16:33:35 0.000000000 secs
+#> 4         launch   overhead   <NA> 2026-01-25 16:33:35 0.007308006 secs
+#> 2      getWorker   overhead launch 2026-01-25 16:33:35 0.007428646 secs
+#> 3    eraseWorker   overhead launch 2026-01-25 16:33:35 0.008457899 secs
+#> 5       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.041819096 secs
+#> 6       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.075146437 secs
+#> 7       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.108551741 secs
+#> 8       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.142183065 secs
+#> 9       resolved       <NA>   <NA> 2026-01-25 16:33:35 0.175957441 secs
+#> 68      evaluate evaluation   <NA> 2026-01-25 16:33:35 0.188623905 secs
+#> 10      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.210693836 secs
+#> 11      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.245344877 secs
+#> 12      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.279444933 secs
+#> 13      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.318154573 secs
+#> 14      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.354622602 secs
+#> 15      resolved       <NA>   <NA> 2026-01-25 16:33:35 0.392350674 secs
+#> 16      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.429974079 secs
+#> 17      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.467769146 secs
+#> 18      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.505842209 secs
+#> 19      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.543853998 secs
+#> 20      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.581930161 secs
+#> 21      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.620913506 secs
+#> 22      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.659479856 secs
+#> 23      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.698144197 secs
+#> 24      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.736701250 secs
+#> 25      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.775371552 secs
+#> 26      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.814052582 secs
+#> 27      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.852897167 secs
+#> 28      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.891817570 secs
+#> 29      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.931170464 secs
+#> 30      resolved       <NA>   <NA> 2026-01-25 16:33:36 0.970746517 secs
+#> 31      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.010342598 secs
+#> 32      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.049866915 secs
+#> 33      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.089494705 secs
+#> 34      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.129735708 secs
+#> 35      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.169920921 secs
+#> 36      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.210059643 secs
+#> 37      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.250178099 secs
+#> 38      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.290344715 secs
+#> 39      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.339327097 secs
+#> 40      resolved       <NA>   <NA> 2026-01-25 16:33:36 1.374291420 secs
+#> 41      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.410438538 secs
+#> 42      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.446633339 secs
+#> 43      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.482783794 secs
+#> 44      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.518812656 secs
+#> 45      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.555108547 secs
+#> 46      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.591328144 secs
+#> 47      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.628352404 secs
+#> 48      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.664637089 secs
+#> 49      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.700621367 secs
+#> 50      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.736844540 secs
+#> 51      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.773596764 secs
+#> 52      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.810637236 secs
+#> 53      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.847327948 secs
+#> 54      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.884053469 secs
+#> 55      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.920361996 secs
+#> 56      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.956422567 secs
+#> 57      resolved       <NA>   <NA> 2026-01-25 16:33:37 1.992339849 secs
+#> 58      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.029011726 secs
+#> 59      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.065688372 secs
+#> 60      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.101906061 secs
+#> 61      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.138700247 secs
+#> 62      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.174826145 secs
+#> 63      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.211444139 secs
+#> 64      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.247658968 secs
+#> 65      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.281295300 secs
+#> 69      resolved       <NA>   <NA> 2026-01-25 16:33:37 2.317137957 secs
+#> 66 receiveResult   overhead gather 2026-01-25 16:33:37 2.318475008 secs
+#> 67        gather   overhead   <NA> 2026-01-25 16:33:37 2.320580959 secs
+#> 70       resolve   overhead   <NA> 2026-01-25 16:33:37 2.327844858 secs
 #>             duration future_label                         future_uuid
-#> 1  5.452394e-03 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 4  3.843546e-03 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 2  3.976822e-04 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 3  3.263950e-04 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 5  1.072788e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 6  1.059556e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 7  1.061392e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 8  1.069379e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 67 2.106808e+00 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 9  1.058888e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 10 1.063323e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 11 1.054621e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 12 1.065326e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 13 1.078916e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 14 1.126838e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 15 1.129603e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 16 1.121712e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 17 1.135659e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 18 1.120019e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 19 1.119518e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 20 1.126552e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 21 1.132298e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 22 1.124120e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 23 1.136065e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 24 1.144695e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 25 1.130557e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 26 1.136446e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 27 1.147461e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 28 1.136470e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 29 1.192856e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 30 1.124644e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 31 1.119995e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 32 1.121783e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 33 1.139140e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 34 1.132512e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 35 1.141286e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 36 1.123190e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 37 1.127124e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 38 1.056075e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 39 1.165724e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 40 1.161575e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 41 1.143694e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 42 1.153564e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 43 1.157665e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 44 1.155496e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 45 1.166344e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 46 1.162291e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 47 1.148582e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 48 1.143289e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 49 1.143384e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 50 1.166320e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 51 1.132035e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 52 1.147485e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 53 1.145649e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 54 1.156831e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 55 1.158047e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 56 1.162696e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 57 1.157856e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 58 1.147556e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 59 1.229095e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 60 1.152372e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 61 1.154208e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 62 1.155257e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 63 1.163673e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 64 1.205564e-02 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 68 7.959604e-03 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 65 2.765656e-04 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 66 1.325607e-04 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
-#> 69 2.908707e-05 secs         <NA> a718d911fcdd12cf3da122e27056c669-18
+#> 1  7.016420e-03 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 4  4.707336e-03 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 2  4.904270e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 3  2.722740e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 5  1.080847e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 6  1.063275e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 7  1.070046e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 8  1.063228e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 9  1.100254e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 68 2.124472e+00 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 10 1.117110e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 11 1.071477e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 12 1.513743e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 13 1.078391e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 14 1.143479e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 15 1.134849e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 16 1.142287e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 17 1.148653e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 18 1.129818e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 19 1.133657e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 20 1.139617e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 21 1.137805e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 22 1.128554e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 23 1.136589e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 24 1.135445e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 25 1.134253e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 26 1.135850e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 27 1.136947e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 28 1.134944e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 29 1.142216e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 30 1.135516e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 31 1.141000e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 32 1.136351e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 33 1.144695e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 34 1.135445e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 35 1.137471e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 36 1.130939e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 37 1.132345e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 38 1.127219e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 39 1.066017e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 40 1.156187e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 41 1.145554e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 42 1.151156e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 43 1.140547e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 44 1.161408e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 45 1.156187e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 46 1.150799e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 47 1.147366e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 48 1.154470e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 49 1.145625e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 50 1.182032e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 51 1.181269e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 52 1.144719e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 53 1.157618e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 54 1.157045e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 55 1.148915e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 56 1.153255e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 57 1.152015e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 58 1.160097e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 59 1.152658e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 60 1.182508e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 61 1.155162e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 62 1.154613e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 63 1.145935e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 64 1.122022e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 65 1.148987e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 69 8.338213e-03 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 66 3.001690e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 67 1.294613e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
+#> 70 3.170967e-05 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-18
 #>                        session_uuid
-#> 1  a718d911fcdd12cf3da122e27056c669
-#> 4  a718d911fcdd12cf3da122e27056c669
-#> 2  a718d911fcdd12cf3da122e27056c669
-#> 3  a718d911fcdd12cf3da122e27056c669
-#> 5  a718d911fcdd12cf3da122e27056c669
-#> 6  a718d911fcdd12cf3da122e27056c669
-#> 7  a718d911fcdd12cf3da122e27056c669
-#> 8  a718d911fcdd12cf3da122e27056c669
-#> 67 a718d911fcdd12cf3da122e27056c669
-#> 9  a718d911fcdd12cf3da122e27056c669
-#> 10 a718d911fcdd12cf3da122e27056c669
-#> 11 a718d911fcdd12cf3da122e27056c669
-#> 12 a718d911fcdd12cf3da122e27056c669
-#> 13 a718d911fcdd12cf3da122e27056c669
-#> 14 a718d911fcdd12cf3da122e27056c669
-#> 15 a718d911fcdd12cf3da122e27056c669
-#> 16 a718d911fcdd12cf3da122e27056c669
-#> 17 a718d911fcdd12cf3da122e27056c669
-#> 18 a718d911fcdd12cf3da122e27056c669
-#> 19 a718d911fcdd12cf3da122e27056c669
-#> 20 a718d911fcdd12cf3da122e27056c669
-#> 21 a718d911fcdd12cf3da122e27056c669
-#> 22 a718d911fcdd12cf3da122e27056c669
-#> 23 a718d911fcdd12cf3da122e27056c669
-#> 24 a718d911fcdd12cf3da122e27056c669
-#> 25 a718d911fcdd12cf3da122e27056c669
-#> 26 a718d911fcdd12cf3da122e27056c669
-#> 27 a718d911fcdd12cf3da122e27056c669
-#> 28 a718d911fcdd12cf3da122e27056c669
-#> 29 a718d911fcdd12cf3da122e27056c669
-#> 30 a718d911fcdd12cf3da122e27056c669
-#> 31 a718d911fcdd12cf3da122e27056c669
-#> 32 a718d911fcdd12cf3da122e27056c669
-#> 33 a718d911fcdd12cf3da122e27056c669
-#> 34 a718d911fcdd12cf3da122e27056c669
-#> 35 a718d911fcdd12cf3da122e27056c669
-#> 36 a718d911fcdd12cf3da122e27056c669
-#> 37 a718d911fcdd12cf3da122e27056c669
-#> 38 a718d911fcdd12cf3da122e27056c669
-#> 39 a718d911fcdd12cf3da122e27056c669
-#> 40 a718d911fcdd12cf3da122e27056c669
-#> 41 a718d911fcdd12cf3da122e27056c669
-#> 42 a718d911fcdd12cf3da122e27056c669
-#> 43 a718d911fcdd12cf3da122e27056c669
-#> 44 a718d911fcdd12cf3da122e27056c669
-#> 45 a718d911fcdd12cf3da122e27056c669
-#> 46 a718d911fcdd12cf3da122e27056c669
-#> 47 a718d911fcdd12cf3da122e27056c669
-#> 48 a718d911fcdd12cf3da122e27056c669
-#> 49 a718d911fcdd12cf3da122e27056c669
-#> 50 a718d911fcdd12cf3da122e27056c669
-#> 51 a718d911fcdd12cf3da122e27056c669
-#> 52 a718d911fcdd12cf3da122e27056c669
-#> 53 a718d911fcdd12cf3da122e27056c669
-#> 54 a718d911fcdd12cf3da122e27056c669
-#> 55 a718d911fcdd12cf3da122e27056c669
-#> 56 a718d911fcdd12cf3da122e27056c669
-#> 57 a718d911fcdd12cf3da122e27056c669
-#> 58 a718d911fcdd12cf3da122e27056c669
-#> 59 a718d911fcdd12cf3da122e27056c669
-#> 60 a718d911fcdd12cf3da122e27056c669
-#> 61 a718d911fcdd12cf3da122e27056c669
-#> 62 a718d911fcdd12cf3da122e27056c669
-#> 63 a718d911fcdd12cf3da122e27056c669
-#> 64 a718d911fcdd12cf3da122e27056c669
-#> 68 a718d911fcdd12cf3da122e27056c669
-#> 65 a718d911fcdd12cf3da122e27056c669
-#> 66 a718d911fcdd12cf3da122e27056c669
-#> 69 a718d911fcdd12cf3da122e27056c669
+#> 1  6128f31e79476bcb789b83bdb3b16a22
+#> 4  6128f31e79476bcb789b83bdb3b16a22
+#> 2  6128f31e79476bcb789b83bdb3b16a22
+#> 3  6128f31e79476bcb789b83bdb3b16a22
+#> 5  6128f31e79476bcb789b83bdb3b16a22
+#> 6  6128f31e79476bcb789b83bdb3b16a22
+#> 7  6128f31e79476bcb789b83bdb3b16a22
+#> 8  6128f31e79476bcb789b83bdb3b16a22
+#> 9  6128f31e79476bcb789b83bdb3b16a22
+#> 68 6128f31e79476bcb789b83bdb3b16a22
+#> 10 6128f31e79476bcb789b83bdb3b16a22
+#> 11 6128f31e79476bcb789b83bdb3b16a22
+#> 12 6128f31e79476bcb789b83bdb3b16a22
+#> 13 6128f31e79476bcb789b83bdb3b16a22
+#> 14 6128f31e79476bcb789b83bdb3b16a22
+#> 15 6128f31e79476bcb789b83bdb3b16a22
+#> 16 6128f31e79476bcb789b83bdb3b16a22
+#> 17 6128f31e79476bcb789b83bdb3b16a22
+#> 18 6128f31e79476bcb789b83bdb3b16a22
+#> 19 6128f31e79476bcb789b83bdb3b16a22
+#> 20 6128f31e79476bcb789b83bdb3b16a22
+#> 21 6128f31e79476bcb789b83bdb3b16a22
+#> 22 6128f31e79476bcb789b83bdb3b16a22
+#> 23 6128f31e79476bcb789b83bdb3b16a22
+#> 24 6128f31e79476bcb789b83bdb3b16a22
+#> 25 6128f31e79476bcb789b83bdb3b16a22
+#> 26 6128f31e79476bcb789b83bdb3b16a22
+#> 27 6128f31e79476bcb789b83bdb3b16a22
+#> 28 6128f31e79476bcb789b83bdb3b16a22
+#> 29 6128f31e79476bcb789b83bdb3b16a22
+#> 30 6128f31e79476bcb789b83bdb3b16a22
+#> 31 6128f31e79476bcb789b83bdb3b16a22
+#> 32 6128f31e79476bcb789b83bdb3b16a22
+#> 33 6128f31e79476bcb789b83bdb3b16a22
+#> 34 6128f31e79476bcb789b83bdb3b16a22
+#> 35 6128f31e79476bcb789b83bdb3b16a22
+#> 36 6128f31e79476bcb789b83bdb3b16a22
+#> 37 6128f31e79476bcb789b83bdb3b16a22
+#> 38 6128f31e79476bcb789b83bdb3b16a22
+#> 39 6128f31e79476bcb789b83bdb3b16a22
+#> 40 6128f31e79476bcb789b83bdb3b16a22
+#> 41 6128f31e79476bcb789b83bdb3b16a22
+#> 42 6128f31e79476bcb789b83bdb3b16a22
+#> 43 6128f31e79476bcb789b83bdb3b16a22
+#> 44 6128f31e79476bcb789b83bdb3b16a22
+#> 45 6128f31e79476bcb789b83bdb3b16a22
+#> 46 6128f31e79476bcb789b83bdb3b16a22
+#> 47 6128f31e79476bcb789b83bdb3b16a22
+#> 48 6128f31e79476bcb789b83bdb3b16a22
+#> 49 6128f31e79476bcb789b83bdb3b16a22
+#> 50 6128f31e79476bcb789b83bdb3b16a22
+#> 51 6128f31e79476bcb789b83bdb3b16a22
+#> 52 6128f31e79476bcb789b83bdb3b16a22
+#> 53 6128f31e79476bcb789b83bdb3b16a22
+#> 54 6128f31e79476bcb789b83bdb3b16a22
+#> 55 6128f31e79476bcb789b83bdb3b16a22
+#> 56 6128f31e79476bcb789b83bdb3b16a22
+#> 57 6128f31e79476bcb789b83bdb3b16a22
+#> 58 6128f31e79476bcb789b83bdb3b16a22
+#> 59 6128f31e79476bcb789b83bdb3b16a22
+#> 60 6128f31e79476bcb789b83bdb3b16a22
+#> 61 6128f31e79476bcb789b83bdb3b16a22
+#> 62 6128f31e79476bcb789b83bdb3b16a22
+#> 63 6128f31e79476bcb789b83bdb3b16a22
+#> 64 6128f31e79476bcb789b83bdb3b16a22
+#> 65 6128f31e79476bcb789b83bdb3b16a22
+#> 69 6128f31e79476bcb789b83bdb3b16a22
+#> 66 6128f31e79476bcb789b83bdb3b16a22
+#> 67 6128f31e79476bcb789b83bdb3b16a22
+#> 70 6128f31e79476bcb789b83bdb3b16a22
 #> 
 #> [[3]]
 #>             event   category parent               start               at
-#> 1          create   overhead   <NA> 2026-01-23 09:35:32 0.000000000 secs
-#> 4          launch   overhead   <NA> 2026-01-23 09:35:32 0.006581783 secs
-#> 2       getWorker   overhead launch 2026-01-23 09:35:32 0.006692171 secs
-#> 3     eraseWorker   overhead launch 2026-01-23 09:35:33 1.268404007 secs
-#> 5        resolved       <NA>   <NA> 2026-01-23 09:35:33 1.289865255 secs
-#> 122      evaluate evaluation   <NA> 2026-01-23 09:35:33 1.316643715 secs
-#> 6        resolved       <NA>   <NA> 2026-01-23 09:35:33 1.325942516 secs
-#> 7        resolved       <NA>   <NA> 2026-01-23 09:35:33 1.362375975 secs
-#> 8        resolved       <NA>   <NA> 2026-01-23 09:35:33 1.398620605 secs
-#> 9        resolved       <NA>   <NA> 2026-01-23 09:35:33 1.434834957 secs
-#> 10       resolved       <NA>   <NA> 2026-01-23 09:35:33 1.471122026 secs
-#> 11       resolved       <NA>   <NA> 2026-01-23 09:35:33 1.507387400 secs
-#> 12       resolved       <NA>   <NA> 2026-01-23 09:35:33 1.543937922 secs
-#> 13       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.580479860 secs
-#> 14       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.616329432 secs
-#> 15       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.652540684 secs
-#> 16       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.688825130 secs
-#> 17       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.725288153 secs
-#> 18       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.761333227 secs
-#> 19       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.797587395 secs
-#> 20       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.834443808 secs
-#> 21       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.871383190 secs
-#> 22       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.907671690 secs
-#> 23       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.944049597 secs
-#> 24       resolved       <NA>   <NA> 2026-01-23 09:35:34 1.980263710 secs
-#> 25       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.016703129 secs
-#> 26       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.053808928 secs
-#> 27       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.089807510 secs
-#> 28       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.126047373 secs
-#> 29       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.162782669 secs
-#> 30       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.199177027 secs
-#> 31       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.236015558 secs
-#> 32       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.270396709 secs
-#> 33       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.293247223 secs
-#> 34       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.316516161 secs
-#> 35       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.339873791 secs
-#> 36       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.363499641 secs
-#> 37       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.386906624 secs
-#> 38       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.410343885 secs
-#> 39       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.434058189 secs
-#> 40       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.464411974 secs
-#> 41       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.488015652 secs
-#> 42       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.511484146 secs
-#> 43       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.534802198 secs
-#> 44       resolved       <NA>   <NA> 2026-01-23 09:35:34 2.558833122 secs
-#> 45       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.581875086 secs
-#> 46       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.605262756 secs
-#> 47       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.628621340 secs
-#> 48       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.652867079 secs
-#> 49       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.676024914 secs
-#> 50       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.699337959 secs
-#> 51       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.722907305 secs
-#> 52       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.746329308 secs
-#> 53       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.769582748 secs
-#> 54       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.792956829 secs
-#> 55       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.816321850 secs
-#> 56       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.839874744 secs
-#> 57       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.863449335 secs
-#> 58       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.886863947 secs
-#> 59       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.910823345 secs
-#> 60       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.934097767 secs
-#> 61       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.957349777 secs
-#> 62       resolved       <NA>   <NA> 2026-01-23 09:35:35 2.980768204 secs
-#> 63       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.004180908 secs
-#> 64       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.028046131 secs
-#> 65       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.051326036 secs
-#> 66       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.074718952 secs
-#> 67       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.098127842 secs
-#> 68       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.121340275 secs
-#> 69       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.144850254 secs
-#> 70       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.168333769 secs
-#> 71       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.191871166 secs
-#> 72       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.215185165 secs
-#> 73       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.237236738 secs
-#> 74       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.258715630 secs
-#> 75       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.281627893 secs
-#> 76       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.304435968 secs
-#> 77       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.326364040 secs
-#> 78       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.349403620 secs
-#> 79       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.372833014 secs
-#> 80       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.396996260 secs
-#> 81       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.419517040 secs
-#> 82       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.441204071 secs
-#> 83       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.462968826 secs
-#> 84       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.486223459 secs
-#> 85       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.509506464 secs
-#> 86       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.532901287 secs
-#> 87       resolved       <NA>   <NA> 2026-01-23 09:35:35 3.556366444 secs
-#> 88       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.579657555 secs
-#> 89       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.602955580 secs
-#> 90       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.626156569 secs
-#> 91       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.649281263 secs
-#> 92       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.670912504 secs
-#> 93       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.693796396 secs
-#> 94       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.717372894 secs
-#> 95       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.740854502 secs
-#> 96       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.764229774 secs
-#> 97       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.787227154 secs
-#> 98       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.810548067 secs
-#> 99       resolved       <NA>   <NA> 2026-01-23 09:35:36 3.833805799 secs
-#> 100      resolved       <NA>   <NA> 2026-01-23 09:35:36 3.857415199 secs
-#> 101      resolved       <NA>   <NA> 2026-01-23 09:35:36 3.880926371 secs
-#> 102      resolved       <NA>   <NA> 2026-01-23 09:35:36 3.904368877 secs
-#> 103      resolved       <NA>   <NA> 2026-01-23 09:35:36 3.927696228 secs
-#> 104      resolved       <NA>   <NA> 2026-01-23 09:35:36 3.950794220 secs
-#> 105      resolved       <NA>   <NA> 2026-01-23 09:35:36 3.974461555 secs
-#> 106      resolved       <NA>   <NA> 2026-01-23 09:35:36 3.997846127 secs
-#> 107      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.021322250 secs
-#> 108      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.044672966 secs
-#> 109      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.068081856 secs
-#> 110      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.091576815 secs
-#> 111      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.115086317 secs
-#> 112      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.138474226 secs
-#> 113      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.161950588 secs
-#> 114      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.185245514 secs
-#> 115      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.208806515 secs
-#> 116      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.232330799 secs
-#> 117      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.255883694 secs
-#> 118      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.279250622 secs
-#> 119      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.302785873 secs
-#> 123      resolved       <NA>   <NA> 2026-01-23 09:35:36 4.326407909 secs
-#> 120 receiveResult   overhead gather 2026-01-23 09:35:36 4.326973438 secs
-#> 121        gather   overhead   <NA> 2026-01-23 09:35:36 4.327975988 secs
-#> 124       resolve   overhead   <NA> 2026-01-23 09:35:36 4.334994555 secs
+#> 1          create   overhead   <NA> 2026-01-25 16:33:35 0.000000000 secs
+#> 4          launch   overhead   <NA> 2026-01-25 16:33:35 0.007320881 secs
+#> 2       getWorker   overhead launch 2026-01-25 16:33:35 0.007440329 secs
+#> 3     eraseWorker   overhead launch 2026-01-25 16:33:36 1.317763567 secs
+#> 5        resolved       <NA>   <NA> 2026-01-25 16:33:36 1.338515759 secs
+#> 122      evaluate evaluation   <NA> 2026-01-25 16:33:36 1.365253925 secs
+#> 6        resolved       <NA>   <NA> 2026-01-25 16:33:36 1.374849796 secs
+#> 7        resolved       <NA>   <NA> 2026-01-25 16:33:37 1.410955429 secs
+#> 8        resolved       <NA>   <NA> 2026-01-25 16:33:37 1.447143316 secs
+#> 9        resolved       <NA>   <NA> 2026-01-25 16:33:37 1.483145237 secs
+#> 10       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.519413233 secs
+#> 11       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.555641890 secs
+#> 12       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.592360020 secs
+#> 13       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.628858089 secs
+#> 14       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.665126324 secs
+#> 15       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.701095581 secs
+#> 16       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.737651825 secs
+#> 17       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.774615526 secs
+#> 18       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.811347246 secs
+#> 19       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.848105907 secs
+#> 20       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.884543657 secs
+#> 21       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.920820951 secs
+#> 22       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.956900835 secs
+#> 23       resolved       <NA>   <NA> 2026-01-25 16:33:37 1.993028641 secs
+#> 24       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.029608965 secs
+#> 25       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.066231251 secs
+#> 26       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.102916479 secs
+#> 27       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.139271498 secs
+#> 28       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.175607204 secs
+#> 29       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.211904764 secs
+#> 30       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.246837378 secs
+#> 31       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.281729698 secs
+#> 32       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.316659927 secs
+#> 33       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.339271784 secs
+#> 34       resolved       <NA>   <NA> 2026-01-25 16:33:37 2.362524271 secs
+#> 35       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.386105061 secs
+#> 36       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.416207314 secs
+#> 37       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.440034628 secs
+#> 38       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.461459398 secs
+#> 39       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.484273434 secs
+#> 40       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.507467270 secs
+#> 41       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.530823231 secs
+#> 42       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.554276705 secs
+#> 43       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.577857971 secs
+#> 44       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.601193905 secs
+#> 45       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.624724388 secs
+#> 46       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.648548126 secs
+#> 47       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.672096729 secs
+#> 48       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.695498943 secs
+#> 49       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.719219446 secs
+#> 50       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.742659807 secs
+#> 51       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.766181469 secs
+#> 52       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.789592743 secs
+#> 53       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.813032150 secs
+#> 54       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.836514473 secs
+#> 55       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.859836102 secs
+#> 56       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.883285999 secs
+#> 57       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.906767607 secs
+#> 58       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.930446863 secs
+#> 59       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.953891039 secs
+#> 60       resolved       <NA>   <NA> 2026-01-25 16:33:38 2.977423429 secs
+#> 61       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.001384974 secs
+#> 62       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.024548531 secs
+#> 63       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.047954559 secs
+#> 64       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.071238756 secs
+#> 65       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.094474792 secs
+#> 66       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.117755651 secs
+#> 67       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.141097069 secs
+#> 68       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.164389133 secs
+#> 69       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.187465906 secs
+#> 70       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.210608482 secs
+#> 71       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.233842850 secs
+#> 72       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.257544994 secs
+#> 73       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.281060696 secs
+#> 74       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.304469347 secs
+#> 75       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.327663660 secs
+#> 76       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.350910187 secs
+#> 77       resolved       <NA>   <NA> 2026-01-25 16:33:38 3.374244690 secs
+#> 78       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.397573948 secs
+#> 79       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.421113491 secs
+#> 80       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.444471598 secs
+#> 81       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.467830658 secs
+#> 82       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.491191864 secs
+#> 83       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.514596701 secs
+#> 84       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.537999868 secs
+#> 85       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.561046839 secs
+#> 86       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.584465265 secs
+#> 87       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.607805967 secs
+#> 88       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.631267309 secs
+#> 89       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.655032396 secs
+#> 90       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.678470612 secs
+#> 91       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.702100039 secs
+#> 92       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.725183964 secs
+#> 93       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.748593569 secs
+#> 94       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.771654367 secs
+#> 95       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.795060396 secs
+#> 96       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.818395138 secs
+#> 97       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.841557980 secs
+#> 98       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.864935160 secs
+#> 99       resolved       <NA>   <NA> 2026-01-25 16:33:39 3.888220549 secs
+#> 100      resolved       <NA>   <NA> 2026-01-25 16:33:39 3.911517859 secs
+#> 101      resolved       <NA>   <NA> 2026-01-25 16:33:39 3.935136795 secs
+#> 102      resolved       <NA>   <NA> 2026-01-25 16:33:39 3.958524942 secs
+#> 103      resolved       <NA>   <NA> 2026-01-25 16:33:39 3.981934547 secs
+#> 104      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.005767107 secs
+#> 105      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.029177666 secs
+#> 106      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.053013802 secs
+#> 107      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.076233864 secs
+#> 108      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.099394798 secs
+#> 109      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.122993469 secs
+#> 110      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.146145344 secs
+#> 111      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.169326544 secs
+#> 112      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.192461014 secs
+#> 113      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.215644360 secs
+#> 114      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.238884211 secs
+#> 115      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.262605190 secs
+#> 116      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.285928965 secs
+#> 117      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.308999777 secs
+#> 118      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.332273960 secs
+#> 119      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.355391026 secs
+#> 123      resolved       <NA>   <NA> 2026-01-25 16:33:39 4.378534794 secs
+#> 120 receiveResult   overhead gather 2026-01-25 16:33:39 4.379876137 secs
+#> 121        gather   overhead   <NA> 2026-01-25 16:33:39 4.381886005 secs
+#> 124       resolve   overhead   <NA> 2026-01-25 16:33:40 4.388683319 secs
 #>              duration future_label                         future_uuid
-#> 1   0.0063095093 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 4   1.2687225342 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 2   1.2604269981 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 3   0.0008530617 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 5   0.0111243725 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 122 3.0066013336 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 6   0.0113997459 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 7   0.0113825798 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 8   0.0113170147 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 9   0.0113956928 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 10  0.0112819672 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 11  0.0114266872 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 12  0.0115330219 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 13  0.0112934113 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 14  0.0110020638 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 15  0.0113456249 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 16  0.0114231110 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 17  0.0114274025 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 18  0.0112795830 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 19  0.0114064217 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 20  0.0119440556 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 21  0.0112700462 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 22  0.0112457275 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 23  0.0112645626 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 24  0.0113980770 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 25  0.0114920139 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 26  0.0112297535 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 27  0.0113272667 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 28  0.0112702847 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 29  0.0112872124 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 30  0.0114543438 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 31  0.0113313198 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 32  0.0111033916 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 33  0.0115880966 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 34  0.0114831924 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 35  0.0118691921 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 36  0.0115010738 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 37  0.0115740299 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 38  0.0116071701 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 39  0.0181963444 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 40  0.0116381645 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 41  0.0115509033 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 42  0.0115377903 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 43  0.0122535229 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 44  0.0113260746 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 45  0.0115249157 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 46  0.0115931034 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 47  0.0114357471 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 48  0.0114560127 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 49  0.0115501881 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 50  0.0117681026 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 51  0.0114634037 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 52  0.0114676952 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 53  0.0113987923 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 54  0.0116136074 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 55  0.0113949776 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 56  0.0116822720 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 57  0.0115377903 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 58  0.0120570660 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 59  0.0114061832 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 60  0.0114715099 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 61  0.0115411282 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 62  0.0115530491 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 63  0.0121338367 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 64  0.0114815235 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 65  0.0115368366 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 66  0.0115911961 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 67  0.0114738941 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 68  0.0115172863 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 69  0.0115942955 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 70  0.0115478039 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 71  0.0116543770 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 72  0.0108010769 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 73  0.0106587410 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 74  0.0112287998 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 75  0.0119881630 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 76  0.0107429028 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 77  0.0112082958 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 78  0.0115258694 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 79  0.0115308762 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 80  0.0117008686 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 81  0.0109438896 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 82  0.0106427670 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 83  0.0114605427 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 84  0.0114877224 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 85  0.0115280151 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 86  0.0116300583 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 87  0.0113878250 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 88  0.0115678310 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 89  0.0113418102 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 90  0.0116384029 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 91  0.0107412338 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 92  0.0109493732 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 93  0.0115814209 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 94  0.0115685463 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 95  0.0115728378 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 96  0.0112898350 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 97  0.0114352703 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 98  0.0115292072 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 99  0.0115954876 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 100 0.0116364956 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 101 0.0115599632 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 102 0.0115215778 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 103 0.0113883018 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 104 0.0116651058 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 105 0.0115087032 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 106 0.0115966797 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 107 0.0114078522 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 108 0.0115799904 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 109 0.0115711689 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 110 0.0115773678 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 111 0.0115711689 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 112 0.0115492344 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 113 0.0114457607 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 114 0.0116772652 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 115 0.0116379261 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 116 0.0115678310 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 117 0.0115690231 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 118 0.0115156174 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 119 0.0116655827 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 123 0.0062859058 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 120 0.0001330376 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 121 0.0001335144 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
-#> 124 0.0000333786 secs         <NA> a718d911fcdd12cf3da122e27056c669-19
+#> 1   7.028341e-03 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 4   1.316774e+00 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 2   1.309005e+00 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 3   7.355213e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 5   1.145029e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 122 3.009427e+00 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 6   1.132274e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 7   1.129293e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 8   1.134753e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 9   1.139402e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 10  1.140547e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 11  1.142478e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 12  1.143527e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 13  1.124835e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 14  1.118898e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 15  1.140285e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 16  1.142979e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 17  1.168370e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 18  1.150846e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 19  1.152682e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 20  1.140308e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 21  1.123953e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 22  1.120281e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 23  1.159239e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 24  1.140618e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 25  1.137209e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 26  1.136065e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 27  1.130414e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 28  1.142001e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 29  1.140356e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 30  1.061177e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 31  1.117349e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 32  1.105070e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 33  1.146030e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 34  1.169252e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 35  1.133132e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 36  1.137280e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 37  1.071882e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 38  1.109147e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 39  1.144242e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 40  1.147294e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 41  1.152158e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 42  1.161814e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 43  1.152468e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 44  1.161146e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 45  1.172876e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 46  1.160741e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 47  1.150846e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 48  1.180887e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 49  1.156211e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 50  1.163149e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 51  1.157355e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 52  1.157188e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 53  1.163816e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 54  1.149821e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 55  1.158214e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 56  1.160455e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 57  1.168394e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 58  1.149368e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 59  1.161289e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 60  1.161313e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 61  1.142430e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 62  1.160383e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 63  1.143289e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 64  1.150274e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 65  1.145077e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 66  1.155734e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 67  1.145530e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 68  1.139832e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 69  1.146436e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 70  1.154208e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 71  1.174879e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 72  1.168013e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 73  1.143384e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 74  1.147604e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 75  1.141000e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 76  1.167464e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 77  1.150084e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 78  1.148057e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 79  1.151085e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 80  1.146960e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 81  1.159692e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 82  1.159906e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 83  1.156449e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 84  1.138353e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 85  1.146579e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 86  1.156521e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 87  1.162457e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 88  1.155639e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 89  1.153398e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 90  1.151586e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 91  1.135564e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 92  1.158214e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 93  1.138186e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 94  1.163960e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 95  1.144338e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 96  1.142287e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 97  1.157975e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 98  1.146436e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 99  1.146054e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 100 1.154137e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 101 1.149821e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 102 1.156831e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 103 1.192236e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 104 1.157522e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 105 1.148200e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 106 1.140738e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 107 1.135015e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 108 1.192045e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 109 1.151156e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 110 1.137495e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 111 1.135397e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 112 1.146173e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 113 1.150465e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 114 1.197457e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 115 1.145172e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 116 1.139569e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 117 1.142311e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 118 1.135421e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 119 1.147914e-02 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 123 8.184910e-03 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 120 3.449917e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 121 1.597404e-04 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
+#> 124 2.479553e-05 secs         <NA> 6128f31e79476bcb789b83bdb3b16a22-19
 #>                         session_uuid
-#> 1   a718d911fcdd12cf3da122e27056c669
-#> 4   a718d911fcdd12cf3da122e27056c669
-#> 2   a718d911fcdd12cf3da122e27056c669
-#> 3   a718d911fcdd12cf3da122e27056c669
-#> 5   a718d911fcdd12cf3da122e27056c669
-#> 122 a718d911fcdd12cf3da122e27056c669
-#> 6   a718d911fcdd12cf3da122e27056c669
-#> 7   a718d911fcdd12cf3da122e27056c669
-#> 8   a718d911fcdd12cf3da122e27056c669
-#> 9   a718d911fcdd12cf3da122e27056c669
-#> 10  a718d911fcdd12cf3da122e27056c669
-#> 11  a718d911fcdd12cf3da122e27056c669
-#> 12  a718d911fcdd12cf3da122e27056c669
-#> 13  a718d911fcdd12cf3da122e27056c669
-#> 14  a718d911fcdd12cf3da122e27056c669
-#> 15  a718d911fcdd12cf3da122e27056c669
-#> 16  a718d911fcdd12cf3da122e27056c669
-#> 17  a718d911fcdd12cf3da122e27056c669
-#> 18  a718d911fcdd12cf3da122e27056c669
-#> 19  a718d911fcdd12cf3da122e27056c669
-#> 20  a718d911fcdd12cf3da122e27056c669
-#> 21  a718d911fcdd12cf3da122e27056c669
-#> 22  a718d911fcdd12cf3da122e27056c669
-#> 23  a718d911fcdd12cf3da122e27056c669
-#> 24  a718d911fcdd12cf3da122e27056c669
-#> 25  a718d911fcdd12cf3da122e27056c669
-#> 26  a718d911fcdd12cf3da122e27056c669
-#> 27  a718d911fcdd12cf3da122e27056c669
-#> 28  a718d911fcdd12cf3da122e27056c669
-#> 29  a718d911fcdd12cf3da122e27056c669
-#> 30  a718d911fcdd12cf3da122e27056c669
-#> 31  a718d911fcdd12cf3da122e27056c669
-#> 32  a718d911fcdd12cf3da122e27056c669
-#> 33  a718d911fcdd12cf3da122e27056c669
-#> 34  a718d911fcdd12cf3da122e27056c669
-#> 35  a718d911fcdd12cf3da122e27056c669
-#> 36  a718d911fcdd12cf3da122e27056c669
-#> 37  a718d911fcdd12cf3da122e27056c669
-#> 38  a718d911fcdd12cf3da122e27056c669
-#> 39  a718d911fcdd12cf3da122e27056c669
-#> 40  a718d911fcdd12cf3da122e27056c669
-#> 41  a718d911fcdd12cf3da122e27056c669
-#> 42  a718d911fcdd12cf3da122e27056c669
-#> 43  a718d911fcdd12cf3da122e27056c669
-#> 44  a718d911fcdd12cf3da122e27056c669
-#> 45  a718d911fcdd12cf3da122e27056c669
-#> 46  a718d911fcdd12cf3da122e27056c669
-#> 47  a718d911fcdd12cf3da122e27056c669
-#> 48  a718d911fcdd12cf3da122e27056c669
-#> 49  a718d911fcdd12cf3da122e27056c669
-#> 50  a718d911fcdd12cf3da122e27056c669
-#> 51  a718d911fcdd12cf3da122e27056c669
-#> 52  a718d911fcdd12cf3da122e27056c669
-#> 53  a718d911fcdd12cf3da122e27056c669
-#> 54  a718d911fcdd12cf3da122e27056c669
-#> 55  a718d911fcdd12cf3da122e27056c669
-#> 56  a718d911fcdd12cf3da122e27056c669
-#> 57  a718d911fcdd12cf3da122e27056c669
-#> 58  a718d911fcdd12cf3da122e27056c669
-#> 59  a718d911fcdd12cf3da122e27056c669
-#> 60  a718d911fcdd12cf3da122e27056c669
-#> 61  a718d911fcdd12cf3da122e27056c669
-#> 62  a718d911fcdd12cf3da122e27056c669
-#> 63  a718d911fcdd12cf3da122e27056c669
-#> 64  a718d911fcdd12cf3da122e27056c669
-#> 65  a718d911fcdd12cf3da122e27056c669
-#> 66  a718d911fcdd12cf3da122e27056c669
-#> 67  a718d911fcdd12cf3da122e27056c669
-#> 68  a718d911fcdd12cf3da122e27056c669
-#> 69  a718d911fcdd12cf3da122e27056c669
-#> 70  a718d911fcdd12cf3da122e27056c669
-#> 71  a718d911fcdd12cf3da122e27056c669
-#> 72  a718d911fcdd12cf3da122e27056c669
-#> 73  a718d911fcdd12cf3da122e27056c669
-#> 74  a718d911fcdd12cf3da122e27056c669
-#> 75  a718d911fcdd12cf3da122e27056c669
-#> 76  a718d911fcdd12cf3da122e27056c669
-#> 77  a718d911fcdd12cf3da122e27056c669
-#> 78  a718d911fcdd12cf3da122e27056c669
-#> 79  a718d911fcdd12cf3da122e27056c669
-#> 80  a718d911fcdd12cf3da122e27056c669
-#> 81  a718d911fcdd12cf3da122e27056c669
-#> 82  a718d911fcdd12cf3da122e27056c669
-#> 83  a718d911fcdd12cf3da122e27056c669
-#> 84  a718d911fcdd12cf3da122e27056c669
-#> 85  a718d911fcdd12cf3da122e27056c669
-#> 86  a718d911fcdd12cf3da122e27056c669
-#> 87  a718d911fcdd12cf3da122e27056c669
-#> 88  a718d911fcdd12cf3da122e27056c669
-#> 89  a718d911fcdd12cf3da122e27056c669
-#> 90  a718d911fcdd12cf3da122e27056c669
-#> 91  a718d911fcdd12cf3da122e27056c669
-#> 92  a718d911fcdd12cf3da122e27056c669
-#> 93  a718d911fcdd12cf3da122e27056c669
-#> 94  a718d911fcdd12cf3da122e27056c669
-#> 95  a718d911fcdd12cf3da122e27056c669
-#> 96  a718d911fcdd12cf3da122e27056c669
-#> 97  a718d911fcdd12cf3da122e27056c669
-#> 98  a718d911fcdd12cf3da122e27056c669
-#> 99  a718d911fcdd12cf3da122e27056c669
-#> 100 a718d911fcdd12cf3da122e27056c669
-#> 101 a718d911fcdd12cf3da122e27056c669
-#> 102 a718d911fcdd12cf3da122e27056c669
-#> 103 a718d911fcdd12cf3da122e27056c669
-#> 104 a718d911fcdd12cf3da122e27056c669
-#> 105 a718d911fcdd12cf3da122e27056c669
-#> 106 a718d911fcdd12cf3da122e27056c669
-#> 107 a718d911fcdd12cf3da122e27056c669
-#> 108 a718d911fcdd12cf3da122e27056c669
-#> 109 a718d911fcdd12cf3da122e27056c669
-#> 110 a718d911fcdd12cf3da122e27056c669
-#> 111 a718d911fcdd12cf3da122e27056c669
-#> 112 a718d911fcdd12cf3da122e27056c669
-#> 113 a718d911fcdd12cf3da122e27056c669
-#> 114 a718d911fcdd12cf3da122e27056c669
-#> 115 a718d911fcdd12cf3da122e27056c669
-#> 116 a718d911fcdd12cf3da122e27056c669
-#> 117 a718d911fcdd12cf3da122e27056c669
-#> 118 a718d911fcdd12cf3da122e27056c669
-#> 119 a718d911fcdd12cf3da122e27056c669
-#> 123 a718d911fcdd12cf3da122e27056c669
-#> 120 a718d911fcdd12cf3da122e27056c669
-#> 121 a718d911fcdd12cf3da122e27056c669
-#> 124 a718d911fcdd12cf3da122e27056c669
+#> 1   6128f31e79476bcb789b83bdb3b16a22
+#> 4   6128f31e79476bcb789b83bdb3b16a22
+#> 2   6128f31e79476bcb789b83bdb3b16a22
+#> 3   6128f31e79476bcb789b83bdb3b16a22
+#> 5   6128f31e79476bcb789b83bdb3b16a22
+#> 122 6128f31e79476bcb789b83bdb3b16a22
+#> 6   6128f31e79476bcb789b83bdb3b16a22
+#> 7   6128f31e79476bcb789b83bdb3b16a22
+#> 8   6128f31e79476bcb789b83bdb3b16a22
+#> 9   6128f31e79476bcb789b83bdb3b16a22
+#> 10  6128f31e79476bcb789b83bdb3b16a22
+#> 11  6128f31e79476bcb789b83bdb3b16a22
+#> 12  6128f31e79476bcb789b83bdb3b16a22
+#> 13  6128f31e79476bcb789b83bdb3b16a22
+#> 14  6128f31e79476bcb789b83bdb3b16a22
+#> 15  6128f31e79476bcb789b83bdb3b16a22
+#> 16  6128f31e79476bcb789b83bdb3b16a22
+#> 17  6128f31e79476bcb789b83bdb3b16a22
+#> 18  6128f31e79476bcb789b83bdb3b16a22
+#> 19  6128f31e79476bcb789b83bdb3b16a22
+#> 20  6128f31e79476bcb789b83bdb3b16a22
+#> 21  6128f31e79476bcb789b83bdb3b16a22
+#> 22  6128f31e79476bcb789b83bdb3b16a22
+#> 23  6128f31e79476bcb789b83bdb3b16a22
+#> 24  6128f31e79476bcb789b83bdb3b16a22
+#> 25  6128f31e79476bcb789b83bdb3b16a22
+#> 26  6128f31e79476bcb789b83bdb3b16a22
+#> 27  6128f31e79476bcb789b83bdb3b16a22
+#> 28  6128f31e79476bcb789b83bdb3b16a22
+#> 29  6128f31e79476bcb789b83bdb3b16a22
+#> 30  6128f31e79476bcb789b83bdb3b16a22
+#> 31  6128f31e79476bcb789b83bdb3b16a22
+#> 32  6128f31e79476bcb789b83bdb3b16a22
+#> 33  6128f31e79476bcb789b83bdb3b16a22
+#> 34  6128f31e79476bcb789b83bdb3b16a22
+#> 35  6128f31e79476bcb789b83bdb3b16a22
+#> 36  6128f31e79476bcb789b83bdb3b16a22
+#> 37  6128f31e79476bcb789b83bdb3b16a22
+#> 38  6128f31e79476bcb789b83bdb3b16a22
+#> 39  6128f31e79476bcb789b83bdb3b16a22
+#> 40  6128f31e79476bcb789b83bdb3b16a22
+#> 41  6128f31e79476bcb789b83bdb3b16a22
+#> 42  6128f31e79476bcb789b83bdb3b16a22
+#> 43  6128f31e79476bcb789b83bdb3b16a22
+#> 44  6128f31e79476bcb789b83bdb3b16a22
+#> 45  6128f31e79476bcb789b83bdb3b16a22
+#> 46  6128f31e79476bcb789b83bdb3b16a22
+#> 47  6128f31e79476bcb789b83bdb3b16a22
+#> 48  6128f31e79476bcb789b83bdb3b16a22
+#> 49  6128f31e79476bcb789b83bdb3b16a22
+#> 50  6128f31e79476bcb789b83bdb3b16a22
+#> 51  6128f31e79476bcb789b83bdb3b16a22
+#> 52  6128f31e79476bcb789b83bdb3b16a22
+#> 53  6128f31e79476bcb789b83bdb3b16a22
+#> 54  6128f31e79476bcb789b83bdb3b16a22
+#> 55  6128f31e79476bcb789b83bdb3b16a22
+#> 56  6128f31e79476bcb789b83bdb3b16a22
+#> 57  6128f31e79476bcb789b83bdb3b16a22
+#> 58  6128f31e79476bcb789b83bdb3b16a22
+#> 59  6128f31e79476bcb789b83bdb3b16a22
+#> 60  6128f31e79476bcb789b83bdb3b16a22
+#> 61  6128f31e79476bcb789b83bdb3b16a22
+#> 62  6128f31e79476bcb789b83bdb3b16a22
+#> 63  6128f31e79476bcb789b83bdb3b16a22
+#> 64  6128f31e79476bcb789b83bdb3b16a22
+#> 65  6128f31e79476bcb789b83bdb3b16a22
+#> 66  6128f31e79476bcb789b83bdb3b16a22
+#> 67  6128f31e79476bcb789b83bdb3b16a22
+#> 68  6128f31e79476bcb789b83bdb3b16a22
+#> 69  6128f31e79476bcb789b83bdb3b16a22
+#> 70  6128f31e79476bcb789b83bdb3b16a22
+#> 71  6128f31e79476bcb789b83bdb3b16a22
+#> 72  6128f31e79476bcb789b83bdb3b16a22
+#> 73  6128f31e79476bcb789b83bdb3b16a22
+#> 74  6128f31e79476bcb789b83bdb3b16a22
+#> 75  6128f31e79476bcb789b83bdb3b16a22
+#> 76  6128f31e79476bcb789b83bdb3b16a22
+#> 77  6128f31e79476bcb789b83bdb3b16a22
+#> 78  6128f31e79476bcb789b83bdb3b16a22
+#> 79  6128f31e79476bcb789b83bdb3b16a22
+#> 80  6128f31e79476bcb789b83bdb3b16a22
+#> 81  6128f31e79476bcb789b83bdb3b16a22
+#> 82  6128f31e79476bcb789b83bdb3b16a22
+#> 83  6128f31e79476bcb789b83bdb3b16a22
+#> 84  6128f31e79476bcb789b83bdb3b16a22
+#> 85  6128f31e79476bcb789b83bdb3b16a22
+#> 86  6128f31e79476bcb789b83bdb3b16a22
+#> 87  6128f31e79476bcb789b83bdb3b16a22
+#> 88  6128f31e79476bcb789b83bdb3b16a22
+#> 89  6128f31e79476bcb789b83bdb3b16a22
+#> 90  6128f31e79476bcb789b83bdb3b16a22
+#> 91  6128f31e79476bcb789b83bdb3b16a22
+#> 92  6128f31e79476bcb789b83bdb3b16a22
+#> 93  6128f31e79476bcb789b83bdb3b16a22
+#> 94  6128f31e79476bcb789b83bdb3b16a22
+#> 95  6128f31e79476bcb789b83bdb3b16a22
+#> 96  6128f31e79476bcb789b83bdb3b16a22
+#> 97  6128f31e79476bcb789b83bdb3b16a22
+#> 98  6128f31e79476bcb789b83bdb3b16a22
+#> 99  6128f31e79476bcb789b83bdb3b16a22
+#> 100 6128f31e79476bcb789b83bdb3b16a22
+#> 101 6128f31e79476bcb789b83bdb3b16a22
+#> 102 6128f31e79476bcb789b83bdb3b16a22
+#> 103 6128f31e79476bcb789b83bdb3b16a22
+#> 104 6128f31e79476bcb789b83bdb3b16a22
+#> 105 6128f31e79476bcb789b83bdb3b16a22
+#> 106 6128f31e79476bcb789b83bdb3b16a22
+#> 107 6128f31e79476bcb789b83bdb3b16a22
+#> 108 6128f31e79476bcb789b83bdb3b16a22
+#> 109 6128f31e79476bcb789b83bdb3b16a22
+#> 110 6128f31e79476bcb789b83bdb3b16a22
+#> 111 6128f31e79476bcb789b83bdb3b16a22
+#> 112 6128f31e79476bcb789b83bdb3b16a22
+#> 113 6128f31e79476bcb789b83bdb3b16a22
+#> 114 6128f31e79476bcb789b83bdb3b16a22
+#> 115 6128f31e79476bcb789b83bdb3b16a22
+#> 116 6128f31e79476bcb789b83bdb3b16a22
+#> 117 6128f31e79476bcb789b83bdb3b16a22
+#> 118 6128f31e79476bcb789b83bdb3b16a22
+#> 119 6128f31e79476bcb789b83bdb3b16a22
+#> 123 6128f31e79476bcb789b83bdb3b16a22
+#> 120 6128f31e79476bcb789b83bdb3b16a22
+#> 121 6128f31e79476bcb789b83bdb3b16a22
+#> 124 6128f31e79476bcb789b83bdb3b16a22
 #> 
 
 ## Stop parallel workers and disable journal logging and signaling
