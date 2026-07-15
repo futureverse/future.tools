@@ -20,7 +20,7 @@ ggjournal(
 )
 }
 \arguments{
-\item{x}{A list of \link[future:Future-class]{future::Future} or FutureJournal objects.}
+\item{x}{A list of \link[future:Future]{future::Future} or FutureJournal objects.}
 
 \item{style}{(character string) One of \code{"future"}, \code{"future-worker"},
 and \code{"worker"}.}

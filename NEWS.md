@@ -1,3 +1,10 @@
+# Version 0.2.0 (2026-07-15)
+
+## Significant Changes
+
+ * Changed the package license to permissive Apache License (>= 2).
+ 
+
 # Version 0.1.1 (2025-10-31)
 
  * Documentation updates.

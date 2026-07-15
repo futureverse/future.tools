@@ -7,7 +7,7 @@
 journal(x, ...)
 }
 \arguments{
-\item{x}{A \link[future:Future-class]{future::Future} object.}
+\item{x}{A \link[future:Future]{future::Future} object.}
 
 \item{\ldots}{Not used.}
 }
