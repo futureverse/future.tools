@@ -53,19 +53,28 @@ js <- capture_journals({
 ## Summarize all journals
 js_all <- Reduce(rbind, js)
 print(summary(js_all), digits = 2L)
-#> Number of futures: 3
+#> Number of futures:     3
+#> Workers used (peak):   2 [concurrent]
+#> Wall-clock:            0.6507196 secs
+#> Cumulative evaluation: 0.8061283 secs (serial estimate)
+#> Cumulative overhead:   0.5333669 secs
+#> Speedup:               1.24x
+#> Parallel efficiency:   61.9% (of 2 workers)
+#> Critical path:         0.6147299 secs (longest single future)
+#> 
+#> Per-future statistics:
 #>   summary  evaluate evaluate_ratio   overhead overhead_ratio  duration
-#> 1     min 0.11 secs           0.18 0.017 secs          0.029 0.59 secs
-#> 2    mean 0.29 secs           0.43 0.215 secs          0.321 0.67 secs
-#> 3  median 0.33 secs           0.47 0.027 secs          0.038 0.70 secs
-#> 4     max 0.43 secs           0.60 0.599 secs          0.839 0.71 secs
-#> 5   total 0.87 secs           0.43 0.644 secs          0.321 2.00 secs
+#> 1     min 0.10 secs           0.21 0.016 secs          0.031 0.50 secs
+#> 2    mean 0.27 secs           0.47 0.178 secs          0.308 0.58 secs
+#> 3  median 0.30 secs           0.49 0.019 secs          0.031 0.61 secs
+#> 4     max 0.40 secs           0.65 0.499 secs          0.811 0.61 secs
+#> 5   total 0.81 secs           0.47 0.533 secs          0.308 1.73 secs
 #>    walltime
-#> 1 0.59 secs
-#> 2 0.67 secs
-#> 3 0.70 secs
-#> 4 0.71 secs
-#> 5 2.00 secs
+#> 1 0.50 secs
+#> 2 0.58 secs
+#> 3 0.61 secs
+#> 4 0.61 secs
+#> 5 1.73 secs
 
 ## Shut down parallel workers
 plan(sequential)
