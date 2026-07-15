@@ -10,8 +10,10 @@ Imports:
    ggplot2
 Suggests:
    future.apply
-Authors@R: c(person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
-                                          email = "henrikb@braju.com"))
+Authors@R: c(person("Henrik", "Bengtsson",
+                    role=c("aut", "cre", "cph"),
+                    email = "henrikb@braju.com",
+                    comment = c(ORCID = "0000-0002-7579-5165")))
 Description: Tools for Working with Futures.
 License: Apache License (>= 2)
 LazyLoad: TRUE
