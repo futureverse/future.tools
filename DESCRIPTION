@@ -1,5 +1,5 @@
 Package: future.tools
-Version: 0.1.1-9000
+Version: 0.1.1-9100
 Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0),
@@ -13,10 +13,10 @@ Suggests:
 Authors@R: c(person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
                                           email = "henrikb@braju.com"))
 Description: Tools for Working with Futures.
-License: LGPL (>= 2.1)
+License: Apache License (>= 2)
 LazyLoad: TRUE
 Encoding: UTF-8
 URL: https://future.tools.futureverse.org, https://github.com/futureverse/future.tools
 BugReports: https://github.com/futureverse/future.tools/issues
-RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0
