@@ -1,5 +1,9 @@
 # Changelog
 
+## Version (development version)
+
+- …
+
 ## Version 0.2.0
 
 ### Significant Changes

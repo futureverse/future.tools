@@ -55,26 +55,26 @@ js_all <- Reduce(rbind, js)
 print(summary(js_all), digits = 2L)
 #> Number of futures:     3
 #> Workers used (peak):   2 [concurrent]
-#> Wall-clock:            0.6507196 secs
-#> Cumulative evaluation: 0.8061283 secs (serial estimate)
-#> Cumulative overhead:   0.5333669 secs
-#> Speedup:               1.24x
-#> Parallel efficiency:   61.9% (of 2 workers)
-#> Critical path:         0.6147299 secs (longest single future)
+#> Wall-clock:            1.024338 secs
+#> Cumulative evaluation: 0.6921384 secs (serial estimate)
+#> Cumulative overhead:   0.9117968 secs
+#> Speedup:               0.68x
+#> Parallel efficiency:   33.8% (of 2 workers)
+#> Critical path:         0.9021888 secs (longest single future)
 #> 
 #> Per-future statistics:
 #>   summary  evaluate evaluate_ratio   overhead overhead_ratio  duration
-#> 1     min 0.10 secs           0.21 0.016 secs          0.031 0.50 secs
-#> 2    mean 0.27 secs           0.47 0.178 secs          0.308 0.58 secs
-#> 3  median 0.30 secs           0.49 0.019 secs          0.031 0.61 secs
-#> 4     max 0.40 secs           0.65 0.499 secs          0.811 0.61 secs
-#> 5   total 0.81 secs           0.47 0.533 secs          0.308 1.73 secs
+#> 1     min 0.10 secs           0.16 0.073 secs           0.11 0.63 secs
+#> 2    mean 0.23 secs           0.32 0.304 secs           0.42 0.73 secs
+#> 3  median 0.24 secs           0.37 0.289 secs           0.44 0.66 secs
+#> 4     max 0.34 secs           0.38 0.551 secs           0.61 0.90 secs
+#> 5   total 0.69 secs           0.32 0.912 secs           0.42 2.20 secs
 #>    walltime
-#> 1 0.50 secs
-#> 2 0.58 secs
-#> 3 0.61 secs
-#> 4 0.61 secs
-#> 5 1.73 secs
+#> 1 0.63 secs
+#> 2 0.73 secs
+#> 3 0.66 secs
+#> 4 0.90 secs
+#> 5 2.20 secs
 
 ## Shut down parallel workers
 plan(sequential)
