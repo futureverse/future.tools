@@ -1,9 +1,9 @@
 Package: future.tools
-Version: 0.2.0-9000
+Version: 0.2.0-9001
 Title: Tools for Working with Futures
 Depends:
    R (>= 3.3.0),
-   future (>= 1.32.0)
+   future (>= 1.80.0)
 Imports:
    grDevices,
    dplyr,
@@ -21,4 +21,4 @@ Encoding: UTF-8
 URL: https://future.tools.futureverse.org, https://github.com/futureverse/future.tools
 BugReports: https://github.com/futureverse/future.tools/issues
 Roxygen: list(markdown = TRUE)
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.1
